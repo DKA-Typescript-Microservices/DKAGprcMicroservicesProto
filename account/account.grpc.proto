@@ -56,8 +56,22 @@ message AccountReadResponse {
   repeated IAccount data = 4;
 }
 
-message AccountReadRequest {
+message AccountReadRequestQueryWhere {
 
+}
+
+message AccountReadRequestQuery {
+  optional AccountReadRequestQueryWhere where = 1;
+}
+
+message AccountReadRequestOptions {
+  optional int32 limit = 1;
+  optional bool allowDiskUse = 2;
+}
+
+message AccountReadRequest {
+  optional AccountReadRequestQuery query = 1;
+  optional AccountReadRequestOptions options = 2;
 }
 //##################################################################################
 
