@@ -9,7 +9,9 @@ service Account {
   rpc Create(AccountCreateRequest) returns (stream AccountCreateResponse);
   rpc ReadAll(AccountReadRequest) returns (stream AccountReadResponse);
   rpc ReadAllStream(AccountReadRequest) returns (stream IAccount);
-  rpc Auth(AccountAuthRequest) returns (stream AccountAuthResponse);
+  rpc getToken(AccountGetTokenRequest) returns (stream AccountGetTokenResponse);
+  rpc verifyToken(AccountVerifyTokenRequest) returns (stream AccountVerifyTokenResponse);
+  rpc refreshToken(AccountVerifyTokenRequest) returns (stream AccountGetTokenResponse);
 }
 
 //##################################################################################
@@ -20,16 +22,27 @@ message IAccount {
   optional account.info.IAccountInfo info = 4;
 }
 //##################################################################################
-//##################################################################################
-message AccountAuthRequest {
-  string username = 1;
-  string password = 2;
+message AccountVerifyTokenRequest {
+  string token = 1;
 }
-message AccountAuthResponse {
+
+message AccountVerifyTokenResponse {
   bool status = 1;
   int64 code = 2;
   string msg = 3;
   optional IAccount data = 4;
+}
+//##################################################################################
+message AccountGetTokenRequest {
+  string username = 1;
+  string password = 2;
+}
+message AccountGetTokenResponse {
+  bool status = 1;
+  int64 code = 2;
+  string msg = 3;
+  optional string access_token = 4;
+  optional string refresh_token = 5;
 }
 //##################################################################################
 message AccountCreateResponseData {
