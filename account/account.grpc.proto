@@ -8,19 +8,18 @@ import "credential/account.credential.grpc.proto";
 service Resources {
   rpc Create(AccountCreateRequest) returns (stream AccountCreateResponse);
   rpc ReadAll(AccountReadRequest) returns (stream AccountReadResponse);
-  rpc ReadAllStream(AccountReadRequest) returns (stream IAccount);
 }
 
 service Credential {
   rpc authorize(AccountAuthorizeRequest) returns (stream AccountAuthorizeResponse);
-  rpc verifyToken(AccountVerifyTokenRequest) returns (stream AccountVerifyTokenResponse);
+  rpc verifyToken(AccountVerifyTokenRequest) returns (stream IAccount);
   rpc refreshToken(AccountVerifyTokenRequest) returns (stream AccountAuthorizeResponse);
 }
 
 //##################################################################################
 message IAccount {
   optional string id = 1;
-  optional string preference = 2;
+  optional string reference = 2;
   optional account.credential.IAccountCredential credential = 3;
   optional account.info.IAccountInfo info = 4;
 }
@@ -29,12 +28,6 @@ message AccountVerifyTokenRequest {
   string token = 1;
 }
 
-message AccountVerifyTokenResponse {
-  bool status = 1;
-  int64 code = 2;
-  string msg = 3;
-  optional IAccount data = 4;
-}
 //##################################################################################
 message AccountAuthorizeRequest {
   string username = 1;
@@ -93,6 +86,8 @@ message AccountReadRequest {
   optional AccountReadRequestQuery query = 1;
   optional AccountReadRequestOptions options = 2;
 }
+
+
 //##################################################################################
 
 
