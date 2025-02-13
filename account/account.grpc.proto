@@ -5,13 +5,16 @@ package account;
 import "info/account.info.grpc.proto";
 import "credential/account.credential.grpc.proto";
 
-service Account {
+service Resources {
   rpc Create(AccountCreateRequest) returns (stream AccountCreateResponse);
   rpc ReadAll(AccountReadRequest) returns (stream AccountReadResponse);
   rpc ReadAllStream(AccountReadRequest) returns (stream IAccount);
-  rpc getToken(AccountGetTokenRequest) returns (stream AccountGetTokenResponse);
+}
+
+service Credential {
+  rpc authorize(AccountAuthorizeRequest) returns (stream AccountAuthorizeResponse);
   rpc verifyToken(AccountVerifyTokenRequest) returns (stream AccountVerifyTokenResponse);
-  rpc refreshToken(AccountVerifyTokenRequest) returns (stream AccountGetTokenResponse);
+  rpc refreshToken(AccountVerifyTokenRequest) returns (stream AccountAuthorizeResponse);
 }
 
 //##################################################################################
@@ -33,11 +36,11 @@ message AccountVerifyTokenResponse {
   optional IAccount data = 4;
 }
 //##################################################################################
-message AccountGetTokenRequest {
+message AccountAuthorizeRequest {
   string username = 1;
   string password = 2;
 }
-message AccountGetTokenResponse {
+message AccountAuthorizeResponse {
   bool status = 1;
   int64 code = 2;
   string msg = 3;
