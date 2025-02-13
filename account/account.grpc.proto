@@ -41,11 +41,11 @@ message AccountAuthorizeRequest {
   string password = 2;
 }
 message AccountAuthorizeResponse {
-  bool status = 1;
-  int64 code = 2;
-  string msg = 3;
-  optional string access_token = 4;
-  optional string refresh_token = 5;
+  string token_type = 1 [json_name = "token_type"];
+  string access_token = 2 [json_name = "access_token"];
+  string refresh_token = 3 [json_name = "refresh_token"];
+  int32 expires_in = 4 [json_name = "expires_in"];
+  optional string scope = 5 [json_name = "scope"];
 }
 //##################################################################################
 message AccountCreateResponseData {
