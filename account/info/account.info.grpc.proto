@@ -10,3 +10,5 @@ message IAccountInfo {
   string firstName = 4;          // First name as string
   optional string lastName = 5;           // Last name as string
 }
+
+
