@@ -9,6 +9,7 @@ service Resources {
   rpc Create(AccountCreateRequest) returns (stream AccountCreateResponse);
   rpc ReadAll(AccountReadRequest) returns (stream AccountReadResponse);
   rpc UpdateOne(AccountPutOneRequest) returns (stream IAccount);
+  rpc DeleteOne(AccountDeleteOneRequest) returns (stream IAccount);
 }
 
 service Credential {
@@ -42,16 +43,12 @@ message AccountAuthorizeResponse {
   optional string scope = 5 [json_name = "scope"];
 }
 //##################################################################################
-message AccountCreateResponseData {
-  string info = 1;
-  string credential = 2;
-}
 
 message AccountCreateResponse {
   bool status = 1;
   int64 code = 2;
   string msg = 3;
-  optional AccountCreateResponseData data = 4;
+  optional IAccount data = 4;
 }
 
 message AccountCreateRequest {
@@ -88,7 +85,6 @@ message AccountReadRequest {
   optional AccountReadRequestOptions options = 2;
 }
 //##################################################################################
-
 message AccountPutOneRequestQuery {
   optional string id = 1;
 }
@@ -97,5 +93,16 @@ message AccountPutOneRequest {
   AccountPutOneRequestQuery query = 1;
   IAccount set = 2;
 }
+//##################################################################################
+message AccountDeleteOneRequestSet {
 
+}
+
+message AccountDeleteOneRequestQuery {
+  optional string id = 1;
+}
+
+message AccountDeleteOneRequest {
+  AccountDeleteOneRequestQuery query = 1;
+}
 
