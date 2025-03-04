@@ -1,0 +1,19 @@
+syntax = "proto3";
+package account.place;
+
+message IAccountRegion {
+  optional string province = 1;
+  optional string regecy = 2;
+  optional string district = 3;
+  optional string village = 4;
+}
+
+// Defining the AccountInfo message based on the IAccountInfo model
+message IAccountPlace {
+  optional string id = 1;                  // Document ID (_id in MongoDB)
+  optional string reference = 2;          // Preference ObjectId (as string)
+  optional string parent = 3;              // Parent ObjectId (as string)
+  optional string address = 4;
+  optional string postalCode = 5;
+  optional IAccountRegion region = 6;
+}

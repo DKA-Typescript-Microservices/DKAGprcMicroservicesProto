@@ -4,6 +4,7 @@ package account;
 
 import "info/account.info.grpc.proto";
 import "credential/account.credential.grpc.proto";
+import "place/account.place.grpc.proto";
 
 service Resources {
   rpc Create(AccountCreateRequest) returns (stream AccountCreateResponse);
@@ -24,6 +25,7 @@ message IAccount {
   optional string reference = 2;
   optional account.credential.IAccountCredential credential = 3;
   optional account.info.IAccountInfo info = 4;
+  optional account.place.IAccountPlace place = 5;
 }
 //##################################################################################
 message AccountVerifyTokenRequest {
@@ -54,6 +56,7 @@ message AccountCreateResponse {
 message AccountCreateRequest {
   account.credential.IAccountCredential credential = 1;
   account.info.IAccountInfo info = 2;
+  account.place.IAccountPlace place = 3;
 }
 //##################################################################################
 message AccountReadResponseMetadata {
