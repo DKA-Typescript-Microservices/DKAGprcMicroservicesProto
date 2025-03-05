@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+import "account/account.grpc.proto";
+
+service Credential {
+  rpc authorize(account.AccountAuthorizeRequest) returns (stream account.AccountAuthorizeResponse);
+  rpc verifyToken(account.AccountVerifyTokenRequest) returns (stream account.IAccount);
+  rpc refreshToken(account.AccountVerifyTokenRequest) returns (stream account.AccountAuthorizeResponse);
+}
