@@ -4,7 +4,7 @@ package place;
 
 message IAccountRegion {
   optional string province = 1;
-  optional string regecy = 2;
+  optional string regency = 2;
   optional string district = 3;
   optional string village = 4;
 }
