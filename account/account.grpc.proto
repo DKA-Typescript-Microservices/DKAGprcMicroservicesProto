@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package account;
 
-import "account/info/account.info.grpc.proto";
-import "account/credential/account.credential.grpc.proto";
-import "account/place/account.place.grpc.proto";
+import "info/account.info.grpc.proto";
+import "credential/account.credential.grpc.proto";
+import "place/account.place.grpc.proto";
 
 service Resources {
   rpc Create(AccountCreateRequest) returns (stream AccountCreateResponse);
@@ -14,18 +14,18 @@ service Resources {
 }
 
 service Credential {
-  rpc authorize(AccountAuthorizeRequest) returns (stream AccountAuthorizeResponse);
-  rpc verifyToken(AccountVerifyTokenRequest) returns (stream IAccount);
-  rpc refreshToken(AccountVerifyTokenRequest) returns (stream AccountAuthorizeResponse);
+  rpc authorize(account.AccountAuthorizeRequest) returns (stream account.AccountAuthorizeResponse);
+  rpc verifyToken(account.AccountVerifyTokenRequest) returns (stream account.IAccount);
+  rpc refreshToken(account.AccountVerifyTokenRequest) returns (stream account.AccountAuthorizeResponse);
 }
 
 //##################################################################################
 message IAccount {
   optional string id = 1;
   optional string reference = 2;
-  optional account.credential.IAccountCredential credential = 3;
-  optional account.info.IAccountInfo info = 4;
-  optional account.place.IAccountPlace place = 5;
+  optional credential.IAccountCredential credential = 3;
+  optional info.IAccountInfo info = 4;
+  optional place.IAccountPlace place = 5;
 }
 //##################################################################################
 message AccountVerifyTokenRequest {
@@ -54,9 +54,9 @@ message AccountCreateResponse {
 }
 
 message AccountCreateRequest {
-  account.credential.IAccountCredential credential = 1;
-  account.info.IAccountInfo info = 2;
-  account.place.IAccountPlace place = 3;
+  credential.IAccountCredential credential = 1;
+  info.IAccountInfo info = 2;
+  place.IAccountPlace place = 3;
 }
 //##################################################################################
 message AccountReadResponseMetadata {

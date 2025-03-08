@@ -1,5 +1,6 @@
 syntax = "proto3";
-package account.place;
+
+package place;
 
 message IAccountRegion {
   optional string province = 1;

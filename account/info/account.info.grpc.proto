@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package account.info;
+package info;
 
 // Defining the AccountInfo message based on the IAccountInfo model
 message IAccountInfo {
