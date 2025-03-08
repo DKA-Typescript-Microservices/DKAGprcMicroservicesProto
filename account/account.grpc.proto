@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package account;
 
-import "info/account.info.grpc.proto";
-import "credential/account.credential.grpc.proto";
-import "place/account.place.grpc.proto";
+import "account/info/account.info.grpc.proto";
+import "account/credential/account.credential.grpc.proto";
+import "account/place/account.place.grpc.proto";
 
 service Resources {
   rpc Create(AccountCreateRequest) returns (stream AccountCreateResponse);
