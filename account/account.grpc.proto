@@ -2,21 +2,15 @@ syntax = "proto3";
 
 package account;
 
-import "info/account.info.grpc.proto";
-import "credential/account.credential.grpc.proto";
-import "place/account.place.grpc.proto";
+import "account/info/account.info.grpc.proto";
+import "account/credential/account.credential.grpc.proto";
+import "account/place/account.place.grpc.proto";
 
 service Resources {
   rpc Create(AccountCreateRequest) returns (stream AccountCreateResponse);
   rpc ReadAll(AccountReadRequest) returns (stream AccountReadResponse);
   rpc UpdateOne(AccountPutOneRequest) returns (stream IAccount);
   rpc DeleteOne(AccountDeleteOneRequest) returns (stream IAccount);
-}
-
-service Credential {
-  rpc authorize(account.AccountAuthorizeRequest) returns (stream account.AccountAuthorizeResponse);
-  rpc verifyToken(account.AccountVerifyTokenRequest) returns (stream account.IAccount);
-  rpc refreshToken(account.AccountVerifyTokenRequest) returns (stream account.AccountAuthorizeResponse);
 }
 
 //##################################################################################
