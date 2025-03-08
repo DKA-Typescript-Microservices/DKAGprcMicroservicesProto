@@ -13,6 +13,12 @@ service Resources {
   rpc DeleteOne(AccountDeleteOneRequest) returns (stream IAccount);
 }
 
+service Credential {
+  rpc authorize(AccountAuthorizeRequest) returns (stream AccountAuthorizeResponse);
+  rpc verifyToken(AccountVerifyTokenRequest) returns (stream IAccount);
+  rpc refreshToken(AccountVerifyTokenRequest) returns (stream AccountAuthorizeResponse);
+}
+
 //##################################################################################
 message IAccount {
   optional string id = 1;
