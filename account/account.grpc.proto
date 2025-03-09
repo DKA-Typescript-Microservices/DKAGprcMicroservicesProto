@@ -9,6 +9,7 @@ import "account/place/account.place.grpc.proto";
 service Resources {
   rpc Create(AccountCreateRequest) returns (stream AccountCreateResponse);
   rpc ReadAll(AccountReadRequest) returns (stream AccountReadResponse);
+  rpc Auth(AccountAuthRequest) returns (stream IAccount);
   rpc UpdateOne(AccountPutOneRequest) returns (stream IAccount);
   rpc DeleteOne(AccountDeleteOneRequest) returns (stream IAccount);
 }
@@ -86,6 +87,12 @@ message AccountReadRequestOptions {
 message AccountReadRequest {
   optional AccountReadRequestQuery query = 1;
   optional AccountReadRequestOptions options = 2;
+}
+
+//##################################################################################
+message AccountAuthRequest {
+  optional string username = 1;
+  optional string password = 2;
 }
 //##################################################################################
 message AccountPutOneRequestQuery {
