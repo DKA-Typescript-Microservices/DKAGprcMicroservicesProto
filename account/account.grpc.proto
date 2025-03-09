@@ -9,8 +9,6 @@ import "account/place/account.place.grpc.proto";
 service Resources {
   rpc Create(AccountCreateRequest) returns (stream AccountCreateResponse);
   rpc ReadAll(AccountReadRequest) returns (stream AccountReadResponse);
-  rpc ReadById(AccountByIDRequest) returns (stream IAccount);
-  rpc Auth(AccountAuthRequest) returns (stream IAccount);
   rpc UpdateOne(AccountPutOneRequest) returns (stream IAccount);
   rpc DeleteOne(AccountDeleteOneRequest) returns (stream IAccount);
 }
