@@ -8,8 +8,8 @@ import "account/place/account.place.grpc.proto";
 
 service Credential {
   rpc authorize(AccountAuthorizeRequest) returns (stream AccountAuthorizeResponse);
-  rpc verifyToken(AccountVerifyTokenRequest) returns (stream IAccount);
-  rpc refreshToken(AccountVerifyTokenRequest) returns (stream AccountAuthorizeResponse);
+  rpc verify(AccountVerifyTokenRequest) returns (stream IAccount);
+  rpc refresh(AccountVerifyTokenRequest) returns (stream AccountAuthorizeResponse);
 }
 
 //##################################################################################
@@ -30,6 +30,7 @@ message AccountAuthorizeRequest {
   string username = 1;
   string password = 2;
 }
+
 message AccountAuthorizeResponse {
   string token_type = 1 [json_name = "token_type"];
   string access_token = 2 [json_name = "access_token"];
