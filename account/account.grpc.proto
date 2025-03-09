@@ -15,12 +15,6 @@ service Resources {
   rpc DeleteOne(AccountDeleteOneRequest) returns (stream IAccount);
 }
 
-service Credential {
-  rpc authorize(AccountAuthorizeRequest) returns (stream AccountAuthorizeResponse);
-  rpc verifyToken(AccountVerifyTokenRequest) returns (stream IAccount);
-  rpc refreshToken(AccountVerifyTokenRequest) returns (stream AccountAuthorizeResponse);
-}
-
 //##################################################################################
 message IAccount {
   optional string id = 1;
@@ -28,23 +22,6 @@ message IAccount {
   optional credential.IAccountCredential credential = 3;
   optional info.IAccountInfo info = 4;
   optional place.IAccountPlace place = 5;
-}
-//##################################################################################
-message AccountVerifyTokenRequest {
-  string token = 1;
-}
-
-//##################################################################################
-message AccountAuthorizeRequest {
-  string username = 1;
-  string password = 2;
-}
-message AccountAuthorizeResponse {
-  string token_type = 1 [json_name = "token_type"];
-  string access_token = 2 [json_name = "access_token"];
-  string refresh_token = 3 [json_name = "refresh_token"];
-  int32 expires_in = 4 [json_name = "expires_in"];
-  optional string scope = 5 [json_name = "scope"];
 }
 //##################################################################################
 
