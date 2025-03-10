@@ -10,6 +10,7 @@ service Credential {
   rpc authorize(AccountAuthorizeRequest) returns (stream AccountAuthorizeResponse);
   rpc verify(AccountVerifyTokenRequest) returns (stream IAccount);
   rpc refresh(AccountVerifyTokenRequest) returns (stream AccountAuthorizeResponse);
+  rpc revoke(AccountVerifyTokenRequest) returns (stream AccountRevokeResponse);
 }
 
 //##################################################################################
@@ -39,3 +40,8 @@ message AccountAuthorizeResponse {
   optional string scope = 5 [json_name = "scope"];
 }
 //##################################################################################
+message AccountRevokeResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+}
