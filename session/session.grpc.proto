@@ -6,11 +6,13 @@ import "account/info/account.info.grpc.proto";
 import "account/credential/account.credential.grpc.proto";
 import "account/place/account.place.grpc.proto";
 
+import "google/protobuf/empty.proto";
+
 service Credential {
   rpc authorize(AccountAuthorizeRequest) returns (stream AccountAuthorizeResponse);
-  rpc verify(AccountVerifyTokenRequest) returns (stream IAccount);
-  rpc refresh(AccountVerifyTokenRequest) returns (stream AccountAuthorizeResponse);
-  rpc revoke(AccountVerifyTokenRequest) returns (stream AccountRevokeResponse);
+  rpc verify(google.protobuf.Empty) returns (stream IAccount);
+  rpc refresh(google.protobuf.Empty) returns (stream AccountAuthorizeResponse);
+  rpc revoke(google.protobuf.Empty) returns (stream AccountRevokeResponse);
 }
 
 //##################################################################################
