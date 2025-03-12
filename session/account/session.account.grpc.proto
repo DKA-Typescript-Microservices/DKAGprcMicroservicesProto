@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package session;
+package session.account;
 
 import "account/info/account.info.grpc.proto";
 import "account/credential/account.credential.grpc.proto";
