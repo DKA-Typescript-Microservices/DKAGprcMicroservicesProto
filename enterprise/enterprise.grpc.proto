@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package enterprise;
+
+import 'enterprise/organization/enterprise.organization.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.grpc.proto';
+import "enterprise/enterprise.contact.grpc.proto";
+
+import "google/protobuf/empty.proto";
+
+service Enterprise {
+  rpc Auth(EnterpriseAuthRequest) returns (stream EnterpriseAuthResponse);
+}
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message EnterpriseAuthRequest {
+  optional string client_id = 1;
+  optional string client_secret = 2;
+}
+
+message EnterpriseAuthResponse {
+  bool status = 1;
+  int64 code = 2;
+  string msg = 3;
+  repeated EnterpriseOrganization data = 4;
+}
+
+message EnterpriseOrganization {
+  optional string id = 1;
+  optional string name = 2;
+  optional string description = 3;
+  optional string client_id = 4;
+  optional contact.EnterpriseContact contact = 5;
+  repeated project.EnterpriseOrganizationProject project = 6;
+  optional SysTime time_created = 7;
+  optional SysTime time_updated = 8;
+  optional bool status = 9;
+}
