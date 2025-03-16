@@ -15,6 +15,6 @@ message IAccountPlace {
   optional string reference = 2;          // Preference ObjectId (as string)
   optional string parent = 3;              // Parent ObjectId (as string)
   optional string address = 4;
-  optional string postalCode = 5;
+  optional string postal_code = 5;
   optional IAccountRegion region = 6;
 }

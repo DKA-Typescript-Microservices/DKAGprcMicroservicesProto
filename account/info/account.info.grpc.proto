@@ -7,8 +7,8 @@ message IAccountInfo {
   optional string id = 1;                  // Document ID (_id in MongoDB)
   optional string reference = 2;          // Preference ObjectId (as string)
   optional string parent = 3;              // Parent ObjectId (as string)
-  string firstName = 4;          // First name as string
-  optional string lastName = 5;           // Last name as string
+  string first_name = 4;          // First name as string
+  optional string last_name = 5;           // Last name as string
 }
 
 
