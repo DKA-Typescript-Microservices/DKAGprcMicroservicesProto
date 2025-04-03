@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package assets.management;
+
+import "google/protobuf/empty.proto";
+
+
+service Category {
+  rpc Create(CategoryCreateRequest) returns (stream CategoryCreateResponse);
+}
+
+
+message CategoryModel {
+  optional string id = 1;
+  optional CategoryModel parent = 2;
+  string name = 3;
+  string description = 4;
+  string time_created = 5;
+  string time_update = 6;
+  bool status = 7;
+}
+
+message CategoryCreateRequest {
+  optional string id = 1;
+  optional CategoryModel parent = 2;
+  string name = 3;
+  string description = 4;
+}
+
+message CategoryCreateResponse {
+  bool status = 1;
+  int64 code = 2;
+  string msg = 3;
+  optional CategoryModel data = 4;
+}
