@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package assets.management;
+package category;
 
 import "google/protobuf/empty.proto";
 
@@ -16,7 +16,7 @@ message CategoryModel {
   string name = 3;
   string description = 4;
   string time_created = 5;
-  string time_update = 6;
+  string time_updated = 6;
   bool status = 7;
 }
 

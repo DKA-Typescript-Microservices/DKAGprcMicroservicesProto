@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package assets;
+
+import "assets/management/category/assets.management.category.grpc.proto";
+import "google/protobuf/empty.proto";
+
+
+service Assets {
+  rpc Create(AssetsCreateRequest) returns (stream AssetsCreateResponse);
+}
+
+
+message AssetsModel {
+  optional string id = 1;
+  optional category.CategoryModel category = 2;
+  optional string name = 3;
+  optional string serial_number = 4;
+  optional string purchase_date = 5;
+  optional string warranty_expires = 6;
+  optional string situation = 7;
+  optional string time_created = 8;
+  optional string time_update = 9;
+  optional bool status = 10;
+}
+
+message AssetsCreateRequest {
+  optional string id = 1;
+  optional category.CategoryModel category = 2;
+  optional string name = 3;
+  optional string serial_number = 4;
+  optional string purchase_date = 5;
+  optional string warranty_expires = 6;
+  optional string situation = 7;
+  optional string description = 8;
+}
+
+message AssetsCreateResponse {
+  bool status = 1;
+  int64 code = 2;
+  string msg = 3;
+  optional AssetsModel data = 4;
+}
