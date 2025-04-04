@@ -13,15 +13,16 @@ service Assets {
 
 message AssetsModel {
   optional string id = 1;
-  optional category.CategoryModel category = 2;
-  optional string name = 3;
-  optional string serial_number = 4;
-  optional string purchase_date = 5;
-  optional string warranty_expires = 6;
-  optional string situation = 7;
-  optional string time_created = 8;
-  optional string time_update = 9;
-  optional bool status = 10;
+  optional string reference = 2;
+  optional category.CategoryModel category = 3;
+  optional string name = 4;
+  optional string serial_number = 5;
+  optional string purchase_date = 6;
+  optional string warranty_expires = 7;
+  optional string situation = 8;
+  optional string time_created = 9;
+  optional string time_update = 10;
+  optional bool status = 11;
 }
 
 message AssetsCreateRequest {

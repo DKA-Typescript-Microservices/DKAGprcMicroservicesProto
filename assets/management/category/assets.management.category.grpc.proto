@@ -12,12 +12,13 @@ service Category {
 
 message CategoryModel {
   optional string id = 1;
-  optional CategoryModel parent = 2;
-  string name = 3;
-  string description = 4;
-  string time_created = 5;
-  string time_updated = 6;
-  bool status = 7;
+  optional string reference = 2;
+  optional CategoryModel parent = 3;
+  string name = 4;
+  string description = 5;
+  string time_created = 6;
+  string time_updated = 7;
+  bool status = 8;
 }
 
 message CategoryCreateRequest {
