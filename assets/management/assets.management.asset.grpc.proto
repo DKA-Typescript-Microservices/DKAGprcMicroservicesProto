@@ -8,6 +8,7 @@ import "google/protobuf/empty.proto";
 
 service Assets {
   rpc Create(AssetsCreateRequest) returns (stream AssetsCreateResponse);
+  rpc Read(google.protobuf.Empty) returns (stream AssetsReadResponse);
 }
 
 
@@ -21,7 +22,7 @@ message AssetsModel {
   optional string warranty_expires = 7;
   optional string situation = 8;
   optional string time_created = 9;
-  optional string time_update = 10;
+  optional string time_updated = 10;
   optional bool status = 11;
 }
 
@@ -39,4 +40,11 @@ message AssetsCreateResponse {
   int64 code = 2;
   string msg = 3;
   optional AssetsModel data = 4;
+}
+
+message AssetsReadResponse {
+  bool status = 1;
+  int64 code = 2;
+  string msg = 3;
+  repeated AssetsModel data = 4;
 }
