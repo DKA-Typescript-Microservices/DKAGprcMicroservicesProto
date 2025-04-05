@@ -26,14 +26,12 @@ message AssetsModel {
 }
 
 message AssetsCreateRequest {
-  optional string id = 1;
   optional category.CategoryModel category = 2;
-  optional string name = 3;
-  optional string serial_number = 4;
+  string name = 3;
+  string serial_number = 4;
   optional string purchase_date = 5;
   optional string warranty_expires = 6;
   optional string situation = 7;
-  optional string description = 8;
 }
 
 message AssetsCreateResponse {
