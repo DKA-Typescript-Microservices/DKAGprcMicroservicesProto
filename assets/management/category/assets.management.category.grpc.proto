@@ -9,7 +9,6 @@ service Category {
   rpc Create(CategoryCreateRequest) returns (stream CategoryCreateResponse);
 }
 
-
 message CategoryModel {
   optional string id = 1;
   optional string reference = 2;
@@ -22,10 +21,9 @@ message CategoryModel {
 }
 
 message CategoryCreateRequest {
-  optional string id = 1;
   optional CategoryModel parent = 2;
   string name = 3;
-  string description = 4;
+  optional string description = 4;
 }
 
 message CategoryCreateResponse {
