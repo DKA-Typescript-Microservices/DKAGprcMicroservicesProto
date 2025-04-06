@@ -28,7 +28,7 @@ message EnterpriseAuthResponse {
   string msg = 3;
   repeated EnterpriseOrganization data = 4;
 }
-
+//############################################################################################
 message EnterpriseOrganization {
   optional string id = 1;
   optional string name = 2;
@@ -39,4 +39,15 @@ message EnterpriseOrganization {
   optional SysTime time_created = 7;
   optional SysTime time_updated = 8;
   optional bool status = 9;
+}
+//############################################################################################
+message EnterpriseAccountOwnerRequest {
+  optional string reference = 1;
+}
+
+message EnterpriseAccountOwnerResponse {
+  bool status = 1;
+  int64 code = 2;
+  string msg = 3;
+  repeated EnterpriseOrganization data = 4;
 }
