@@ -23,7 +23,6 @@ message IAccount {
   optional credential.IAccountCredential credential = 3;
   optional info.IAccountInfo info = 4;
   optional place.IAccountPlace place = 5;
-  repeated enterprise.EnterpriseOrganization enterprise = 6;
 }
 //##################################################################################
 message AccountVerifyTokenRequest {
