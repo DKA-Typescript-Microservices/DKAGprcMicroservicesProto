@@ -5,7 +5,6 @@ package session.account;
 import "account/info/account.info.grpc.proto";
 import "account/credential/account.credential.grpc.proto";
 import "account/place/account.place.grpc.proto";
-import "enterprise/enterprise.grpc.proto";
 
 import "google/protobuf/empty.proto";
 
