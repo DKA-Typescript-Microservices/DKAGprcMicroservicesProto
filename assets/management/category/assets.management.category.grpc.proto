@@ -21,9 +21,9 @@ message CategoryModel {
 }
 
 message CategoryCreateRequest {
-  optional CategoryModel parent = 2;
-  string name = 3;
-  optional string description = 4;
+  optional CategoryModel parent = 1;
+  string name = 2;
+  optional string description = 3;
 }
 
 message CategoryCreateResponse {
