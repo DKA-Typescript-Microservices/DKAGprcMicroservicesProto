@@ -5,6 +5,7 @@ package session.account;
 import "account/info/account.info.grpc.proto";
 import "account/credential/account.credential.grpc.proto";
 import "account/place/account.place.grpc.proto";
+import "enterprise/enterprise.grpc.proto";
 
 import "google/protobuf/empty.proto";
 
@@ -22,6 +23,7 @@ message IAccount {
   optional credential.IAccountCredential credential = 3;
   optional info.IAccountInfo info = 4;
   optional place.IAccountPlace place = 5;
+  repeated enterprise.EnterpriseOrganization enterprise = 6;
 }
 //##################################################################################
 message AccountVerifyTokenRequest {
