@@ -23,7 +23,6 @@ message AssetsModel {
   optional string situation = 8;
   optional string time_created = 9;
   optional string time_updated = 10;
-  optional bool status = 11;
 }
 
 message AssetsCreateRequest {

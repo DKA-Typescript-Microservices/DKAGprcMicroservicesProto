@@ -18,7 +18,6 @@ message CategoryModel {
   string description = 5;
   string time_created = 6;
   string time_updated = 7;
-  bool status = 8;
 }
 
 message CategoryCreateRequest {
