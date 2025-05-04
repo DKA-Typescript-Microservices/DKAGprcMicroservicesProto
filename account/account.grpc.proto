@@ -13,10 +13,6 @@ service Resources {
   rpc DeleteOne(AccountDeleteOneRequest) returns (stream IAccount);
 }
 
-service Auth {
-  rpc Credential(AccountAuthRequest) returns (stream account.IAccount);
-}
-
 //##################################################################################
 message IAccount {
   optional string id = 1;
@@ -71,11 +67,6 @@ message AccountReadRequest {
 //##################################################################################
 message AccountByIDRequest {
   optional string id = 1;
-}
-//##################################################################################
-message AccountAuthRequest {
-  optional string username = 1;
-  optional string password = 2;
 }
 //##################################################################################
 message AccountPutOneRequestQuery {
