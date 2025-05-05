@@ -4,14 +4,15 @@ package info;
 import "google/protobuf/empty.proto";
 
 service Info {
-  rpc ReadAll(google.protobuf.Empty) returns (stream AccountReadResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (stream AccountInfoReadResponse);
+
 }
 
 message AccountReadResponseMetadata {
   optional int64 count = 1;
 }
 
-message AccountReadResponse {
+message AccountInfoReadResponse {
   bool status = 1;
   int64 code = 2;
   string msg = 3;
