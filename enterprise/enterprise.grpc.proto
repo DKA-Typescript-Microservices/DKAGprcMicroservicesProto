@@ -9,7 +9,7 @@ import "enterprise/enterprise.contact.grpc.proto";
 import "google/protobuf/empty.proto";
 
 service Enterprise {
-  rpc Auth(EnterpriseAuthRequest) returns (stream EnterpriseAuthResponse);
+  rpc GetClient(EnterpriseGetClientRequest) returns (stream EnterpriseGetClientResponse);
 }
 //############################################################################################
 message SysTime {
@@ -17,16 +17,21 @@ message SysTime {
   optional string humanize = 2;
 }
 //############################################################################################
-message EnterpriseAuthRequest {
+message EnterpriseGetClientRequest {
   optional string client_id = 1;
   optional string client_secret = 2;
 }
 
-message EnterpriseAuthResponse {
-  bool status = 1;
-  int64 code = 2;
-  string msg = 3;
-  repeated EnterpriseOrganization data = 4;
+message EnterpriseGetClientResponse {
+  optional string id = 1;
+  optional string name = 2;
+  optional string description = 3;
+  optional string client_id = 4;
+  optional contact.EnterpriseContact contact = 5;
+  project.EnterpriseOrganizationProject project = 6;
+  optional SysTime time_created = 7;
+  optional SysTime time_updated = 8;
+  optional bool status = 9;
 }
 //############################################################################################
 message EnterpriseOrganization {
