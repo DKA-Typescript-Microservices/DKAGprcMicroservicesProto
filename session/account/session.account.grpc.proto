@@ -9,9 +9,9 @@ import "account/place/account.place.grpc.proto";
 import "google/protobuf/empty.proto";
 
 service Session {
-  rpc authorize(AccountAuthorizeRequest) returns (stream AccountAuthorizeResponse);
-  rpc verify(google.protobuf.Empty) returns (stream IAccount);
-  rpc refresh(google.protobuf.Empty) returns (stream AccountAuthorizeResponse);
+  rpc sign(IAccount) returns (stream AccountAuthorizeResponse);
+  rpc verify(AccountVerifyTokenRequest) returns (stream IAccount);
+  rpc refresh(AccountRefreshRequest) returns (stream AccountAuthorizeResponse);
   rpc revoke(google.protobuf.Empty) returns (stream AccountRevokeResponse);
 }
 
@@ -25,7 +25,7 @@ message IAccount {
 }
 //##################################################################################
 message AccountVerifyTokenRequest {
-  string token = 1;
+  string access_token = 1;
 }
 
 //##################################################################################
@@ -40,6 +40,10 @@ message AccountAuthorizeResponse {
   string refresh_token = 3 [json_name = "refresh_token"];
   int32 expires_in = 4 [json_name = "expires_in"];
   optional string scope = 5 [json_name = "scope"];
+}
+//##################################################################################
+message AccountRefreshRequest {
+  string refresh_token = 1;
 }
 //##################################################################################
 message AccountRevokeResponse {
