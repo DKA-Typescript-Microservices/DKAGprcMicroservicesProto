@@ -12,7 +12,7 @@ service Session {
   rpc sign(IAccount) returns (stream AccountAuthorizeResponse);
   rpc verify(AccountVerifyTokenRequest) returns (stream IAccount);
   rpc refresh(AccountRefreshRequest) returns (stream AccountAuthorizeResponse);
-  rpc revoke(google.protobuf.Empty) returns (stream AccountRevokeResponse);
+  rpc revoke(AccountVerifyTokenRequest) returns (stream AccountRevokeResponse);
 }
 
 //##################################################################################
