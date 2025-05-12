@@ -1,32 +1,11 @@
 syntax = "proto3";
 
 package info;
+
 import "google/protobuf/empty.proto";
+import 'account/info/account.info.common.grpc.proto';
 
 service Info {
-  rpc ReadAll(google.protobuf.Empty) returns (stream AccountInfoReadResponse);
-
+  rpc ReadAll(google.protobuf.Empty) returns (stream common.AccountInfoReadResponse);
 }
-
-message AccountReadResponseMetadata {
-  optional int64 count = 1;
-}
-
-message AccountInfoReadResponse {
-  bool status = 1;
-  int64 code = 2;
-  string msg = 3;
-  repeated IAccountInfo data = 4;
-  optional AccountReadResponseMetadata metadata = 5;
-}
-
-// Defining the AccountInfo message based on the IAccountInfo model
-message IAccountInfo {
-  optional string id = 1;                  // Document ID (_id in MongoDB)
-  optional string reference = 2;          // Preference ObjectId (as string)
-  optional string parent = 3;              // Parent ObjectId (as string)
-  string first_name = 4;          // First name as string
-  optional string last_name = 5;           // Last name as string
-}
-
 

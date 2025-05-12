@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package session.account;
 
-import "account/info/account.info.grpc.proto";
-import "account/credential/account.credential.grpc.proto";
-import "account/place/account.place.grpc.proto";
+import "account/info/account.info.common.grpc.proto";
+import "account/credential/account.credential.common.grpc.proto";
+import "account/place/account.place.common.grpc.proto";
 
 import "google/protobuf/empty.proto";
 
@@ -19,9 +19,9 @@ service Session {
 message IAccount {
   optional string id = 1;
   optional string reference = 2;
-  optional credential.IAccountCredential credential = 3;
-  optional info.IAccountInfo info = 4;
-  optional place.IAccountPlace place = 5;
+  optional credential.common.IAccountCredential credential = 3;
+  optional info.common.IAccountInfo info = 4;
+  optional place.common.IAccountPlace place = 5;
 }
 //##################################################################################
 message AccountVerifyTokenRequest {
