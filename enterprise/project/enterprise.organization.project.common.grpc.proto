@@ -30,6 +30,19 @@ message EnterpriseOrganizationProjectReadResponse {
 message EnterpriseOrganizationProjectReadResponseMetadata {
   optional int64 count = 1;
 }
+//############################################################################################
+message EnterpriseOrganizationProjectReadByIDRequest {
+  string id = 1;
+}
+
+message EnterpriseOrganizationProjectReadByIDResponse {
+  bool status = 1;
+  int64 code = 2;
+  string msg = 3;
+  EnterpriseOrganizationProject data = 4;
+}
+
+//############################################################################################
 //###################################################################################
 message EnterpriseOrganizationProject {
   optional string reference = 1;
