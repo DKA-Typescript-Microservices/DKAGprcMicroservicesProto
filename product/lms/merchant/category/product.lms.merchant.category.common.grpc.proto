@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package merchant.category.common;
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message MerchantCategoryCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGMerchantCategoryReadAll data = 4;
+}
+//############################################################################################
+message MerchantCategoryReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGMerchantCategoryReadAll data = 4;
+}
+//############################################################################################
+message IGMerchantCategory {
+  string name = 1;
+  string description = 2;
+}
+
+message IGMerchantCategoryReadAll {
+  optional string id = 1;
+  optional string name = 2;
+  optional string description = 3;
+  optional SysTime time_created = 4;
+  optional SysTime time_updated = 5;
+  optional SysTime time_deleted = 6;
+  optional bool status = 7;
+}

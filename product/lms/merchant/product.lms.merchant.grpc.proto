@@ -2,68 +2,11 @@ syntax = "proto3";
 
 package merchant;
 
-//import 'account/account.grpc.proto';
-//import 'enterprise/organization/enterprise.organization.grpc.proto';
-//import 'enterprise/project/enterprise.organization.project.grpc.proto';
-
-import 'product/lms/merchant/category/product.lms.merchant.category.grpc.proto';
-import 'product/lms/merchant/info/product.lms.merchant.info.grpc.proto';
-import 'product/lms/merchant/contact/product.lms.merchant.contact.grpc.proto';
-
 import 'google/protobuf/empty.proto';
+import 'product/lms/merchant/product.lms.merchant.common.grpc.proto';
 
 service Merchant {
-  rpc Create(MerchantCreateRequest) returns (stream MerchantCreateResponse);
-  rpc ReadAll(google.protobuf.Empty) returns (stream MerchantReadAllResponse);
-  rpc ReadByID(MerchantReadByIDRequest) returns (stream IGMerchant);
-}
-
-//###########################################################################
-message MerchantCreateRequest {
-  optional string reference = 1;
-  string owner = 2;
-  string organization = 3;
-  string project = 4;
-  string category = 5;
-  merchantInfo.IGMerchantInfo info = 6;
-  merchantContact.IGMerchantContact contact = 7;
-}
-
-message MerchantCreateResponse {
-  bool status = 1;
-  int32 code = 2;
-  string msg = 3;
-  IGMerchant data = 4;
-}
-//###########################################################################
-message MerchantReadByIDRequest {
-  string id = 1;
-}
-//###########################################################################
-message MerchantReadAllResponse {
-  bool status = 1;
-  int32 code = 2;
-  string msg = 3;
-  repeated IGMerchant data = 4;
-}
-//###########################################################################
-//############################################################################################
-message SysTime {
-  optional int32 unix = 1;
-  optional string humanize = 2;
-}
-//############################################################################################
-
-message IGMerchant {
-  optional string reference = 1;
-  string owner = 2;
-  string organization = 3;
-  string project = 4;
-  merchantCategory.IGMerchantCategory category = 5;
-  merchantInfo.IGMerchantInfo info = 6;
-  merchantContact.IGMerchantContact contact = 7;
-  SysTime time_created = 8;
-  SysTime time_updated = 9;
-  SysTime time_deleted = 10;
-  bool status = 11;
+  rpc Create(common.MerchantCreateRequest) returns (stream common.MerchantCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (stream common.MerchantReadAllResponse);
+  rpc ReadByID(common.MerchantReadByIDRequest) returns (stream common.IGMerchant);
 }
