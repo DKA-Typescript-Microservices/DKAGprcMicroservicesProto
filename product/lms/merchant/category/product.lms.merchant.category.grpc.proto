@@ -12,6 +12,11 @@ message SysTime {
 message IGMerchantCategory {
   string name = 1;
   string description = 2;
+}
+
+message IGMerchantCategoryReadAll {
+  string name = 1;
+  string description = 2;
   SysTime time_created = 8;
   SysTime time_updated = 9;
   SysTime time_deleted = 10;
