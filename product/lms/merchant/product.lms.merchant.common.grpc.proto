@@ -37,7 +37,24 @@ message MerchantReadAllResponse {
   string msg = 3;
   repeated IGMerchant data = 4;
 }
-//###########################################################################
+//############################################################################################
+message MerchantUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGMerchant data = 4;
+}
+//############################################################################################
+message MerchantDeleteOneRequest {
+  string id = 1;
+}
+message MerchantDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGMerchant data = 4;
+}
+//############################################################################################
 //############################################################################################
 message SysTime {
   optional int32 unix = 1;

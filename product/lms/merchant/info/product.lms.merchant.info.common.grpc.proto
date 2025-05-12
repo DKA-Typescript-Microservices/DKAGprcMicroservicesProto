@@ -8,7 +8,48 @@ message SysTime {
   optional string humanize = 2;
 }
 //############################################################################################
+message MerchantInfoCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGMerchantInfoReadAll data = 4;
+}
+//############################################################################################
+message MerchantInfoReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGMerchantInfoReadAll data = 4;
+}
+//############################################################################################
+message MerchantInfoReadByIDRequest {
+  string id = 1;
+}
 
+message MerchantInfoReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGMerchantInfoReadAll data = 4;
+}
+//############################################################################################
+message MerchantInfoUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGMerchantInfoReadAll data = 4;
+}
+//############################################################################################
+message MerchantInfoDeleteOneRequest {
+  string id = 1;
+}
+message MerchantInfoDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGMerchantInfoReadAll data = 4;
+}
+//############################################################################################
 message IGMerchantInfo {
   string name = 1;
   string description = 2;

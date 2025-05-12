@@ -1,3 +1,15 @@
 syntax = "proto3";
 
 package merchant.info;
+
+import 'google/protobuf/empty.proto';
+import 'product/lms/merchant/info/product.lms.merchant.info.common.grpc.proto';
+
+
+service Info {
+  rpc Create(common.IGMerchantInfo) returns (stream common.MerchantInfoCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (stream common.MerchantInfoReadAllResponse);
+  rpc ReadByID(common.MerchantInfoReadByIDRequest) returns (stream common.MerchantInfoReadByIDResponse);
+  rpc UpdateOne(common.IGMerchantInfo) returns (stream common.MerchantInfoUpdateOneResponse);
+  rpc DeleteOne(common.MerchantInfoDeleteOneRequest) returns (stream common.MerchantInfoDeleteOneResponse);
+}
