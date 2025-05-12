@@ -2,100 +2,16 @@ syntax = "proto3";
 
 package account;
 
-import "account/info/account.info.grpc.proto";
-import "account/credential/account.credential.grpc.proto";
-import "account/place/account.place.grpc.proto";
+import "account/info/account.info.common.grpc.proto";
+import "account/credential/account.credential.common.grpc.proto";
+import "account/place/account.place.common.grpc.proto";
+import "account/account.common.grpc.proto";
 
 service Resources {
-  rpc Create(AccountCreateRequest) returns (stream AccountCreateResponse);
-  rpc ReadAll(AccountReadRequest) returns (stream AccountReadResponse);
-  rpc ReadByID(AccountByIDRequest) returns (stream AccountReadByIDResponse);
-  rpc UpdateOne(AccountPutOneRequest) returns (stream IAccount);
-  rpc DeleteOne(AccountDeleteOneRequest) returns (stream IAccount);
-}
-
-//##################################################################################
-message IAccount {
-  optional string id = 1;
-  optional string reference = 2;
-  optional credential.IAccountCredential credential = 3;
-  optional info.IAccountInfo info = 4;
-  optional place.IAccountPlace place = 5;
-}
-//##################################################################################
-
-message AccountCreateResponse {
-  bool status = 1;
-  int64 code = 2;
-  string msg = 3;
-  optional IAccount data = 4;
-}
-
-message AccountCreateRequest {
-  credential.IAccountCredential credential = 1;
-  info.IAccountInfo info = 2;
-  place.IAccountPlace place = 3;
-}
-//##################################################################################
-message AccountReadResponseMetadata {
-  optional int64 count = 1;
-}
-message AccountReadResponse {
-  bool status = 1;
-  int64 code = 2;
-  string msg = 3;
-  repeated IAccount data = 4;
-  optional AccountReadResponseMetadata metadata = 5;
-}
-
-message AccountReadRequestQueryWhere {
-
-}
-
-message AccountReadRequestQuery {
-  optional AccountReadRequestQueryWhere where = 1;
-}
-
-message AccountReadRequestOptions {
-  optional int32 limit = 1;
-  optional bool allowDiskUse = 2;
-}
-
-message AccountReadRequest {
-  optional AccountReadRequestQuery query = 1;
-  optional AccountReadRequestOptions options = 2;
-}
-//##################################################################################
-message AccountByIDRequest {
-  optional string id = 1;
-}
-
-message AccountReadByIDResponse {
-  bool status = 1;
-  int64 code = 2;
-  string msg = 3;
-  IAccount data = 4;
-}
-
-//##################################################################################
-message AccountPutOneRequestQuery {
-  optional string id = 1;
-}
-
-message AccountPutOneRequest {
-  AccountPutOneRequestQuery query = 1;
-  IAccount set = 2;
-}
-//##################################################################################
-message AccountDeleteOneRequestSet {
-
-}
-
-message AccountDeleteOneRequestQuery {
-  optional string id = 1;
-}
-
-message AccountDeleteOneRequest {
-  AccountDeleteOneRequestQuery query = 1;
+  rpc Create(account.common.AccountCreateRequest) returns (stream account.common.AccountCreateResponse);
+  rpc ReadAll(account.common.AccountReadRequest) returns (stream account.common.AccountReadResponse);
+  rpc ReadByID(account.common.AccountByIDRequest) returns (stream account.common.AccountReadByIDResponse);
+  rpc UpdateOne(account.common.AccountPutOneRequest) returns (stream account.common.IAccount);
+  rpc DeleteOne(account.common.AccountDeleteOneRequest) returns (stream account.common.IAccount);
 }
 
