@@ -20,11 +20,11 @@ service Merchant {
 
 //###########################################################################
 message MerchantCreateRequest {
-  string reference = 1;
+  optional string reference = 1;
   string owner = 2;
   string organization = 3;
   string project = 4;
-  merchantCategory.IGMerchantCategory category = 5;
+  string category = 5;
   merchantInfo.IGMerchantInfo info = 6;
   merchantContact.IGMerchantContact contact = 7;
 }
