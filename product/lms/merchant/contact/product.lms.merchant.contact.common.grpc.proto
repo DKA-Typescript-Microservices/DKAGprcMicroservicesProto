@@ -15,7 +15,48 @@ message SysTime {
   optional string humanize = 2;
 }
 //############################################################################################
+message MerchantContactCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGMerchantContactReadAll data = 4;
+}
+//############################################################################################
+message MerchantContactReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGMerchantContactReadAll data = 4;
+}
+//############################################################################################
+message MerchantContactReadByIDRequest {
+  string id = 1;
+}
 
+message MerchantContactReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGMerchantContactReadAll data = 4;
+}
+//############################################################################################
+message MerchantContactUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGMerchantContactReadAll data = 4;
+}
+//############################################################################################
+message MerchantContactDeleteOneRequest {
+  string id = 1;
+}
+message MerchantContactDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGMerchantContactReadAll data = 4;
+}
+//############################################################################################
 message IGMerchantContact {
   optional account.common.IAccount reference = 1;
   string phone = 2;
