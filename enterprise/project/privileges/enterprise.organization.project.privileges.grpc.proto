@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package privileges;
+
+import 'enterprise/project/enterprise.organization.project.grpc.proto';
+import "google/protobuf/empty.proto";
+
+service Scope {
+  rpc Create(EnterpriseOrganizationProjectPrivilegesCreateScopeRequest) returns (stream IEnterpriseOrganizationProjectPrivileges);
+  rpc ReadAll(google.protobuf.Empty) returns (stream EnterpriseOrganizationProjectPrivilegesReadAllScopeResponse);
+}
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message EnterpriseOrganizationProjectPrivilegesCreateScopeRequest {
+  optional string reference = 1;
+  string project = 2;
+  string scope = 3;
+  repeated string action = 4;
+}
+//#############################################################################################
+message EnterpriseOrganizationProjectPrivilegesReadAllScopeResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IEnterpriseOrganizationProjectPrivileges data = 4;
+}
+//#############################################################################################
+message IEnterpriseOrganizationProjectPrivileges {
+  optional string id = 1;
+  optional string reference = 2;
+  optional project.EnterpriseOrganizationProject project = 3;
+  string scope = 4;
+  repeated string action = 5;
+  optional SysTime time_created = 6;
+  optional SysTime time_updated = 7;
+  optional bool status = 8;
+}

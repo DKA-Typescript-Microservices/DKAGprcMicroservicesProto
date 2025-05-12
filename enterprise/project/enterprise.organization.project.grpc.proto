@@ -48,4 +48,5 @@ message EnterpriseOrganizationProject {
   optional string timeCreated = 7;
   optional string timeUpdated = 8;
   optional bool status = 9;
+  optional string id = 10;
 }
