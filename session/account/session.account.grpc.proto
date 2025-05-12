@@ -5,49 +5,11 @@ package session.account;
 import "account/info/account.info.common.grpc.proto";
 import "account/credential/account.credential.common.grpc.proto";
 import "account/place/account.place.common.grpc.proto";
-
-import "google/protobuf/empty.proto";
+import "session/account/session.account.common.grpc.proto";
 
 service Session {
-  rpc sign(IAccount) returns (stream AccountAuthorizeResponse);
-  rpc verify(AccountVerifyTokenRequest) returns (stream IAccount);
-  rpc refresh(AccountRefreshRequest) returns (stream AccountAuthorizeResponse);
-  rpc revoke(AccountVerifyTokenRequest) returns (stream AccountRevokeResponse);
-}
-
-//##################################################################################
-message IAccount {
-  optional string id = 1;
-  optional string reference = 2;
-  optional credential.common.IAccountCredential credential = 3;
-  optional info.common.IAccountInfo info = 4;
-  optional place.common.IAccountPlace place = 5;
-}
-//##################################################################################
-message AccountVerifyTokenRequest {
-  string access_token = 1;
-}
-
-//##################################################################################
-message AccountAuthorizeRequest {
-  string username = 1;
-  string password = 2;
-}
-
-message AccountAuthorizeResponse {
-  string token_type = 1 [json_name = "token_type"];
-  string access_token = 2 [json_name = "access_token"];
-  string refresh_token = 3 [json_name = "refresh_token"];
-  int32 expires_in = 4 [json_name = "expires_in"];
-  optional string scope = 5 [json_name = "scope"];
-}
-//##################################################################################
-message AccountRefreshRequest {
-  string refresh_token = 1;
-}
-//##################################################################################
-message AccountRevokeResponse {
-  bool status = 1;
-  int32 code = 2;
-  string msg = 3;
+  rpc sign(common.IAccount) returns (stream common.AccountAuthorizeResponse);
+  rpc verify(common.AccountVerifyTokenRequest) returns (stream common.IAccount);
+  rpc refresh(common.AccountRefreshRequest) returns (stream common.AccountAuthorizeResponse);
+  rpc revoke(common.AccountVerifyTokenRequest) returns (stream common.AccountRevokeResponse);
 }
