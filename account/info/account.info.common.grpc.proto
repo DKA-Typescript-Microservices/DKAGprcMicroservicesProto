@@ -1,7 +1,6 @@
 syntax = "proto3";
 
 package info.common;
-import "google/protobuf/empty.proto";
 
 message AccountReadResponseMetadata {
   optional int64 count = 1;

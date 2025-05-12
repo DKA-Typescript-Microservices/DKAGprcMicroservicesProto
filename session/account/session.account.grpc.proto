@@ -2,9 +2,6 @@ syntax = "proto3";
 
 package session.account;
 
-import "account/info/account.info.common.grpc.proto";
-import "account/credential/account.credential.common.grpc.proto";
-import "account/place/account.place.common.grpc.proto";
 import "session/account/session.account.common.grpc.proto";
 
 service Session {

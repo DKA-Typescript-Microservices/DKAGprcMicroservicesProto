@@ -1,16 +1,9 @@
 syntax = "proto3";
 
-package project;
+package project.common;
 
 import "enterprise/organization/enterprise.organization.common.grpc.proto";
 import "enterprise/contact/enterprise.contact.common.grpc.proto";
-
-import "google/protobuf/empty.proto";
-
-service Project {
-  rpc Create(EnterpriseOrganizationProjectCreateRequest) returns (stream EnterpriseOrganizationProjectCreateResponse);
-  rpc ReadAll(google.protobuf.Empty) returns (stream EnterpriseOrganizationProjectReadResponse);
-}
 //###################################################################################
 message EnterpriseOrganizationProjectCreateRequest {
   optional string organization = 1;

@@ -2,51 +2,10 @@ syntax = "proto3";
 
 package organization;
 
-import "enterprise/enterprise.contact.grpc.proto";
 import "google/protobuf/empty.proto";
+import "enterprise/organization/enterprise.organization.common.grpc.proto";
 
 service Organization {
-    rpc Create(EnterpriseOrganizationCreateRequest) returns (stream EnterpriseOrganizationCreateResponse);
-    rpc ReadAll(google.protobuf.Empty) returns (stream EnterpriseOrganizationReadResponse);
-}
-//############################################################################################
-message SysTime {
-    optional int32 unix = 1;
-    optional string humanize = 2;
-}
-//############################################################################################
-message EnterpriseOrganizationCreateRequest {
-    optional string name = 1;
-    optional string description = 2;
-    optional contact.EnterpriseContactCreateRequest contact = 3;
-}
-
-message EnterpriseOrganizationCreateResponse {
-    bool status = 1;
-    int64 code = 2;
-    string msg = 3;
-    optional EnterpriseOrganization data = 4;
-}
-//############################################################################################
-message EnterpriseOrganizationReadResponse {
-    bool status = 1;
-    int64 code = 2;
-    string msg = 3;
-    repeated EnterpriseOrganization data = 4;
-    optional EnterpriseOrganizationReadResponseMetadata metadata = 5;
-}
-
-message EnterpriseOrganizationReadResponseMetadata {
-    optional int64 count = 1;
-}
-//############################################################################################
-message EnterpriseOrganization {
-    optional string id = 1;
-    optional string name = 2;
-    optional string description = 3;
-    optional string client_id = 4;
-    optional contact.EnterpriseContact contact = 5;
-    optional SysTime time_created = 6;
-    optional SysTime time_updated = 7;
-    optional bool status = 8;
+    rpc Create(common.EnterpriseOrganizationCreateRequest) returns (stream common.EnterpriseOrganizationCreateResponse);
+    rpc ReadAll(google.protobuf.Empty) returns (stream common.EnterpriseOrganizationReadResponse);
 }
