@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package merchantContact;
+
+message IGMerchantContactGeo {
+  string latitide = 1;
+  string longtitude = 2;
+}
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+
+message IGMerchantContact {
+  optional string reference = 1;
+  string phone = 2;
+  string email = 3;
+  string address = 4;
+  IGMerchantContactGeo geo = 5;
+  SysTime time_created = 8;
+  SysTime time_updated = 9;
+  SysTime time_deleted = 10;
+  bool status = 11;
+}
