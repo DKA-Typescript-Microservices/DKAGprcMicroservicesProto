@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package merchant.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+
+import 'product/lms/merchant/category/product.lms.merchant.category.common.grpc.proto';
+import 'product/lms/merchant/info/product.lms.merchant.info.common.grpc.proto';
+import 'product/lms/merchant/contact/product.lms.merchant.contact.common.grpc.proto';
+
+//###########################################################################
+message MerchantCreateRequest {
+  optional string reference = 1;
+  string organization = 3;
+  string project = 4;
+  string category = 5;
+  merchant.info.common.IGMerchantInfo info = 6;
+  merchant.contact.common.IGMerchantContact contact = 7;
+}
+
+message MerchantCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGMerchant data = 4;
+}
+//###########################################################################
+message MerchantReadByIDRequest {
+  string id = 1;
+}
+//###########################################################################
+message MerchantReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGMerchant data = 4;
+}
+//###########################################################################
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+
+message IGMerchant {
+  optional account.common.IAccount reference = 1;
+  organization.common.EnterpriseOrganization organization = 2;
+  project.common.EnterpriseOrganizationProject project = 3;
+  merchant.category.common.IGMerchantCategory category = 4;
+  merchant.info.common.IGMerchantInfo info = 5;
+  merchant.contact.common.IGMerchantContact contact = 6;
+  SysTime time_created = 7;
+  SysTime time_updated = 8;
+  SysTime time_deleted = 9;
+  bool status = 10;
+}
