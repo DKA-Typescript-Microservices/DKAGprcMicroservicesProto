@@ -18,11 +18,9 @@ message IAccount {
 message AccountVerifyTokenRequest {
   string access_token = 1;
 }
-
 //##################################################################################
 message AccountAuthorizeRequest {
-  string username = 1;
-  string password = 2;
+  string id = 1;
 }
 
 message AccountAuthorizeResponse {
