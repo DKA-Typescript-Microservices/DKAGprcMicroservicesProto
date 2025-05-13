@@ -10,6 +10,6 @@ service Contact {
   rpc Create(common.IGMerchantContact) returns (stream common.MerchantContactCreateResponse);
   rpc ReadAll(google.protobuf.Empty) returns (stream common.MerchantContactReadAllResponse);
   rpc ReadByID(common.MerchantContactReadByIDRequest) returns (stream common.MerchantContactReadByIDResponse);
-  rpc UpdateOne(common.IGMerchantContact) returns (stream common.MerchantContactUpdateOneResponse);
+  rpc UpdateOne(common.MerchantContactUpdateOneRequest) returns (stream common.MerchantContactUpdateOneResponse);
   rpc DeleteOne(common.MerchantContactDeleteOneRequest) returns (stream common.MerchantContactDeleteOneResponse);
 }

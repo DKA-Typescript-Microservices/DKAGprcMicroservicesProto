@@ -38,6 +38,13 @@ message MerchantReadAllResponse {
   repeated IGMerchant data = 4;
 }
 //############################################################################################
+message MerchantUpdateOneRequestQuery {
+  string id = 1;
+}
+message MerchantUpdateOneRequest {
+  MerchantUpdateOneRequestQuery query = 1;
+  IGMerchant set = 2;
+}
 message MerchantUpdateOneResponse {
   bool status = 1;
   int32 code = 2;
@@ -45,8 +52,11 @@ message MerchantUpdateOneResponse {
   IGMerchant data = 4;
 }
 //############################################################################################
-message MerchantDeleteOneRequest {
+message MerchantDeleteOneRequestQuery {
   string id = 1;
+}
+message MerchantDeleteOneRequest {
+  MerchantDeleteOneRequestQuery query = 1;
 }
 message MerchantDeleteOneResponse {
   bool status = 1;

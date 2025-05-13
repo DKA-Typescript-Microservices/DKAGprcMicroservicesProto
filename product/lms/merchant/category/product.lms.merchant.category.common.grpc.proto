@@ -33,6 +33,13 @@ message MerchantCategoryReadByIDResponse {
   IGMerchantCategoryReadAll data = 4;
 }
 //############################################################################################
+message MerchantCategoryUpdateOneRequestQuery {
+  string id = 1;
+}
+message MerchantCategoryUpdateOneRequest {
+  MerchantCategoryUpdateOneRequestQuery query = 1;
+  IGMerchantCategory set = 2;
+}
 message MerchantCategoryUpdateOneResponse {
   bool status = 1;
   int32 code = 2;
@@ -40,8 +47,11 @@ message MerchantCategoryUpdateOneResponse {
   IGMerchantCategoryReadAll data = 4;
 }
 //############################################################################################
-message MerchantCategoryDeleteOneRequest {
+message MerchantCategoryDeleteOneRequestQuery {
   string id = 1;
+}
+message MerchantCategoryDeleteOneRequest {
+  MerchantCategoryDeleteOneRequestQuery query = 1;
 }
 message MerchantCategoryDeleteOneResponse {
   bool status = 1;

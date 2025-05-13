@@ -9,6 +9,6 @@ service Merchant {
   rpc Create(common.MerchantCreateRequest) returns (stream common.MerchantCreateResponse);
   rpc ReadAll(google.protobuf.Empty) returns (stream common.MerchantReadAllResponse);
   rpc ReadByID(common.MerchantReadByIDRequest) returns (stream common.IGMerchant);
-  rpc UpdateOne(common.MerchantCreateRequest) returns (stream common.MerchantUpdateOneResponse);
+  rpc UpdateOne(common.MerchantUpdateOneRequest) returns (stream common.MerchantUpdateOneResponse);
   rpc DeleteOne(common.MerchantDeleteOneRequest) returns (stream common.MerchantDeleteOneResponse);
 }

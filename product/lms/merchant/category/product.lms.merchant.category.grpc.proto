@@ -9,6 +9,6 @@ service Category {
   rpc Create(common.IGMerchantCategory) returns (stream common.MerchantCategoryCreateResponse);
   rpc ReadAll(google.protobuf.Empty) returns (stream common.MerchantCategoryReadAllResponse);
   rpc ReadByID(common.MerchantCategoryReadByIDRequest) returns (stream common.MerchantCategoryReadByIDResponse);
-  rpc UpdateOne(common.IGMerchantCategory) returns (stream common.MerchantCategoryUpdateOneResponse);
+  rpc UpdateOne(common.MerchantCategoryUpdateOneRequest) returns (stream common.MerchantCategoryUpdateOneResponse);
   rpc DeleteOne(common.MerchantCategoryDeleteOneRequest) returns (stream common.MerchantCategoryDeleteOneResponse);
 }

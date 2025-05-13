@@ -40,6 +40,13 @@ message MerchantContactReadByIDResponse {
   IGMerchantContactReadAll data = 4;
 }
 //############################################################################################
+message MerchantContactUpdateOneRequestQuery {
+  string id = 1;
+}
+message MerchantContactUpdateOneRequest {
+  MerchantContactUpdateOneRequestQuery query = 1;
+  IGMerchantContactReadAll set = 2;
+}
 message MerchantContactUpdateOneResponse {
   bool status = 1;
   int32 code = 2;
@@ -47,8 +54,11 @@ message MerchantContactUpdateOneResponse {
   IGMerchantContactReadAll data = 4;
 }
 //############################################################################################
-message MerchantContactDeleteOneRequest {
+message MerchantContactDeleteOneRequestQuery {
   string id = 1;
+}
+message MerchantContactDeleteOneRequest {
+  MerchantContactDeleteOneRequestQuery query = 1;
 }
 message MerchantContactDeleteOneResponse {
   bool status = 1;

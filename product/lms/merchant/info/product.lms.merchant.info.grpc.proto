@@ -10,6 +10,6 @@ service Info {
   rpc Create(common.IGMerchantInfo) returns (stream common.MerchantInfoCreateResponse);
   rpc ReadAll(google.protobuf.Empty) returns (stream common.MerchantInfoReadAllResponse);
   rpc ReadByID(common.MerchantInfoReadByIDRequest) returns (stream common.MerchantInfoReadByIDResponse);
-  rpc UpdateOne(common.IGMerchantInfo) returns (stream common.MerchantInfoUpdateOneResponse);
+  rpc UpdateOne(common.MerchantInfoUpdateOneRequest) returns (stream common.MerchantInfoUpdateOneResponse);
   rpc DeleteOne(common.MerchantInfoDeleteOneRequest) returns (stream common.MerchantInfoDeleteOneResponse);
 }

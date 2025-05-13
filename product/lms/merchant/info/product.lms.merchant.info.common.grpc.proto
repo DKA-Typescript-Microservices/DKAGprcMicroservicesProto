@@ -33,6 +33,13 @@ message MerchantInfoReadByIDResponse {
   IGMerchantInfoReadAll data = 4;
 }
 //############################################################################################
+message MerchantInfoUpdateOneRequestQuery {
+  string id = 1;
+}
+message MerchantInfoUpdateOneRequest {
+  MerchantInfoUpdateOneRequestQuery query = 1;
+  IGMerchantInfoReadAll set = 2;
+}
 message MerchantInfoUpdateOneResponse {
   bool status = 1;
   int32 code = 2;
@@ -40,8 +47,11 @@ message MerchantInfoUpdateOneResponse {
   IGMerchantInfoReadAll data = 4;
 }
 //############################################################################################
-message MerchantInfoDeleteOneRequest {
+message MerchantInfoDeleteOneRequestQuery {
   string id = 1;
+}
+message MerchantInfoDeleteOneRequest {
+  MerchantInfoDeleteOneRequestQuery query = 1;
 }
 message MerchantInfoDeleteOneResponse {
   bool status = 1;
