@@ -4,7 +4,7 @@ package session.account;
 
 import "session/account/session.account.common.grpc.proto";
 
-service Session {
+service Account {
   rpc sign(common.IAccount) returns (stream common.AccountAuthorizeResponse);
   rpc verify(common.AccountVerifyTokenRequest) returns (stream common.IAccount);
   rpc refresh(common.AccountRefreshRequest) returns (stream common.AccountAuthorizeResponse);
