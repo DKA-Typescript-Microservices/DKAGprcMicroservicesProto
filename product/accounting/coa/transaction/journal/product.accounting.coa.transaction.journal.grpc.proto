@@ -5,7 +5,7 @@ package accounting.coa.transaction.journal;
 import 'google/protobuf/empty.proto';
 import 'product/accounting/coa/transaction/journal/product.accounting.coa.transaction.journal.common.grpc.proto';
 
-service Account {
+service TransactionJournal {
   rpc Create(common.CoaTransactionJournalCreateRequest) returns (stream common.CoaTransactionJournalCreateResponse);
   rpc ReadAll(google.protobuf.Empty) returns (stream common.CoaTransactionJournalReadAllResponse);
   rpc ReadByID(common.CoaTransactionJournalReadByIDRequest) returns (stream common.IGCoaTransactionJournal);
