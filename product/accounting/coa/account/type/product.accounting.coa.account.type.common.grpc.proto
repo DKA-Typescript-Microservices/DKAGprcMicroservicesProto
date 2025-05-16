@@ -9,9 +9,10 @@ import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
 //###########################################################################
 message CoaAccountTypeCreateRequest {
   optional string reference = 1;
-  string organization = 3;
-  string project = 4;
-  string category = 5;
+  string organization = 2;
+  string project = 3;
+  string name = 4;
+  optional string description = 5;
 }
 
 message CoaAccountTypeCreateResponse {
@@ -70,8 +71,10 @@ message IGCoaAccountType {
   optional account.common.IAccount reference = 1;
   organization.common.EnterpriseOrganization organization = 2;
   project.common.EnterpriseOrganizationProject project = 3;
-  SysTime time_created = 7;
-  SysTime time_updated = 8;
-  SysTime time_deleted = 9;
-  bool status = 10;
+  string name = 4;
+  optional string description = 5;
+  SysTime time_created = 6;
+  SysTime time_updated = 7;
+  SysTime time_deleted = 8;
+  bool status = 9;
 }
