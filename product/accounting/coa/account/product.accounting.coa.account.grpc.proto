@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package accounting.coa.acct;
+
+import 'google/protobuf/empty.proto';
+import 'product/accounting/coa/account/product.accounting.coa.account.common.grpc.proto';
+
+service Account {
+  rpc Create(common.CoaAccountCreateRequest) returns (stream common.CoaAccountCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (stream common.CoaAccountReadAllResponse);
+  rpc ReadByID(common.CoaAccountReadByIDRequest) returns (stream common.IGCoaAccount);
+  rpc UpdateOne(common.CoaAccountUpdateOneRequest) returns (stream common.CoaAccountUpdateOneResponse);
+  rpc DeleteOne(common.CoaAccountDeleteOneRequest) returns (stream common.CoaAccountDeleteOneResponse);
+}

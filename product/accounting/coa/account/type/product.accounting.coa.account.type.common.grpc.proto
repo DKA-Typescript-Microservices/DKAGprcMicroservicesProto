@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+package accounting.coa.acct.type.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+
+//###########################################################################
+message CoaAccountTypeCreateRequest {
+  optional string reference = 1;
+  string organization = 3;
+  string project = 4;
+  string category = 5;
+}
+
+message CoaAccountTypeCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGCoaAccountType data = 4;
+}
+//###########################################################################
+message CoaAccountTypeReadByIDRequest {
+  string id = 1;
+}
+//###########################################################################
+message CoaAccountTypeReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGCoaAccountType data = 4;
+}
+//############################################################################################
+message CoaAccountTypeUpdateOneRequestQuery {
+  string id = 1;
+}
+message CoaAccountTypeUpdateOneRequest {
+  CoaAccountTypeUpdateOneRequestQuery query = 1;
+  IGCoaAccountType set = 2;
+}
+message CoaAccountTypeUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGCoaAccountType data = 4;
+}
+//############################################################################################
+message CoaAccountTypeDeleteOneRequestQuery {
+  string id = 1;
+}
+message CoaAccountTypeDeleteOneRequest {
+  CoaAccountTypeDeleteOneRequestQuery query = 1;
+}
+message CoaAccountTypeDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGCoaAccountType data = 4;
+}
+//############################################################################################
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+
+message IGCoaAccountType {
+  optional account.common.IAccount reference = 1;
+  organization.common.EnterpriseOrganization organization = 2;
+  project.common.EnterpriseOrganizationProject project = 3;
+  SysTime time_created = 7;
+  SysTime time_updated = 8;
+  SysTime time_deleted = 9;
+  bool status = 10;
+}
