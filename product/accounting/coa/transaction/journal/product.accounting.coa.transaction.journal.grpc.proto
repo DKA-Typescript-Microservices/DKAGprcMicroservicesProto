@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package accounting.coa.transaction.journal;
+
+import 'google/protobuf/empty.proto';
+import 'product/accounting/coa/transaction/journal/product.accounting.coa.transaction.journal.common.grpc.proto';
+
+service Account {
+  rpc Create(common.CoaTransactionJournalCreateRequest) returns (stream common.CoaTransactionJournalCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (stream common.CoaTransactionJournalReadAllResponse);
+  rpc ReadByID(common.CoaTransactionJournalReadByIDRequest) returns (stream common.IGCoaTransactionJournal);
+  rpc UpdateOne(common.CoaTransactionJournalUpdateOneRequest) returns (stream common.CoaTransactionJournalUpdateOneResponse);
+  rpc DeleteOne(common.CoaTransactionJournalDeleteOneRequest) returns (stream common.CoaTransactionJournalDeleteOneResponse);
+}

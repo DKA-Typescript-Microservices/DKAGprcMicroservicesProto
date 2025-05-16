@@ -1,0 +1,96 @@
+syntax = "proto3";
+
+package accounting.coa.transaction.journal.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+
+//###########################################################################
+message CoaTransactionJournalCreateRequest {
+  optional string reference = 1;
+  string organization = 2;
+  string project = 3;
+  optional string parent = 4;
+  int32 code = 5;
+  string name = 6;
+  optional string description = 7;
+}
+
+message CoaTransactionJournalCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGCoaTransactionJournal data = 4;
+}
+//###########################################################################
+message CoaTransactionJournalReadByIDRequest {
+  string id = 1;
+}
+//###########################################################################
+message CoaTransactionJournalReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGCoaTransactionJournal data = 4;
+}
+//############################################################################################
+message CoaTransactionJournalUpdateOneRequestQuery {
+  string id = 1;
+}
+
+message CoaTransactionJournalUpdateOneRequestSet {
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  optional string parent = 4;
+  int32 code = 5;
+  string name = 6;
+  optional string description = 7;
+  bool status = 8;
+}
+
+message CoaTransactionJournalUpdateOneRequest {
+  CoaTransactionJournalUpdateOneRequestQuery query = 1;
+  CoaTransactionJournalUpdateOneRequestSet set = 2;
+}
+message CoaTransactionJournalUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGCoaTransactionJournal data = 4;
+}
+//############################################################################################
+message CoaTransactionJournalDeleteOneRequestQuery {
+  string id = 1;
+}
+message CoaTransactionJournalDeleteOneRequest {
+  CoaTransactionJournalDeleteOneRequestQuery query = 1;
+}
+message CoaTransactionJournalDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGCoaTransactionJournal data = 4;
+}
+//############################################################################################
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+
+message IGCoaTransactionJournal {
+  optional account.common.IAccount reference = 1;
+  organization.common.EnterpriseOrganization organization = 2;
+  project.common.EnterpriseOrganizationProject project = 3;
+  optional IGCoaTransactionJournal parent = 4;
+  int32 code = 5;
+  string name = 6;
+  optional string description = 7;
+  SysTime time_created = 8;
+  SysTime time_updated = 9;
+  SysTime time_deleted = 10;
+  bool status = 11;
+}
