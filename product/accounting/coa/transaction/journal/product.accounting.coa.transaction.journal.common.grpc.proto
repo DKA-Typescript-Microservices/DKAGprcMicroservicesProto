@@ -6,15 +6,19 @@ import 'account/account.common.grpc.proto';
 import 'enterprise/organization/enterprise.organization.common.grpc.proto';
 import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
 
+import 'product/accounting/coa/transaction/product.accounting.coa.transaction.common.grpc.proto';
+import 'product/accounting/coa/account/product.accounting.coa.account.common.grpc.proto';
+
 //###########################################################################
 message CoaTransactionJournalCreateRequest {
   optional string reference = 1;
   string organization = 2;
-  string project = 3;
-  optional string parent = 4;
-  int32 code = 5;
-  string name = 6;
-  optional string description = 7;
+  optional string project = 3;
+  optional string transaction = 4;
+  string account = 5;
+  int32 debit = 6;
+  int32 credit = 7;
+  optional string memo = 8;
 }
 
 message CoaTransactionJournalCreateResponse {
@@ -43,11 +47,11 @@ message CoaTransactionJournalUpdateOneRequestSet {
   optional string reference = 1;
   optional string organization = 2;
   optional string project = 3;
-  optional string parent = 4;
-  int32 code = 5;
-  string name = 6;
-  optional string description = 7;
-  bool status = 8;
+  optional string transaction = 4;
+  optional string account = 5;
+  optional int32 debit = 6;
+  optional int32 credit = 7;
+  optional string memo = 8;
 }
 
 message CoaTransactionJournalUpdateOneRequest {
@@ -85,12 +89,13 @@ message IGCoaTransactionJournal {
   optional account.common.IAccount reference = 1;
   organization.common.EnterpriseOrganization organization = 2;
   project.common.EnterpriseOrganizationProject project = 3;
-  optional IGCoaTransactionJournal parent = 4;
-  int32 code = 5;
-  string name = 6;
-  optional string description = 7;
-  SysTime time_created = 8;
-  SysTime time_updated = 9;
-  SysTime time_deleted = 10;
-  bool status = 11;
+  optional accounting.coa.transaction.common.IGCoaTransaction transaction = 4;
+  optional accounting.coa.acct.common.IGCoaAccount account = 5;
+  int32 debit = 6;
+  int32 credit = 7;
+  optional string memo = 8;
+  SysTime time_created = 9;
+  SysTime time_updated = 10;
+  SysTime time_deleted = 11;
+  bool status = 12;
 }
