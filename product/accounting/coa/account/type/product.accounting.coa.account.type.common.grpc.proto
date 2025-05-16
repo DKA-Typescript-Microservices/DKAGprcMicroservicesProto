@@ -36,9 +36,19 @@ message CoaAccountTypeReadAllResponse {
 message CoaAccountTypeUpdateOneRequestQuery {
   string id = 1;
 }
+
+message CoaAccountTypeUpdateOneRequestSet {
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  string name = 4;
+  optional string description = 5;
+  bool status = 6;
+}
+
 message CoaAccountTypeUpdateOneRequest {
   CoaAccountTypeUpdateOneRequestQuery query = 1;
-  IGCoaAccountType set = 2;
+  CoaAccountTypeUpdateOneRequestSet set = 2;
 }
 message CoaAccountTypeUpdateOneResponse {
   bool status = 1;
