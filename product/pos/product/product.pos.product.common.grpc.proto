@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+package product.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+
+
+import 'product/pos/product/category/product.pos.product.category.common.grpc.proto';
+import 'product/pos/product/variant/product.pos.product.variant.common.grpc.proto';
+
+//###########################################################################
+message ProductCreateRequest {
+  optional string reference = 1;
+  string organization = 3;
+  string project = 4;
+  string category = 5;
+}
+
+message ProductCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGProduct data = 4;
+}
+//###########################################################################
+message ProductReadByIDRequest {
+  string id = 1;
+}
+//###########################################################################
+message ProductReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGProduct data = 4;
+}
+//############################################################################################
+message ProductUpdateOneRequestQuery {
+  string id = 1;
+}
+message ProductUpdateOneRequest {
+  ProductUpdateOneRequestQuery query = 1;
+  IGProduct set = 2;
+}
+message ProductUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGProduct data = 4;
+}
+//############################################################################################
+message ProductDeleteOneRequestQuery {
+  string id = 1;
+}
+message ProductDeleteOneRequest {
+  ProductDeleteOneRequestQuery query = 1;
+}
+message ProductDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGProduct data = 4;
+}
+//############################################################################################
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+
+message IGProduct {
+  optional account.common.IAccount reference = 1;
+  organization.common.EnterpriseOrganization organization = 2;
+  project.common.EnterpriseOrganizationProject project = 3;
+  product.category.common.IGProductCategory category = 4;
+  SysTime time_created = 7;
+  SysTime time_updated = 8;
+  SysTime time_deleted = 9;
+  bool status = 10;
+}

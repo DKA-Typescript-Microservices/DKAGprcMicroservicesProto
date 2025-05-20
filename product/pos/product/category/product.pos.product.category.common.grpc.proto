@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package product.category.common;
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message ProductCategoryCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGProductCategoryReadAll data = 4;
+}
+//############################################################################################
+message ProductCategoryReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGProductCategoryReadAll data = 4;
+}
+//############################################################################################
+message ProductCategoryReadByIDRequest {
+  string id = 1;
+}
+
+message ProductCategoryReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGProductCategoryReadAll data = 4;
+}
+//############################################################################################
+message ProductCategoryUpdateOneRequestQuery {
+  string id = 1;
+}
+message ProductCategoryUpdateOneRequest {
+  ProductCategoryUpdateOneRequestQuery query = 1;
+  IGProductCategory set = 2;
+}
+message ProductCategoryUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGProductCategoryReadAll data = 4;
+}
+//############################################################################################
+message ProductCategoryDeleteOneRequestQuery {
+  string id = 1;
+}
+message ProductCategoryDeleteOneRequest {
+  ProductCategoryDeleteOneRequestQuery query = 1;
+}
+message ProductCategoryDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGProductCategoryReadAll data = 4;
+}
+//############################################################################################
+message IGProductCategory {
+  string name = 1;
+  string description = 2;
+}
+
+message IGProductCategoryReadAll {
+  optional string id = 1;
+  optional string name = 2;
+  optional string description = 3;
+  optional SysTime time_created = 4;
+  optional SysTime time_updated = 5;
+  optional SysTime time_deleted = 6;
+  optional bool status = 7;
+}

@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package product.variant.common;
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message ProductVariantCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGProductVariantReadAll data = 4;
+}
+//############################################################################################
+message ProductVariantReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGProductVariantReadAll data = 4;
+}
+//############################################################################################
+message ProductVariantReadByIDRequest {
+  string id = 1;
+}
+
+message ProductVariantReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGProductVariantReadAll data = 4;
+}
+//############################################################################################
+message ProductVariantUpdateOneRequestQuery {
+  string id = 1;
+}
+message ProductVariantUpdateOneRequest {
+  ProductVariantUpdateOneRequestQuery query = 1;
+  IGProductVariant set = 2;
+}
+message ProductVariantUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGProductVariantReadAll data = 4;
+}
+//############################################################################################
+message ProductVariantDeleteOneRequestQuery {
+  string id = 1;
+}
+message ProductVariantDeleteOneRequest {
+  ProductVariantDeleteOneRequestQuery query = 1;
+}
+message ProductVariantDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGProductVariantReadAll data = 4;
+}
+//############################################################################################
+message IGProductVariant {
+  string name = 1;
+  string description = 2;
+}
+
+message IGProductVariantReadAll {
+  optional string id = 1;
+  optional string name = 2;
+  optional string description = 3;
+  optional SysTime time_created = 4;
+  optional SysTime time_updated = 5;
+  optional SysTime time_deleted = 6;
+  optional bool status = 7;
+}
