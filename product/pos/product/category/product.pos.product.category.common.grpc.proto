@@ -2,6 +2,10 @@ syntax = "proto3";
 
 package product.category.common;
 
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+
 //############################################################################################
 message SysTime {
   optional int32 unix = 1;
@@ -61,16 +65,22 @@ message ProductCategoryDeleteOneResponse {
 }
 //############################################################################################
 message IGProductCategory {
-  string name = 1;
-  string description = 2;
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  string name = 4;
+  string description = 5;
 }
 
 message IGProductCategoryReadAll {
   optional string id = 1;
-  optional string name = 2;
-  optional string description = 3;
-  optional SysTime time_created = 4;
-  optional SysTime time_updated = 5;
-  optional SysTime time_deleted = 6;
-  optional bool status = 7;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  optional string name = 5;
+  optional string description = 6;
+  optional SysTime time_created = 7;
+  optional SysTime time_updated = 8;
+  optional SysTime time_deleted = 9;
+  optional bool status = 10;
 }
