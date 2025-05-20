@@ -5,7 +5,7 @@ package product.variant;
 import 'product/pos/product/variant/product.pos.product.variant.common.grpc.proto';
 import "google/protobuf/empty.proto";
 
-service Category {
+service Variant {
   rpc Create(common.IGProductVariant) returns (stream common.ProductVariantCreateResponse);
   rpc ReadAll(google.protobuf.Empty) returns (stream common.ProductVariantReadAllResponse);
   rpc ReadByID(common.ProductVariantReadByIDRequest) returns (stream common.ProductVariantReadByIDResponse);

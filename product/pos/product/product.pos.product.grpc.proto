@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package product;
+
+import 'product/pos/product/product.pos.product.common.grpc.proto';
+import "google/protobuf/empty.proto";
+
+service Variant {
+  rpc Create(common.IGProduct) returns (stream common.ProductCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (stream common.ProductReadAllResponse);
+  rpc ReadByID(common.ProductReadByIDRequest) returns (stream common.ProductReadByIDResponse);
+  rpc UpdateOne(common.ProductUpdateOneRequest) returns (stream common.ProductUpdateOneResponse);
+  rpc DeleteOne(common.ProductDeleteOneRequest) returns (stream common.ProductDeleteOneResponse);
+}

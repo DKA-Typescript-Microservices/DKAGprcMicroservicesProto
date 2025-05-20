@@ -6,7 +6,6 @@ import 'account/account.common.grpc.proto';
 import 'enterprise/organization/enterprise.organization.common.grpc.proto';
 import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
 
-
 import 'product/pos/product/category/product.pos.product.category.common.grpc.proto';
 import 'product/pos/product/variant/product.pos.product.variant.common.grpc.proto';
 
@@ -27,6 +26,13 @@ message ProductCreateResponse {
 //###########################################################################
 message ProductReadByIDRequest {
   string id = 1;
+}
+
+message ProductReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGProduct data = 4;
 }
 //###########################################################################
 message ProductReadAllResponse {
