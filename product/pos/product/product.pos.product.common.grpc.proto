@@ -7,7 +7,6 @@ import 'enterprise/organization/enterprise.organization.common.grpc.proto';
 import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
 
 import 'product/pos/product/category/product.pos.product.category.common.grpc.proto';
-import 'product/pos/product/variant/product.pos.product.variant.common.grpc.proto';
 
 //###########################################################################
 message ProductCreateRequest {
