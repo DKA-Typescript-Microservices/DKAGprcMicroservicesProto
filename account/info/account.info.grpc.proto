@@ -6,6 +6,6 @@ import "google/protobuf/empty.proto";
 import 'account/info/account.info.common.grpc.proto';
 
 service Info {
-  rpc ReadAll(google.protobuf.Empty) returns (stream common.AccountInfoReadResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.AccountInfoReadResponse);
 }
 

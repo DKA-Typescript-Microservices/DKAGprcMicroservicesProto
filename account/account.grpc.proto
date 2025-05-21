@@ -5,10 +5,10 @@ package account;
 import "account/account.common.grpc.proto";
 
 service Resources {
-  rpc Create(account.common.AccountCreateRequest) returns (stream account.common.AccountCreateResponse);
-  rpc ReadAll(account.common.AccountReadRequest) returns (stream account.common.AccountReadResponse);
-  rpc ReadByID(account.common.AccountByIDRequest) returns (stream account.common.AccountReadByIDResponse);
-  rpc UpdateOne(account.common.AccountPutOneRequest) returns (stream account.common.IAccount);
-  rpc DeleteOne(account.common.AccountDeleteOneRequest) returns (stream account.common.IAccount);
+  rpc Create(account.common.AccountCreateRequest) returns (account.common.AccountCreateResponse);
+  rpc ReadAll(account.common.AccountReadRequest) returns (account.common.AccountReadResponse);
+  rpc ReadByID(account.common.AccountByIDRequest) returns (account.common.AccountReadByIDResponse);
+  rpc UpdateOne(account.common.AccountPutOneRequest) returns (account.common.IAccount);
+  rpc DeleteOne(account.common.AccountDeleteOneRequest) returns (account.common.IAccount);
 }
 
