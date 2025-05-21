@@ -6,6 +6,6 @@ import 'enterprise/project/privileges/enterprise.organization.project.privileges
 import "google/protobuf/empty.proto";
 
 service Scope {
-  rpc Create(common.EnterpriseOrganizationProjectPrivilegesCreateScopeRequest) returns (stream common.IEnterpriseOrganizationProjectPrivileges);
-  rpc ReadAll(google.protobuf.Empty) returns (stream common.EnterpriseOrganizationProjectPrivilegesReadAllScopeResponse);
+  rpc Create(common.EnterpriseOrganizationProjectPrivilegesCreateScopeRequest) returns (common.IEnterpriseOrganizationProjectPrivileges);
+  rpc ReadAll(google.protobuf.Empty) returns (common.EnterpriseOrganizationProjectPrivilegesReadAllScopeResponse);
 }

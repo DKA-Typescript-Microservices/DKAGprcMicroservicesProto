@@ -6,5 +6,5 @@ import "enterprise/enterprise.common.grpc.proto";
 
 
 service Enterprise {
-  rpc GetClient(common.EnterpriseGetClientRequest) returns (stream common.EnterpriseGetClientResponse);
+  rpc GetClient(common.EnterpriseGetClientRequest) returns (common.EnterpriseGetClientResponse);
 }

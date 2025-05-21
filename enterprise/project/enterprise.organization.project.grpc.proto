@@ -6,7 +6,7 @@ import "enterprise/project/enterprise.organization.project.common.grpc.proto";
 import "google/protobuf/empty.proto";
 
 service Project {
-  rpc Create(common.EnterpriseOrganizationProjectCreateRequest) returns (stream common.EnterpriseOrganizationProjectCreateResponse);
-  rpc ReadAll(google.protobuf.Empty) returns (stream common.EnterpriseOrganizationProjectReadResponse);
-  rpc ReadByID(common.EnterpriseOrganizationProjectReadByIDRequest) returns (stream common.EnterpriseOrganizationProjectReadByIDResponse);
+  rpc Create(common.EnterpriseOrganizationProjectCreateRequest) returns (common.EnterpriseOrganizationProjectCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.EnterpriseOrganizationProjectReadResponse);
+  rpc ReadByID(common.EnterpriseOrganizationProjectReadByIDRequest) returns (common.EnterpriseOrganizationProjectReadByIDResponse);
 }
