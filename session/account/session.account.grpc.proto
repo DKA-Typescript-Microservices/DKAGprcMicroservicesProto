@@ -6,11 +6,11 @@ import "session/account/session.account.common.grpc.proto";
 
 service Account {
   /** Penanda tanganan session Untuk ID account yang dimaksud untuk menandai data session di dalam services ini **/
-  rpc sign(common.AccountAuthorizeRequest) returns (stream common.AccountAuthorizeResponse);
+  rpc sign(common.AccountAuthorizeRequest) returns (common.AccountAuthorizeResponse);
   /** Menverifikasi akses token apakah token sah, tidak di manipulasi atau berasal dari penyediah yang sah **/
-  rpc verify(common.AccountVerifyTokenRequest) returns (stream common.IAccount);
+  rpc verify(common.AccountVerifyTokenRequest) returns (common.IAccount);
   /** Alih alih melakukan sign baru. method refresh token digunakan untuk mendapatkan token baru tanpa dengan refresh token yang sudah ada **/
-  rpc refresh(common.AccountRefreshRequest) returns (stream common.AccountAuthorizeResponse);
+  rpc refresh(common.AccountRefreshRequest) returns (common.AccountAuthorizeResponse);
   /** Ini adalah method di mana revokecation token refresh dibatalkan agar pemegang token tidak dapat refresh token baru **/
-  rpc revoke(common.AccountVerifyTokenRequest) returns (stream common.AccountRevokeResponse);
+  rpc revoke(common.AccountVerifyTokenRequest) returns (common.AccountRevokeResponse);
 }
