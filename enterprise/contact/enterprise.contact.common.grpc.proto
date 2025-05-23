@@ -9,9 +9,8 @@ message EnterpriseContactCreateRequest {
     optional string address = 3;
 }
 
-
 message EnterpriseContact {
-    optional string phone = 3;
-    optional string email = 4;
-    optional string addres = 5;
+    optional string phone = 1;
+    optional string email = 2;
+    optional string address = 3;
 }
