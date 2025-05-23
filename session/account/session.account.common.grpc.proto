@@ -42,12 +42,20 @@ message AccountRefreshRequest {
   string refresh_token = 1;
 }
 
+message AccountRefreshResponseMetaRate {
+  int32 available = 2 [json_name = 'available'];
+}
+
+message AccountRefreshResponseMeta {
+  int32 hit = 1 [json_name = "hit"];
+  AccountRefreshResponseMetaRate rate = 2 [json_name = "rate"];
+}
 message AccountRefreshResponse {
   string token_type = 1 [json_name = "token_type"];
   string access_token = 2 [json_name = "access_token"];
   string refresh_token = 3 [json_name = "refresh_token"];
   int32 expires_in = 4 [json_name = "expires_in"];
-  int32 hit = 5 [json_name = "hit"];
+  optional AccountRefreshResponseMeta meta = 5;
   optional string scope = 6 [json_name = "scope"];
 }
 //##################################################################################
