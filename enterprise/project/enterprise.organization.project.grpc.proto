@@ -9,4 +9,6 @@ service Project {
   rpc Create(common.EnterpriseOrganizationProjectCreateRequest) returns (common.EnterpriseOrganizationProjectCreateResponse);
   rpc ReadAll(google.protobuf.Empty) returns (common.EnterpriseOrganizationProjectReadResponse);
   rpc ReadByID(common.EnterpriseOrganizationProjectReadByIDRequest) returns (common.EnterpriseOrganizationProjectReadByIDResponse);
+  rpc ReadByOrganizationID(common.EnterpriseOrganizationProjectReadByOrganizationIDRequest) returns (common.EnterpriseOrganizationProjectReadByOrganizationIDResponse);
+
 }

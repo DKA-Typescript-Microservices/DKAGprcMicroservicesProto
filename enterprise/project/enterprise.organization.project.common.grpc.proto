@@ -43,6 +43,19 @@ message EnterpriseOrganizationProjectReadByIDResponse {
 }
 
 //############################################################################################
+//############################################################################################
+message EnterpriseOrganizationProjectReadByOrganizationIDRequest {
+  string organization = 1;
+}
+
+message EnterpriseOrganizationProjectReadByOrganizationIDResponse {
+  bool status = 1;
+  int64 code = 2;
+  string msg = 3;
+  repeated EnterpriseOrganizationProject data = 4;
+}
+
+//############################################################################################
 //###################################################################################
 message EnterpriseOrganizationProject {
   optional string reference = 1;
