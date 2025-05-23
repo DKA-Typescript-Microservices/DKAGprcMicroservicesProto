@@ -83,7 +83,6 @@ message EnterpriseOrganization {
     optional string reference = 2;
     optional string name = 3;
     optional string description = 4;
-    optional string client_id = 5;
     optional contact.common.EnterpriseContact contact = 6;
     optional SysTime time_created = 7;
     optional SysTime time_updated = 8;
