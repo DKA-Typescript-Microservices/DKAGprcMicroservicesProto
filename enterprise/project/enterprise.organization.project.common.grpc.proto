@@ -56,6 +56,36 @@ message EnterpriseOrganizationProjectReadByOrganizationIDResponse {
 }
 
 //############################################################################################
+//############################################################################################
+message EnterpriseOrganizationProjectUpdateOneRequest {
+  optional string organization = 1;
+  optional string name = 2;
+  optional string description = 3;
+  optional string contact = 4;
+}
+
+message EnterpriseOrganizationProjectUpdateOneResponse {
+  bool status = 1;
+  int64 code = 2;
+  string msg = 3;
+  EnterpriseOrganizationProject data = 4;
+}
+
+//############################################################################################
+
+//############################################################################################
+message EnterpriseOrganizationProjectDeleteOneRequest {
+  optional string id = 1;
+}
+
+message EnterpriseOrganizationProjectDeleteOneResponse {
+  bool status = 1;
+  int64 code = 2;
+  string msg = 3;
+  EnterpriseOrganizationProject data = 4;
+}
+
+//############################################################################################
 //###################################################################################
 message EnterpriseOrganizationProject {
   optional string reference = 1;
