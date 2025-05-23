@@ -16,7 +16,7 @@ message EnterpriseOrganizationProjectCreateResponse {
   bool status = 1;
   int64 code = 2;
   string msg = 3;
-  optional EnterpriseOrganizationProject data = 4;
+  optional EnterpriseOrganizationProjectCreate data = 4;
 }
 //###################################################################################
 message EnterpriseOrganizationProjectReadResponse {
@@ -94,8 +94,28 @@ message EnterpriseOrganizationProject {
   optional string name = 4;
   optional string description = 5;
   optional contact.common.EnterpriseContact contact = 6;
-  optional string time_created = 7;
-  optional string time_updated = 8;
+  optional SysTime time_created = 7;
+  optional SysTime time_updated = 8;
   optional bool status = 9;
-
 }
+
+
+message EnterpriseOrganizationProjectCreate {
+  optional string id = 1;
+  optional string reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional string name = 4;
+  optional string description = 5;
+  optional string client_secret = 6;
+  optional contact.common.EnterpriseContact contact = 7;
+  optional SysTime time_created = 8;
+  optional SysTime time_updated = 9;
+  optional bool status = 10;
+}
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
