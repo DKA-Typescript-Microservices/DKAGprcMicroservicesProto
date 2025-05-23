@@ -6,6 +6,8 @@ import "account/info/account.info.common.grpc.proto";
 import "account/credential/account.credential.common.grpc.proto";
 import "account/place/account.place.common.grpc.proto";
 
+import "google/protobuf/struct.proto";
+
 //##################################################################################
 message IAccount {
   optional string id = 1;
@@ -18,9 +20,14 @@ message IAccount {
 message AccountVerifyTokenRequest {
   string access_token = 1;
 }
+message AccountVerifyTokenResponse {
+  IAccount account = 1;
+  map<string, google.protobuf.Value> extras = 6;
+}
 //##################################################################################
 message AccountAuthorizeRequest {
   string id = 1;
+  map<string, google.protobuf.Value> extras = 2;
 }
 
 message AccountAuthorizeResponse {
