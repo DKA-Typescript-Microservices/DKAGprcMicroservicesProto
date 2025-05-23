@@ -9,4 +9,6 @@ service Organization {
     rpc Create(common.EnterpriseOrganizationCreateRequest) returns (common.EnterpriseOrganizationCreateResponse);
     rpc ReadAll(google.protobuf.Empty) returns (common.EnterpriseOrganizationReadResponse);
     rpc ReadByID(common.EnterpriseOrganizationReadByIDRequest) returns (common.EnterpriseOrganizationReadByIDResponse);
+    rpc UpdateOne(common.EnterpriseOrganizationUpdateOneRequest) returns (common.EnterpriseOrganizationUpdateOneResponse);
+    rpc DeleteOne(common.EnterpriseOrganizationDeleteOneRequest) returns (common.EnterpriseOrganizationDeleteOneResponse);
 }
