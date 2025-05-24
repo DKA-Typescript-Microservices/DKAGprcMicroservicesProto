@@ -2,6 +2,12 @@ syntax = "proto3";
 
 package product.variant.common;
 
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+
+import 'product/pos/product/product.pos.product.common.grpc.proto';
+
 //############################################################################################
 message SysTime {
   optional int32 unix = 1;
@@ -61,16 +67,24 @@ message ProductVariantDeleteOneResponse {
 }
 //############################################################################################
 message IGProductVariant {
-  string name = 1;
-  string description = 2;
+  optional string id = 1;
+  optional string reference = 2;
+  optional string organization = 3;
+  optional string project = 4;
+  optional string product = 5;
 }
 
 message IGProductVariantReadAll {
   optional string id = 1;
-  optional string name = 2;
-  optional string description = 3;
-  optional SysTime time_created = 4;
-  optional SysTime time_updated = 5;
-  optional SysTime time_deleted = 6;
-  optional bool status = 7;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  product.common.IGProduct product = 5;
+  string name = 6;
+  optional string description = 7;
+  optional string image = 8;
+  optional SysTime time_created = 9;
+  optional SysTime time_updated = 10;
+  optional SysTime time_deleted = 11;
+  optional bool status = 12;
 }

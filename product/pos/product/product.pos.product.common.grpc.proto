@@ -11,9 +11,12 @@ import 'product/pos/product/category/product.pos.product.category.common.grpc.pr
 //###########################################################################
 message ProductCreateRequest {
   optional string reference = 1;
-  string organization = 3;
-  string project = 4;
-  string category = 5;
+  optional string organization = 3;
+  optional string project = 4;
+  optional string category = 5;
+  optional string name = 6;
+  optional string description = 7;
+  optional string image = 8;
 }
 
 message ProductCreateResponse {
@@ -77,11 +80,14 @@ message SysTime {
 
 message IGProduct {
   optional account.common.IAccount reference = 1;
-  organization.common.EnterpriseOrganization organization = 2;
-  project.common.EnterpriseOrganizationProject project = 3;
+  optional organization.common.EnterpriseOrganization organization = 2;
+  optional project.common.EnterpriseOrganizationProject project = 3;
   product.category.common.IGProductCategory category = 4;
-  SysTime time_created = 7;
-  SysTime time_updated = 8;
-  SysTime time_deleted = 9;
-  bool status = 10;
+  string name = 5;
+  optional string description = 6;
+  optional string image = 7;
+  SysTime time_created = 8;
+  SysTime time_updated = 9;
+  SysTime time_deleted = 10;
+  bool status = 11;
 }
