@@ -6,9 +6,9 @@ import 'product/pos/product/variant/product.pos.product.variant.common.grpc.prot
 import "google/protobuf/empty.proto";
 
 service Variant {
-  rpc Create(common.IGProductVariant) returns (stream common.ProductVariantCreateResponse);
-  rpc ReadAll(google.protobuf.Empty) returns (stream common.ProductVariantReadAllResponse);
-  rpc ReadByID(common.ProductVariantReadByIDRequest) returns (stream common.ProductVariantReadByIDResponse);
-  rpc UpdateOne(common.ProductVariantUpdateOneRequest) returns (stream common.ProductVariantUpdateOneResponse);
-  rpc DeleteOne(common.ProductVariantDeleteOneRequest) returns (stream common.ProductVariantDeleteOneResponse);
+  rpc Create(common.IGProductVariant) returns (common.ProductVariantCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.ProductVariantReadAllResponse);
+  rpc ReadByID(common.ProductVariantReadByIDRequest) returns (common.ProductVariantReadByIDResponse);
+  rpc UpdateOne(common.ProductVariantUpdateOneRequest) returns (common.ProductVariantUpdateOneResponse);
+  rpc DeleteOne(common.ProductVariantDeleteOneRequest) returns (common.ProductVariantDeleteOneResponse);
 }

@@ -6,9 +6,9 @@ import 'product/pos/product/category/product.pos.product.category.common.grpc.pr
 import "google/protobuf/empty.proto";
 
 service Category {
-  rpc Create(common.IGProductCategory) returns (stream common.ProductCategoryCreateResponse);
-  rpc ReadAll(google.protobuf.Empty) returns (stream common.ProductCategoryReadAllResponse);
-  rpc ReadByID(common.ProductCategoryReadByIDRequest) returns (stream common.ProductCategoryReadByIDResponse);
-  rpc UpdateOne(common.ProductCategoryUpdateOneRequest) returns (stream common.ProductCategoryUpdateOneResponse);
-  rpc DeleteOne(common.ProductCategoryDeleteOneRequest) returns (stream common.ProductCategoryDeleteOneResponse);
+  rpc Create(common.IGProductCategory) returns (common.ProductCategoryCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.ProductCategoryReadAllResponse);
+  rpc ReadByID(common.ProductCategoryReadByIDRequest) returns (common.ProductCategoryReadByIDResponse);
+  rpc UpdateOne(common.ProductCategoryUpdateOneRequest) returns (common.ProductCategoryUpdateOneResponse);
+  rpc DeleteOne(common.ProductCategoryDeleteOneRequest) returns (common.ProductCategoryDeleteOneResponse);
 }
