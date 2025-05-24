@@ -23,7 +23,7 @@ message ProductCategoryReadAllResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  repeated IGProductCategoryReadAll data = 4;
+  repeated IGProductCategory data = 4;
 }
 //############################################################################################
 message ProductCategoryReadByIDRequest {
