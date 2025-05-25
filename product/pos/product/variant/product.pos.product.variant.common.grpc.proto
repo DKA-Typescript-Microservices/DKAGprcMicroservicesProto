@@ -72,6 +72,7 @@ message IGProductVariant {
   optional string organization = 3;
   optional string project = 4;
   optional string product = 5;
+  optional string code = 6;
 }
 
 message IGProductVariantReadAll {
@@ -80,11 +81,12 @@ message IGProductVariantReadAll {
   optional organization.common.EnterpriseOrganization organization = 3;
   optional project.common.EnterpriseOrganizationProject project = 4;
   product.common.IGProduct product = 5;
-  string name = 6;
-  optional string description = 7;
-  optional string image = 8;
-  optional SysTime time_created = 9;
-  optional SysTime time_updated = 10;
-  optional SysTime time_deleted = 11;
-  optional bool status = 12;
+  optional string code = 6;
+  string name = 7;
+  optional string description = 8;
+  optional string image = 9;
+  optional SysTime time_created = 10;
+  optional SysTime time_updated = 11;
+  optional SysTime time_deleted = 12;
+  optional bool status = 13;
 }

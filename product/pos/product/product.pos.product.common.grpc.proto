@@ -14,9 +14,10 @@ message ProductCreateRequest {
   optional string organization = 3;
   optional string project = 4;
   optional string category = 5;
-  optional string name = 6;
-  optional string description = 7;
-  optional string image = 8;
+  optional string sku = 6;
+  optional string name = 7;
+  optional string description = 8;
+  optional string image = 9;
 }
 
 message ProductCreateResponse {
@@ -83,11 +84,12 @@ message IGProduct {
   optional organization.common.EnterpriseOrganization organization = 2;
   optional project.common.EnterpriseOrganizationProject project = 3;
   product.category.common.IGProductCategory category = 4;
-  string name = 5;
-  optional string description = 6;
-  optional string image = 7;
-  SysTime time_created = 8;
-  SysTime time_updated = 9;
-  SysTime time_deleted = 10;
-  bool status = 11;
+  optional string sku = 6;
+  string name = 7;
+  optional string description = 8;
+  optional string image = 9;
+  SysTime time_created = 10;
+  SysTime time_updated = 11;
+  SysTime time_deleted = 12;
+  bool status = 13;
 }

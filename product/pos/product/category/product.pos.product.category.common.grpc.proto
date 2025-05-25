@@ -51,11 +51,15 @@ message ProductCategoryUpdateOneResponse {
   IGProductCategoryReadAll data = 4;
 }
 //############################################################################################
+message ProductCategoryDeleteOneRequestOption {
+  optional bool force = 1;
+}
 message ProductCategoryDeleteOneRequestQuery {
   string id = 1;
 }
 message ProductCategoryDeleteOneRequest {
   ProductCategoryDeleteOneRequestQuery query = 1;
+  optional ProductCategoryDeleteOneRequestOption option = 2;
 }
 message ProductCategoryDeleteOneResponse {
   bool status = 1;
@@ -68,8 +72,8 @@ message IGProductCategory {
   optional string reference = 1;
   optional string organization = 2;
   optional string project = 3;
-  string name = 4;
-  string description = 5;
+  optional string name = 4;
+  optional string description = 5;
 }
 
 message IGProductCategoryReadAll {
