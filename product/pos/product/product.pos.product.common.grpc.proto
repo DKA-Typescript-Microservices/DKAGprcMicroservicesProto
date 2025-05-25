@@ -24,7 +24,7 @@ message ProductCreateResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  IGProduct data = 4;
+  IGProductAll data = 4;
 }
 //###########################################################################
 message ProductReadByIDRequest {
@@ -35,14 +35,14 @@ message ProductReadByIDResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  IGProduct data = 4;
+  IGProductAll data = 4;
 }
 //###########################################################################
 message ProductReadAllResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  repeated IGProduct data = 4;
+  repeated IGProductAll data = 4;
 }
 //############################################################################################
 message ProductUpdateOneRequestQuery {
@@ -56,20 +56,25 @@ message ProductUpdateOneResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  IGProduct data = 4;
+  IGProductAll data = 4;
 }
 //############################################################################################
 message ProductDeleteOneRequestQuery {
   string id = 1;
 }
+message ProductDeleteOneRequestOption {
+  optional bool force = 1;
+}
+
 message ProductDeleteOneRequest {
   ProductDeleteOneRequestQuery query = 1;
+  optional ProductDeleteOneRequestOption option = 2;
 }
 message ProductDeleteOneResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  IGProduct data = 4;
+  IGProductAll data = 4;
 }
 //############################################################################################
 //############################################################################################
@@ -79,11 +84,26 @@ message SysTime {
 }
 //############################################################################################
 
-message IGProduct {
+message IGProductAll {
   optional account.common.IAccount reference = 1;
   optional organization.common.EnterpriseOrganization organization = 2;
   optional project.common.EnterpriseOrganizationProject project = 3;
-  product.category.common.IGProductCategory category = 4;
+  product.category.common.IGProductCategoryReadAll category = 4;
+  optional string sku = 6;
+  string name = 7;
+  optional string description = 8;
+  optional string image = 9;
+  SysTime time_created = 10;
+  SysTime time_updated = 11;
+  SysTime time_deleted = 12;
+  bool status = 13;
+}
+
+message IGProduct {
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  string category = 4;
   optional string sku = 6;
   string name = 7;
   optional string description = 8;
