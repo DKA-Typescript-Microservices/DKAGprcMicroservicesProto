@@ -53,11 +53,17 @@ message ProductVariantUpdateOneResponse {
   IGProductVariantReadAll data = 4;
 }
 //############################################################################################
+
+message ProductDeleteOneRequestOption {
+  optional bool force = 1;
+}
+
 message ProductVariantDeleteOneRequestQuery {
   string id = 1;
 }
 message ProductVariantDeleteOneRequest {
   ProductVariantDeleteOneRequestQuery query = 1;
+  optional ProductDeleteOneRequestOption option = 2;
 }
 message ProductVariantDeleteOneResponse {
   bool status = 1;
