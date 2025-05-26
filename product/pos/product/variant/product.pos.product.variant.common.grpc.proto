@@ -86,7 +86,7 @@ message IGProductVariantReadAll {
   optional account.common.IAccount reference = 2;
   optional organization.common.EnterpriseOrganization organization = 3;
   optional project.common.EnterpriseOrganizationProject project = 4;
-  product.common.IGProduct product = 5;
+  product.common.IGProductAll product = 5;
   optional string code = 6;
   string name = 7;
   optional string description = 8;
