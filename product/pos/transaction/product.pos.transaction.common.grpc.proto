@@ -1,0 +1,109 @@
+syntax = "proto3";
+
+package transaction.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+
+import 'product/pos/transaction/items/product.pos.transaction.items.common.grpc.proto';
+
+//###########################################################################
+message TransactionCreateRequest {
+  optional string reference = 1;
+  optional string organization = 3;
+  optional string project = 4;
+  optional string category = 5;
+  optional string sku = 6;
+  optional string name = 7;
+  optional string description = 8;
+  optional string image = 9;
+}
+
+message TransactionCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGTransactionAll data = 4;
+}
+//###########################################################################
+message TransactionReadByIDRequest {
+  string id = 1;
+}
+
+message TransactionReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGTransactionAll data = 4;
+}
+//###########################################################################
+message TransactionReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGTransactionAll data = 4;
+}
+//############################################################################################
+message TransactionUpdateOneRequestQuery {
+  string id = 1;
+}
+message TransactionUpdateOneRequest {
+  TransactionUpdateOneRequestQuery query = 1;
+  IGTransaction set = 2;
+}
+message TransactionUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGTransactionAll data = 4;
+}
+//############################################################################################
+message TransactionDeleteOneRequestQuery {
+  string id = 1;
+}
+message TransactionDeleteOneRequestOption {
+  optional bool force = 1;
+}
+
+message TransactionDeleteOneRequest {
+  TransactionDeleteOneRequestQuery query = 1;
+  optional TransactionDeleteOneRequestOption option = 2;
+}
+message TransactionDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGTransactionAll data = 4;
+}
+//############################################################################################
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+
+message IGTransactionAll {
+  optional account.common.IAccount reference = 1;
+  optional organization.common.EnterpriseOrganization organization = 2;
+  optional project.common.EnterpriseOrganizationProject project = 3;
+  optional string costumer = 6;
+  string invoice = 7;
+  SysTime time_created = 8;
+  SysTime time_updated = 9;
+  SysTime time_deleted = 10;
+  bool status = 11;
+}
+
+message IGTransaction {
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  optional string costumer = 4;
+  string invoice = 5;
+  SysTime time_created = 6;
+  SysTime time_updated = 7;
+  SysTime time_deleted = 8;
+  bool status = 9;
+}

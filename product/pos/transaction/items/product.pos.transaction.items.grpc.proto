@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package transaction.items;
+
+import 'product/pos/transaction/items/product.pos.transaction.items.common.grpc.proto';
+import "google/protobuf/empty.proto";
+
+service Items {
+  rpc Create(common.IGTransactionItems) returns (common.TransactionItemsCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.TransactionItemsReadAllResponse);
+  rpc ReadByID(common.TransactionItemsReadByIDRequest) returns (common.TransactionItemsReadByIDResponse);
+  rpc UpdateOne(common.TransactionItemsUpdateOneRequest) returns (common.TransactionItemsUpdateOneResponse);
+  rpc DeleteOne(common.TransactionItemsDeleteOneRequest) returns (common.TransactionItemsDeleteOneResponse);
+}

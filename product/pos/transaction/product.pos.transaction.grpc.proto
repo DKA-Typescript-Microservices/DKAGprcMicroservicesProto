@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package transaction;
+/** Exported common data product **/
+import 'product/pos/transaction/product.pos.transaction.common.grpc.proto';
+import "google/protobuf/empty.proto";
+
+service Transaction {
+  rpc Create(common.TransactionCreateRequest) returns (common.TransactionCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.TransactionReadAllResponse);
+  rpc ReadByID(common.TransactionReadByIDRequest) returns (common.TransactionReadByIDResponse);
+  rpc UpdateOne(common.TransactionUpdateOneRequest) returns (common.TransactionUpdateOneResponse);
+  rpc DeleteOne(common.TransactionDeleteOneRequest) returns (common.TransactionDeleteOneResponse);
+}
