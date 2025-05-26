@@ -77,9 +77,9 @@ message IGTransactionItems {
   optional string project = 3;
   string transaction = 4;
   string product = 5;
-  optional string quantity = 6;
-  optional string price = 7;
-  optional string total = 8;
+  optional int32 quantity = 6;
+  optional int32 price = 7;
+  optional int32 total = 8;
 }
 
 message IGTransactionItemsReadAll {
@@ -89,9 +89,9 @@ message IGTransactionItemsReadAll {
   optional project.common.EnterpriseOrganizationProject project = 4;
   transaction.common.IGTransactionAll transaction = 5;
   product.common.IGProductAll product = 6;
-  optional string quantity = 7;
-  optional string price = 8;
-  optional string total = 9;
+  optional int32 quantity = 7;
+  optional int32 price = 8;
+  optional int32 total = 9;
   optional SysTime time_created = 10;
   optional SysTime time_updated = 11;
   optional SysTime time_deleted = 12;
