@@ -6,18 +6,13 @@ import 'account/account.common.grpc.proto';
 import 'enterprise/organization/enterprise.organization.common.grpc.proto';
 import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
 
-import 'product/pos/transaction/items/product.pos.transaction.items.common.grpc.proto';
-
 //###########################################################################
 message TransactionCreateRequest {
   optional string reference = 1;
-  optional string organization = 3;
-  optional string project = 4;
-  optional string category = 5;
-  optional string sku = 6;
-  optional string name = 7;
-  optional string description = 8;
-  optional string image = 9;
+  optional string organization = 2;
+  optional string project = 3;
+  optional string costumer = 4;
+  string invoice = 5;
 }
 
 message TransactionCreateResponse {

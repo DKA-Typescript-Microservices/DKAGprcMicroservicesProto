@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package product.variant.common;
+package transaction.meta.payment.common;
 
 import 'account/account.common.grpc.proto';
 import 'enterprise/organization/enterprise.organization.common.grpc.proto';
@@ -14,43 +14,43 @@ message SysTime {
   optional string humanize = 2;
 }
 //############################################################################################
-message ProductVariantCreateResponse {
+message TransactionMetaPaymentCreateResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  IGProductVariantReadAll data = 4;
+  IGTransactionMetaPaymentReadAll data = 4;
 }
 //############################################################################################
-message ProductVariantReadAllResponse {
+message TransactionMetaPaymentReadAllResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  repeated IGProductVariantReadAll data = 4;
+  repeated IGTransactionMetaPaymentReadAll data = 4;
 }
 //############################################################################################
-message ProductVariantReadByIDRequest {
+message TransactionMetaPaymentReadByIDRequest {
   string id = 1;
 }
 
-message ProductVariantReadByIDResponse {
+message TransactionMetaPaymentReadByIDResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  IGProductVariantReadAll data = 4;
+  IGTransactionMetaPaymentReadAll data = 4;
 }
 //############################################################################################
-message ProductVariantUpdateOneRequestQuery {
+message TransactionMetaPaymentUpdateOneRequestQuery {
   string id = 1;
 }
-message ProductVariantUpdateOneRequest {
-  ProductVariantUpdateOneRequestQuery query = 1;
-  IGProductVariant set = 2;
+message TransactionMetaPaymentUpdateOneRequest {
+  TransactionMetaPaymentUpdateOneRequestQuery query = 1;
+  IGTransactionMetaPayment set = 2;
 }
-message ProductVariantUpdateOneResponse {
+message TransactionMetaPaymentUpdateOneResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  IGProductVariantReadAll data = 4;
+  IGTransactionMetaPaymentReadAll data = 4;
 }
 //############################################################################################
 
@@ -58,21 +58,21 @@ message ProductDeleteOneRequestOption {
   optional bool force = 1;
 }
 
-message ProductVariantDeleteOneRequestQuery {
+message TransactionMetaPaymentDeleteOneRequestQuery {
   string id = 1;
 }
-message ProductVariantDeleteOneRequest {
-  ProductVariantDeleteOneRequestQuery query = 1;
+message TransactionMetaPaymentDeleteOneRequest {
+  TransactionMetaPaymentDeleteOneRequestQuery query = 1;
   optional ProductDeleteOneRequestOption option = 2;
 }
-message ProductVariantDeleteOneResponse {
+message TransactionMetaPaymentDeleteOneResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  IGProductVariantReadAll data = 4;
+  IGTransactionMetaPaymentReadAll data = 4;
 }
 //############################################################################################
-message IGProductVariant {
+message IGTransactionMetaPayment {
   optional string id = 1;
   optional string reference = 2;
   optional string organization = 3;
@@ -82,7 +82,7 @@ message IGProductVariant {
   optional string discount = 7;
 }
 
-message IGProductVariantReadAll {
+message IGTransactionMetaPaymentReadAll {
   optional string id = 1;
   optional account.common.IAccount reference = 2;
   optional organization.common.EnterpriseOrganization organization = 3;
