@@ -5,7 +5,7 @@ package transaction.meta.payment;
 import 'product/pos/transaction/meta/payment/product.pos.transaction.meta.payment.common.grpc.proto';
 import "google/protobuf/empty.proto";
 
-service Variant {
+service MetaPayment {
   rpc Create(common.IGTransactionMetaPayment) returns (common.TransactionMetaPaymentCreateResponse);
   rpc ReadAll(google.protobuf.Empty) returns (common.TransactionMetaPaymentReadAllResponse);
   rpc ReadByID(common.TransactionMetaPaymentReadByIDRequest) returns (common.TransactionMetaPaymentReadByIDResponse);
