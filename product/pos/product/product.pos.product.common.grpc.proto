@@ -88,7 +88,7 @@ message IGProductAll {
   optional account.common.IAccount reference = 1;
   optional organization.common.EnterpriseOrganization organization = 2;
   optional project.common.EnterpriseOrganizationProject project = 3;
-  product.category.common.IGProductCategoryReadAll category = 4;
+  optional product.category.common.IGProductCategoryReadAll category = 4;
   optional string sku = 6;
   string name = 7;
   optional string description = 8;
