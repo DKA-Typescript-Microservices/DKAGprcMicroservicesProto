@@ -85,10 +85,11 @@ message SysTime {
 //############################################################################################
 
 message IGProductAll {
-  optional account.common.IAccount reference = 1;
-  optional organization.common.EnterpriseOrganization organization = 2;
-  optional project.common.EnterpriseOrganizationProject project = 3;
-  optional product.category.common.IGProductCategoryReadAll category = 4;
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  optional product.category.common.IGProductCategoryReadAll category = 5;
   optional string sku = 6;
   string name = 7;
   optional string description = 8;
