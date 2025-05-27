@@ -6,9 +6,9 @@ import 'google/protobuf/empty.proto';
 import 'product/accounting/coa/account/type/product.accounting.coa.account.type.common.grpc.proto';
 
 service AccountType {
-  rpc Create(common.CoaAccountTypeCreateRequest) returns (stream common.CoaAccountTypeCreateResponse);
-  rpc ReadAll(google.protobuf.Empty) returns (stream common.CoaAccountTypeReadAllResponse);
-  rpc ReadByID(common.CoaAccountTypeReadByIDRequest) returns (stream common.IGCoaAccountType);
-  rpc UpdateOne(common.CoaAccountTypeUpdateOneRequest) returns (stream common.CoaAccountTypeUpdateOneResponse);
-  rpc DeleteOne(common.CoaAccountTypeDeleteOneRequest) returns (stream common.CoaAccountTypeDeleteOneResponse);
+  rpc Create(common.CoaAccountTypeCreateRequest) returns (common.CoaAccountTypeCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.CoaAccountTypeReadAllResponse);
+  rpc ReadByID(common.CoaAccountTypeReadByIDRequest) returns (common.CoaAccountTypeReadByIDResponse);
+  rpc UpdateOne(common.CoaAccountTypeUpdateOneRequest) returns (common.CoaAccountTypeUpdateOneResponse);
+  rpc DeleteOne(common.CoaAccountTypeDeleteOneRequest) returns (common.CoaAccountTypeDeleteOneResponse);
 }
