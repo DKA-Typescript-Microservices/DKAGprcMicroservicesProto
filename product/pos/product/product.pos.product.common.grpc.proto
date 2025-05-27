@@ -101,10 +101,11 @@ message IGProductAll {
 }
 
 message IGProduct {
-  optional string reference = 1;
-  optional string organization = 2;
-  optional string project = 3;
-  string category = 4;
+  optional string id = 1;
+  optional string reference = 2;
+  optional string organization = 3;
+  optional string project = 4;
+  string category = 5;
   optional string sku = 6;
   string name = 7;
   optional string description = 8;
