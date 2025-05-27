@@ -21,7 +21,7 @@ message CoaAccountCreateResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  IGCoaAccount data = 4;
+  IGCoaAccountAll data = 4;
 }
 //###########################################################################
 message CoaAccountReadByIDRequest {
@@ -32,7 +32,7 @@ message CoaAccountReadAllResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  repeated IGCoaAccount data = 4;
+  repeated IGCoaAccountAll data = 4;
 }
 //############################################################################################
 message CoaAccountUpdateOneRequestQuery {
@@ -58,7 +58,7 @@ message CoaAccountUpdateOneResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  IGCoaAccount data = 4;
+  IGCoaAccountAll data = 4;
 }
 //############################################################################################
 message CoaAccountDeleteOneRequestQuery {
@@ -71,7 +71,7 @@ message CoaAccountDeleteOneResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  IGCoaAccount data = 4;
+  IGCoaAccountAll data = 4;
 }
 //############################################################################################
 //############################################################################################
@@ -82,15 +82,29 @@ message SysTime {
 //############################################################################################
 
 message IGCoaAccount {
-  optional account.common.IAccount reference = 1;
-  organization.common.EnterpriseOrganization organization = 2;
-  project.common.EnterpriseOrganizationProject project = 3;
-  optional IGCoaAccount parent = 4;
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  optional string parent = 4;
   int32 code = 5;
   string name = 6;
   optional string description = 7;
-  SysTime time_created = 8;
-  SysTime time_updated = 9;
-  SysTime time_deleted = 10;
+  optional SysTime time_created = 8;
+  optional SysTime time_updated = 9;
+  optional SysTime time_deleted = 10;
+  bool status = 11;
+}
+
+message IGCoaAccountAll {
+  optional account.common.IAccount reference = 1;
+  organization.common.EnterpriseOrganization organization = 2;
+  project.common.EnterpriseOrganizationProject project = 3;
+  optional IGCoaAccountAll parent = 4;
+  int32 code = 5;
+  string name = 6;
+  optional string description = 7;
+  optional SysTime time_created = 8;
+  optional SysTime time_updated = 9;
+  optional SysTime time_deleted = 10;
   bool status = 11;
 }
