@@ -75,8 +75,8 @@ message IGTransactionItems {
   optional string reference = 1;
   optional string organization = 2;
   optional string project = 3;
-  string transaction = 4;
-  string product = 5;
+  optional string transaction = 4;
+  optional string product = 5;
   optional int32 quantity = 6;
   optional int32 price = 7;
   optional int32 total = 8;
