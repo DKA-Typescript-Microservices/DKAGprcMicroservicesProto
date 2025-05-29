@@ -6,9 +6,9 @@ import 'google/protobuf/empty.proto';
 import 'product/accounting/coa/transaction/journal/product.accounting.coa.transaction.journal.common.grpc.proto';
 
 service TransactionJournal {
-  rpc Create(common.CoaTransactionJournalCreateRequest) returns (stream common.CoaTransactionJournalCreateResponse);
-  rpc ReadAll(google.protobuf.Empty) returns (stream common.CoaTransactionJournalReadAllResponse);
-  rpc ReadByID(common.CoaTransactionJournalReadByIDRequest) returns (stream common.IGCoaTransactionJournal);
-  rpc UpdateOne(common.CoaTransactionJournalUpdateOneRequest) returns (stream common.CoaTransactionJournalUpdateOneResponse);
-  rpc DeleteOne(common.CoaTransactionJournalDeleteOneRequest) returns (stream common.CoaTransactionJournalDeleteOneResponse);
+  rpc Create(common.CoaTransactionJournalCreateRequest) returns (common.CoaTransactionJournalCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.CoaTransactionJournalReadAllResponse);
+  rpc ReadByID(common.CoaTransactionJournalReadByIDRequest) returns (common.IGCoaTransactionJournal);
+  rpc UpdateOne(common.CoaTransactionJournalUpdateOneRequest) returns (common.CoaTransactionJournalUpdateOneResponse);
+  rpc DeleteOne(common.CoaTransactionJournalDeleteOneRequest) returns (common.CoaTransactionJournalDeleteOneResponse);
 }
