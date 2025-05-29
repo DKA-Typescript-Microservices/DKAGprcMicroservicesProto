@@ -86,16 +86,17 @@ message SysTime {
 //############################################################################################
 
 message IGCoaTransactionJournal {
-  optional account.common.IAccount reference = 1;
-  organization.common.EnterpriseOrganization organization = 2;
-  project.common.EnterpriseOrganizationProject project = 3;
-  optional accounting.coa.transaction.common.IGCoaTransaction transaction = 4;
-  optional accounting.coa.acct.common.IGCoaAccount account = 5;
-  int32 debit = 6;
-  int32 credit = 7;
-  optional string memo = 8;
-  SysTime time_created = 9;
-  SysTime time_updated = 10;
-  SysTime time_deleted = 11;
-  bool status = 12;
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  organization.common.EnterpriseOrganization organization = 3;
+  project.common.EnterpriseOrganizationProject project = 4;
+  optional accounting.coa.transaction.common.IGCoaTransaction transaction = 5;
+  optional accounting.coa.acct.common.IGCoaAccount account = 6;
+  int32 debit = 7;
+  int32 credit = 8;
+  optional string memo = 9;
+  SysTime time_created = 10;
+  SysTime time_updated = 11;
+  SysTime time_deleted = 12;
+  bool status = 13;
 }

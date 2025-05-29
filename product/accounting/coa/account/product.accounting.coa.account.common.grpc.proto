@@ -95,29 +95,31 @@ message SysTime {
 //############################################################################################
 
 message IGCoaAccount {
-  optional string reference = 1;
-  optional string organization = 2;
-  optional string project = 3;
-  optional string parent = 4;
-  int32 code = 5;
-  string name = 6;
-  optional string description = 7;
-  optional SysTime time_created = 8;
-  optional SysTime time_updated = 9;
-  optional SysTime time_deleted = 10;
-  bool status = 11;
+  optional string id = 1;
+  optional string reference = 2;
+  optional string organization = 3;
+  optional string project = 4;
+  optional string parent = 5;
+  int32 code = 6;
+  string name = 7;
+  optional string description = 8;
+  optional SysTime time_created = 9;
+  optional SysTime time_updated = 10;
+  optional SysTime time_deleted = 11;
+  bool status = 12;
 }
 
 message IGCoaAccountAll {
-  optional account.common.IAccount reference = 1;
-  organization.common.EnterpriseOrganization organization = 2;
-  project.common.EnterpriseOrganizationProject project = 3;
-  optional IGCoaAccountAll parent = 4;
-  int32 code = 5;
-  string name = 6;
-  optional string description = 7;
-  optional SysTime time_created = 8;
-  optional SysTime time_updated = 9;
-  optional SysTime time_deleted = 10;
-  bool status = 11;
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  organization.common.EnterpriseOrganization organization = 3;
+  project.common.EnterpriseOrganizationProject project = 4;
+  optional IGCoaAccountAll parent = 5;
+  int32 code = 6;
+  string name = 7;
+  optional string description = 8;
+  optional SysTime time_created = 9;
+  optional SysTime time_updated = 10;
+  optional SysTime time_deleted = 11;
+  bool status = 12;
 }

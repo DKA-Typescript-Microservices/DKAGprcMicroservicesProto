@@ -79,12 +79,13 @@ message SysTime {
 //############################################################################################
 
 message IGCoaTransaction {
-  optional account.common.IAccount reference = 1;
-  organization.common.EnterpriseOrganization organization = 2;
-  project.common.EnterpriseOrganizationProject project = 3;
-  optional string description = 6;
-  SysTime time_created = 7;
-  SysTime time_updated = 8;
-  SysTime time_deleted = 9;
-  bool status = 10;
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  organization.common.EnterpriseOrganization organization = 3;
+  project.common.EnterpriseOrganizationProject project = 4;
+  optional string description = 5;
+  SysTime time_created = 6;
+  SysTime time_updated = 7;
+  SysTime time_deleted = 8;
+  bool status = 9;
 }
