@@ -79,6 +79,10 @@ message IGProductVariant {
   optional string project = 4;
   optional string product = 5;
   optional string code = 6;
+  string name = 7;
+  optional string description = 8;
+  optional string price = 9;
+  optional string image = 10;
 }
 
 message IGProductVariantReadAll {
@@ -90,9 +94,10 @@ message IGProductVariantReadAll {
   optional string code = 6;
   string name = 7;
   optional string description = 8;
-  optional string image = 9;
-  optional SysTime time_created = 10;
-  optional SysTime time_updated = 11;
-  optional SysTime time_deleted = 12;
-  optional bool status = 13;
+  optional string price = 9;
+  optional string image = 10;
+  optional SysTime time_created = 11;
+  optional SysTime time_updated = 12;
+  optional SysTime time_deleted = 13;
+  optional bool status = 14;
 }
