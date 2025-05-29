@@ -7,7 +7,7 @@ import 'enterprise/organization/enterprise.organization.common.grpc.proto';
 import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
 
 import 'product/pos/transaction/product.pos.transaction.common.grpc.proto';
-import 'product/pos/product/product.pos.product.common.grpc.proto';
+import 'product/pos/product/variant/product.pos.product.variant.common.grpc.proto';
 
 //############################################################################################
 message SysTime {
@@ -77,7 +77,7 @@ message IGTransactionItems {
   optional string organization = 3;
   optional string project = 4;
   optional string transaction = 5;
-  optional string product = 6;
+  optional string variant = 6;
   optional int32 quantity = 7;
   optional int32 price = 8;
   optional int32 total = 9;
@@ -89,7 +89,7 @@ message IGTransactionItemsReadAll {
   optional organization.common.EnterpriseOrganization organization = 3;
   optional project.common.EnterpriseOrganizationProject project = 4;
   transaction.common.IGTransactionAll transaction = 5;
-  product.common.IGProductAll product = 6;
+  product.variant.common.IGProductVariantReadAll variant = 6;
   optional int32 quantity = 7;
   optional int32 price = 8;
   optional int32 total = 9;
