@@ -8,11 +8,12 @@ import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
 
 //###########################################################################
 message TransactionCreateRequest {
-  optional string reference = 1;
-  optional string organization = 2;
-  optional string project = 3;
-  optional string costumer = 4;
-  string invoice = 5;
+  optional string id = 1;
+  optional string reference = 2;
+  optional string organization = 3;
+  optional string project = 4;
+  optional string costumer = 5;
+  string invoice = 6;
 }
 
 message TransactionCreateResponse {
@@ -80,15 +81,16 @@ message SysTime {
 //############################################################################################
 
 message IGTransactionAll {
-  optional account.common.IAccount reference = 1;
-  optional organization.common.EnterpriseOrganization organization = 2;
-  optional project.common.EnterpriseOrganizationProject project = 3;
-  optional string costumer = 6;
-  string invoice = 7;
-  SysTime time_created = 8;
-  SysTime time_updated = 9;
-  SysTime time_deleted = 10;
-  bool status = 11;
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  optional string costumer = 5;
+  string invoice = 6;
+  optional SysTime time_created = 7;
+  optional SysTime time_updated = 8;
+  optional SysTime time_deleted = 9;
+  bool status = 10;
 }
 
 message IGTransaction {
@@ -97,8 +99,8 @@ message IGTransaction {
   optional string project = 3;
   optional string costumer = 4;
   string invoice = 5;
-  SysTime time_created = 6;
-  SysTime time_updated = 7;
-  SysTime time_deleted = 8;
+  optional SysTime time_created = 6;
+  optional SysTime time_updated = 7;
+  optional SysTime time_deleted = 8;
   bool status = 9;
 }
