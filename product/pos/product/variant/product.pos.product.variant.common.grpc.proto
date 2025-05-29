@@ -81,7 +81,7 @@ message IGProductVariant {
   optional string code = 6;
   string name = 7;
   optional string description = 8;
-  optional string price = 9;
+  optional int32 price = 9;
   optional string image = 10;
 }
 
@@ -94,7 +94,7 @@ message IGProductVariantReadAll {
   optional string code = 6;
   string name = 7;
   optional string description = 8;
-  optional string price = 9;
+  optional int32 price = 9;
   optional string image = 10;
   optional SysTime time_created = 11;
   optional SysTime time_updated = 12;
