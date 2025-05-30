@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package inventory.location;
+
+import 'product/pos/inventory/location/product.pos.inventory.location.common.grpc.proto';
+import "google/protobuf/empty.proto";
+
+service InventoryLocation {
+  rpc Create(common.IGInventoryLocation) returns (common.InventoryLocationCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.InventoryLocationReadAllResponse);
+  rpc ReadByID(common.InventoryLocationReadByIDRequest) returns (common.InventoryLocationReadByIDResponse);
+  rpc UpdateOne(common.InventoryLocationUpdateOneRequest) returns (common.InventoryLocationUpdateOneResponse);
+  rpc DeleteOne(common.InventoryLocationDeleteOneRequest) returns (common.InventoryLocationDeleteOneResponse);
+}

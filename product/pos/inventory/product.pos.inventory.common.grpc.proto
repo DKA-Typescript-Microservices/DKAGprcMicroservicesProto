@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+package inventory.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+
+import 'product/pos/product/product.pos.product.common.grpc.proto';
+import 'product/pos/inventory/location/product.pos.inventory.location.common.grpc.proto';
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message InventoryCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryReadAll data = 4;
+}
+//############################################################################################
+message InventoryReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGInventoryReadAll data = 4;
+}
+//############################################################################################
+message InventoryReadByIDRequest {
+  string id = 1;
+}
+
+message InventoryReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryReadAll data = 4;
+}
+//############################################################################################
+message InventoryUpdateOneRequestQuery {
+  string id = 1;
+}
+message InventoryUpdateOneRequest {
+  InventoryUpdateOneRequestQuery query = 1;
+  IGInventory set = 2;
+}
+message InventoryUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryReadAll data = 4;
+}
+//############################################################################################
+message InventoryDeleteOneRequestOption {
+  optional bool force = 1;
+}
+message InventoryDeleteOneRequestQuery {
+  string id = 1;
+}
+message InventoryDeleteOneRequest {
+  InventoryDeleteOneRequestQuery query = 1;
+  optional InventoryDeleteOneRequestOption option = 2;
+}
+message InventoryDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryReadAll data = 4;
+}
+//############################################################################################
+message IGInventory {
+  optional string id = 1;
+  optional string reference = 2;
+  optional string organization = 3;
+  optional string project = 4;
+  optional string product = 5;
+  optional string location = 6;
+  optional string quantity = 7;
+  optional SysTime time_created = 8;
+  optional SysTime time_updated = 9;
+  optional SysTime time_deleted = 10;
+  optional bool status = 11;
+}
+
+message IGInventoryReadAll {
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  optional product.common.IGProductAll product = 5;
+  optional inventory.location.common.IGInventoryLocationReadAll location = 6;
+  optional string quantity = 7;
+  optional SysTime time_created = 8;
+  optional SysTime time_updated = 9;
+  optional SysTime time_deleted = 10;
+  optional bool status = 11;
+}

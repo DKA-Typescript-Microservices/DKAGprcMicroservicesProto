@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+package inventory.location.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message InventoryLocationCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryLocationReadAll data = 4;
+}
+//############################################################################################
+message InventoryLocationReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGInventoryLocationReadAll data = 4;
+}
+//############################################################################################
+message InventoryLocationReadByIDRequest {
+  string id = 1;
+}
+
+message InventoryLocationReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryLocationReadAll data = 4;
+}
+//############################################################################################
+message InventoryLocationUpdateOneRequestQuery {
+  string id = 1;
+}
+message InventoryLocationUpdateOneRequest {
+  InventoryLocationUpdateOneRequestQuery query = 1;
+  IGInventoryLocation set = 2;
+}
+message InventoryLocationUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryLocationReadAll data = 4;
+}
+//############################################################################################
+message InventoryLocationDeleteOneRequestOption {
+  optional bool force = 1;
+}
+message InventoryLocationDeleteOneRequestQuery {
+  string id = 1;
+}
+message InventoryLocationDeleteOneRequest {
+  InventoryLocationDeleteOneRequestQuery query = 1;
+  optional InventoryLocationDeleteOneRequestOption option = 2;
+}
+message InventoryLocationDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryLocationReadAll data = 4;
+}
+//############################################################################################
+message IGInventoryLocation {
+  optional string id = 1;
+  optional string reference = 2;
+  optional string organization = 3;
+  optional string project = 4;
+  optional string name = 5;
+  optional string code = 6;
+  optional string address = 7;
+  optional SysTime time_created = 8;
+  optional SysTime time_updated = 9;
+  optional SysTime time_deleted = 10;
+  optional bool status = 11;
+}
+
+message IGInventoryLocationReadAll {
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  optional string name = 5;
+  optional string code = 6;
+  optional string address = 7;
+  optional SysTime time_created = 8;
+  optional SysTime time_updated = 9;
+  optional SysTime time_deleted = 10;
+  optional bool status = 11;
+}
