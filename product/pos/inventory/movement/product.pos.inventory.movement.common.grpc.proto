@@ -1,0 +1,105 @@
+syntax = "proto3";
+
+package inventory.movement.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+
+import 'product/pos/transaction/product.pos.transaction.common.grpc.proto';
+import 'product/pos/inventory/product.pos.inventory.common.grpc.proto';
+import 'product/pos/inventory/movement/type/product.pos.inventory.movement.type.common.grpc.proto';
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message InventoryMovementCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryMovementReadAll data = 4;
+}
+//############################################################################################
+message InventoryMovementReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGInventoryMovementReadAll data = 4;
+}
+//############################################################################################
+message InventoryMovementReadByIDRequest {
+  string id = 1;
+}
+
+message InventoryMovementReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryMovementReadAll data = 4;
+}
+//############################################################################################
+message InventoryMovementUpdateOneRequestQuery {
+  string id = 1;
+}
+message InventoryMovementUpdateOneRequest {
+  InventoryMovementUpdateOneRequestQuery query = 1;
+  IGInventoryMovement set = 2;
+}
+message InventoryMovementUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryMovementReadAll data = 4;
+}
+//############################################################################################
+message InventoryMovementDeleteOneRequestOption {
+  optional bool force = 1;
+}
+message InventoryMovementDeleteOneRequestQuery {
+  string id = 1;
+}
+message InventoryMovementDeleteOneRequest {
+  InventoryMovementDeleteOneRequestQuery query = 1;
+  optional InventoryMovementDeleteOneRequestOption option = 2;
+}
+message InventoryMovementDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryMovementReadAll data = 4;
+}
+//############################################################################################
+message IGInventoryMovement {
+  optional string id = 1;
+  optional string reference = 2;
+  optional string organization = 3;
+  optional string project = 4;
+  optional string inventory = 5;
+  optional string type = 6;
+  optional string quantity = 7;
+  optional string transaction = 8;
+  optional string note = 9;
+  optional SysTime time_created = 10;
+  optional SysTime time_updated = 11;
+  optional SysTime time_deleted = 12;
+  optional bool status = 13;
+}
+
+message IGInventoryMovementReadAll {
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  optional inventory.common.IGInventoryReadAll inventory = 5;
+  optional inventory.movement.type.common.IGInventoryMovementTypeReadAll type = 6;
+  optional string quantity = 7;
+  optional transaction.common.IGTransactionAll transaction = 8;
+  optional string note = 9;
+  optional SysTime time_created = 10;
+  optional SysTime time_updated = 11;
+  optional SysTime time_deleted = 12;
+  optional bool status = 13;
+}

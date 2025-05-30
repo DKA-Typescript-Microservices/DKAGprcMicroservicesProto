@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+package inventory.movement.type.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message InventoryMovementTypeCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryMovementTypeReadAll data = 4;
+}
+//############################################################################################
+message InventoryMovementTypeReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGInventoryMovementTypeReadAll data = 4;
+}
+//############################################################################################
+message InventoryMovementTypeReadByIDRequest {
+  string id = 1;
+}
+
+message InventoryMovementTypeReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryMovementTypeReadAll data = 4;
+}
+//############################################################################################
+message InventoryMovementTypeUpdateOneRequestQuery {
+  string id = 1;
+}
+message InventoryMovementTypeUpdateOneRequest {
+  InventoryMovementTypeUpdateOneRequestQuery query = 1;
+  IGInventoryMovementType set = 2;
+}
+message InventoryMovementTypeUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryMovementTypeReadAll data = 4;
+}
+//############################################################################################
+message InventoryMovementTypeDeleteOneRequestOption {
+  optional bool force = 1;
+}
+message InventoryMovementTypeDeleteOneRequestQuery {
+  string id = 1;
+}
+message InventoryMovementTypeDeleteOneRequest {
+  InventoryMovementTypeDeleteOneRequestQuery query = 1;
+  optional InventoryMovementTypeDeleteOneRequestOption option = 2;
+}
+message InventoryMovementTypeDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryMovementTypeReadAll data = 4;
+}
+//############################################################################################
+message IGInventoryMovementType {
+  optional string id = 1;
+  optional string reference = 2;
+  optional string organization = 3;
+  optional string project = 4;
+  optional string name = 5;
+  optional string description = 6;
+  optional SysTime time_created = 7;
+  optional SysTime time_updated = 8;
+  optional SysTime time_deleted = 9;
+  optional bool status = 10;
+}
+
+message IGInventoryMovementTypeReadAll {
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  optional string name = 5;
+  optional string description = 6;
+  optional SysTime time_created = 7;
+  optional SysTime time_updated = 8;
+  optional SysTime time_deleted = 9;
+  optional bool status = 10;
+}

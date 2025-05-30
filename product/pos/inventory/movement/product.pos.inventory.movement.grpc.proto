@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package inventory.movement;
+
+import 'product/pos/inventory/movement/product.pos.inventory.movement.common.grpc.proto';
+import "google/protobuf/empty.proto";
+
+service InventoryMovement {
+  rpc Create(common.IGInventoryMovement) returns (common.InventoryMovementCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.InventoryMovementReadAllResponse);
+  rpc ReadByID(common.InventoryMovementReadByIDRequest) returns (common.InventoryMovementReadByIDResponse);
+  rpc UpdateOne(common.InventoryMovementUpdateOneRequest) returns (common.InventoryMovementUpdateOneResponse);
+  rpc DeleteOne(common.InventoryMovementDeleteOneRequest) returns (common.InventoryMovementDeleteOneResponse);
+}
