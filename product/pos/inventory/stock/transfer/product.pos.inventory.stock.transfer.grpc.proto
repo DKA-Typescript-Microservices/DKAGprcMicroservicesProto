@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package inventory.stock.transfer;
+
+import 'product/pos/inventory/stock/transfer/product.pos.inventory.stock.transfer.common.grpc.proto';
+import "google/protobuf/empty.proto";
+
+service InventoryStockTransfer {
+  rpc Create(common.IGInventoryStockTransfer) returns (common.InventoryStockTransferCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.InventoryStockTransferReadAllResponse);
+  rpc ReadByID(common.InventoryStockTransferReadByIDRequest) returns (common.InventoryStockTransferReadByIDResponse);
+  rpc UpdateOne(common.InventoryStockTransferUpdateOneRequest) returns (common.InventoryStockTransferUpdateOneResponse);
+  rpc DeleteOne(common.InventoryStockTransferDeleteOneRequest) returns (common.InventoryStockTransferDeleteOneResponse);
+}

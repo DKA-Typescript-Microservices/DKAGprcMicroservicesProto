@@ -1,0 +1,102 @@
+syntax = "proto3";
+
+package inventory.stock.transfer.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+
+import 'product/pos/product/product.pos.product.common.grpc.proto';
+import 'product/pos/inventory/location/product.pos.inventory.location.common.grpc.proto';
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message InventoryStockTransferCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryStockTransferReadAll data = 4;
+}
+//############################################################################################
+message InventoryStockTransferReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGInventoryStockTransferReadAll data = 4;
+}
+//############################################################################################
+message InventoryStockTransferReadByIDRequest {
+  string id = 1;
+}
+
+message InventoryStockTransferReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryStockTransferReadAll data = 4;
+}
+//############################################################################################
+message InventoryStockTransferUpdateOneRequestQuery {
+  string id = 1;
+}
+message InventoryStockTransferUpdateOneRequest {
+  InventoryStockTransferUpdateOneRequestQuery query = 1;
+  IGInventoryStockTransfer set = 2;
+}
+message InventoryStockTransferUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryStockTransferReadAll data = 4;
+}
+//############################################################################################
+message InventoryStockTransferDeleteOneRequestOption {
+  optional bool force = 1;
+}
+message InventoryStockTransferDeleteOneRequestQuery {
+  string id = 1;
+}
+message InventoryStockTransferDeleteOneRequest {
+  InventoryStockTransferDeleteOneRequestQuery query = 1;
+  optional InventoryStockTransferDeleteOneRequestOption option = 2;
+}
+message InventoryStockTransferDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryStockTransferReadAll data = 4;
+}
+//############################################################################################
+message IGInventoryStockTransfer {
+  optional string id = 1;
+  optional string reference = 2;
+  optional string organization = 3;
+  optional string project = 4;
+  optional string product = 5;
+  optional string from = 6;
+  optional string to = 7;
+  optional int32 quantity = 8;
+  optional SysTime time_created = 9;
+  optional SysTime time_updated = 10;
+  optional SysTime time_deleted = 11;
+  optional bool status = 12;
+}
+
+message IGInventoryStockTransferReadAll {
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  optional product.common.IGProductAll product = 5;
+  optional inventory.location.common.IGInventoryLocationReadAll from = 6;
+  optional inventory.location.common.IGInventoryLocationReadAll to = 7;
+  optional int32 quantity = 8;
+  optional SysTime time_created = 9;
+  optional SysTime time_updated = 10;
+  optional SysTime time_deleted = 11;
+  optional bool status = 12;
+}
