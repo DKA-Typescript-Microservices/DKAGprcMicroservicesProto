@@ -1,1 +1,14 @@
 syntax = "proto3";
+
+package parking.config.device.peripheral.category;
+
+import 'product/parking/config/device/peripheral/category/product.parking.config.device.peripheral.category.common.grpc.proto';
+import "google/protobuf/empty.proto";
+
+service ConfigDevicePeripheralCategory {
+  rpc Create(common.IGConfigDevicePeripheralCategory) returns (common.ConfigDevicePeripheralCategoryCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.ConfigDevicePeripheralCategoryReadAllResponse);
+  rpc ReadByID(common.ConfigDevicePeripheralCategoryReadByIDRequest) returns (common.ConfigDevicePeripheralCategoryReadByIDResponse);
+  rpc UpdateOne(common.ConfigDevicePeripheralCategoryUpdateOneRequest) returns (common.ConfigDevicePeripheralCategoryUpdateOneResponse);
+  rpc DeleteOne(common.ConfigDevicePeripheralCategoryDeleteOneRequest) returns (common.ConfigDevicePeripheralCategoryDeleteOneResponse);
+}

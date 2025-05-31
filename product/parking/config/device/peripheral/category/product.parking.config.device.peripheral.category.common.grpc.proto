@@ -1,1 +1,97 @@
 syntax = "proto3";
+
+package parking.config.device.peripheral.category.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message ConfigDevicePeripheralCategoryCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigDevicePeripheralCategoryReadAll data = 4;
+}
+//############################################################################################
+message ConfigDevicePeripheralCategoryReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGConfigDevicePeripheralCategoryReadAll data = 4;
+}
+//############################################################################################
+message ConfigDevicePeripheralCategoryReadByIDRequest {
+  string id = 1;
+}
+
+message ConfigDevicePeripheralCategoryReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigDevicePeripheralCategoryReadAll data = 4;
+}
+//############################################################################################
+message ConfigDevicePeripheralCategoryUpdateOneRequestQuery {
+  string id = 1;
+}
+message ConfigDevicePeripheralCategoryUpdateOneRequest {
+  ConfigDevicePeripheralCategoryUpdateOneRequestQuery query = 1;
+  IGConfigDevicePeripheralCategory set = 2;
+}
+message ConfigDevicePeripheralCategoryUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigDevicePeripheralCategoryReadAll data = 4;
+}
+//############################################################################################
+message ConfigDevicePeripheralCategoryDeleteOneRequestOption {
+  optional bool force = 1;
+}
+message ConfigDevicePeripheralCategoryDeleteOneRequestQuery {
+  string id = 1;
+}
+message ConfigDevicePeripheralCategoryDeleteOneRequest {
+  ConfigDevicePeripheralCategoryDeleteOneRequestQuery query = 1;
+  optional ConfigDevicePeripheralCategoryDeleteOneRequestOption option = 2;
+}
+message ConfigDevicePeripheralCategoryDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigDevicePeripheralCategoryReadAll data = 4;
+}
+//############################################################################################
+message IGConfigDevicePeripheralCategory {
+  optional string id = 1;
+  optional string reference = 2;
+  optional string organization = 3;
+  optional string project = 4;
+  optional string name = 5;
+  optional string code = 6;
+  optional string address = 7;
+  optional SysTime time_created = 8;
+  optional SysTime time_updated = 9;
+  optional SysTime time_deleted = 10;
+  optional bool status = 11;
+}
+
+message IGConfigDevicePeripheralCategoryReadAll {
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  optional string name = 5;
+  optional string code = 6;
+  optional string address = 7;
+  optional SysTime time_created = 8;
+  optional SysTime time_updated = 9;
+  optional SysTime time_deleted = 10;
+  optional bool status = 11;
+}
