@@ -79,7 +79,7 @@ message IGInventoryMovement {
   optional string project = 4;
   optional string inventory = 5;
   optional string type = 6;
-  optional string quantity = 7;
+  optional int32 quantity = 7;
   optional string transaction = 8;
   optional string note = 9;
   optional SysTime time_created = 10;
@@ -95,7 +95,7 @@ message IGInventoryMovementReadAll {
   optional project.common.EnterpriseOrganizationProject project = 4;
   optional inventory.common.IGInventoryReadAll inventory = 5;
   optional inventory.movement.type.common.IGInventoryMovementTypeReadAll type = 6;
-  optional string quantity = 7;
+  optional int32 quantity = 7;
   optional transaction.common.IGTransactionAll transaction = 8;
   optional string note = 9;
   optional SysTime time_created = 10;
