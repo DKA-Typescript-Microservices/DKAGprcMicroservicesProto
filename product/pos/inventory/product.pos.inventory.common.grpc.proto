@@ -78,7 +78,7 @@ message IGInventory {
   optional string project = 4;
   optional string product = 5;
   optional string location = 6;
-  optional string quantity = 7;
+  optional int32 quantity = 7;
   optional SysTime time_created = 8;
   optional SysTime time_updated = 9;
   optional SysTime time_deleted = 10;
@@ -92,7 +92,7 @@ message IGInventoryReadAll {
   optional project.common.EnterpriseOrganizationProject project = 4;
   optional product.common.IGProductAll product = 5;
   optional inventory.location.common.IGInventoryLocationReadAll location = 6;
-  optional string quantity = 7;
+  optional int32 quantity = 7;
   optional SysTime time_created = 8;
   optional SysTime time_updated = 9;
   optional SysTime time_deleted = 10;

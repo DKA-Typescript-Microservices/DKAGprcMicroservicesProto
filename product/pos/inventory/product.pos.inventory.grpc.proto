@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package inventory.location;
+package inventory;
 
 import 'product/pos/inventory/product.pos.inventory.common.grpc.proto';
 import "google/protobuf/empty.proto";
