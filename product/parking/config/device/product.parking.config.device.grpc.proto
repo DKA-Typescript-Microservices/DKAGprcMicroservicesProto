@@ -1,1 +1,14 @@
 syntax = "proto3";
+
+package parking.config.device;
+
+import 'product/parking/config/device/product.parking.config.device.common.grpc.proto';
+import "google/protobuf/empty.proto";
+
+service ConfigDevice {
+  rpc Create(common.IGConfigDevice) returns (common.ConfigDeviceCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.ConfigDeviceReadAllResponse);
+  rpc ReadByID(common.ConfigDeviceReadByIDRequest) returns (common.ConfigDeviceReadByIDResponse);
+  rpc UpdateOne(common.ConfigDeviceUpdateOneRequest) returns (common.ConfigDeviceUpdateOneResponse);
+  rpc DeleteOne(common.ConfigDeviceDeleteOneRequest) returns (common.ConfigDeviceDeleteOneResponse);
+}

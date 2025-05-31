@@ -1,1 +1,97 @@
 syntax = "proto3";
+
+package parking.config.device.peripheral.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message ConfigDevicePeripheralCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigDevicePeripheralReadAll data = 4;
+}
+//############################################################################################
+message ConfigDevicePeripheralReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGConfigDevicePeripheralReadAll data = 4;
+}
+//############################################################################################
+message ConfigDevicePeripheralReadByIDRequest {
+  string id = 1;
+}
+
+message ConfigDevicePeripheralReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigDevicePeripheralReadAll data = 4;
+}
+//############################################################################################
+message ConfigDevicePeripheralUpdateOneRequestQuery {
+  string id = 1;
+}
+message ConfigDevicePeripheralUpdateOneRequest {
+  ConfigDevicePeripheralUpdateOneRequestQuery query = 1;
+  IGConfigDevicePeripheral set = 2;
+}
+message ConfigDevicePeripheralUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigDevicePeripheralReadAll data = 4;
+}
+//############################################################################################
+message ConfigDevicePeripheralDeleteOneRequestOption {
+  optional bool force = 1;
+}
+message ConfigDevicePeripheralDeleteOneRequestQuery {
+  string id = 1;
+}
+message ConfigDevicePeripheralDeleteOneRequest {
+  ConfigDevicePeripheralDeleteOneRequestQuery query = 1;
+  optional ConfigDevicePeripheralDeleteOneRequestOption option = 2;
+}
+message ConfigDevicePeripheralDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigDevicePeripheralReadAll data = 4;
+}
+//############################################################################################
+message IGConfigDevicePeripheral {
+  optional string id = 1;
+  optional string reference = 2;
+  optional string organization = 3;
+  optional string project = 4;
+  optional string name = 5;
+  optional string code = 6;
+  optional string address = 7;
+  optional SysTime time_created = 8;
+  optional SysTime time_updated = 9;
+  optional SysTime time_deleted = 10;
+  optional bool status = 11;
+}
+
+message IGConfigDevicePeripheralReadAll {
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  optional string name = 5;
+  optional string code = 6;
+  optional string address = 7;
+  optional SysTime time_created = 8;
+  optional SysTime time_updated = 9;
+  optional SysTime time_deleted = 10;
+  optional bool status = 11;
+}

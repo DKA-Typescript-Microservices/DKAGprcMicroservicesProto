@@ -1,1 +1,97 @@
 syntax = "proto3";
+
+package parking.config.device.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message ConfigDeviceCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigDeviceReadAll data = 4;
+}
+//############################################################################################
+message ConfigDeviceReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGConfigDeviceReadAll data = 4;
+}
+//############################################################################################
+message ConfigDeviceReadByIDRequest {
+  string id = 1;
+}
+
+message ConfigDeviceReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigDeviceReadAll data = 4;
+}
+//############################################################################################
+message ConfigDeviceUpdateOneRequestQuery {
+  string id = 1;
+}
+message ConfigDeviceUpdateOneRequest {
+  ConfigDeviceUpdateOneRequestQuery query = 1;
+  IGConfigDevice set = 2;
+}
+message ConfigDeviceUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigDeviceReadAll data = 4;
+}
+//############################################################################################
+message ConfigDeviceDeleteOneRequestOption {
+  optional bool force = 1;
+}
+message ConfigDeviceDeleteOneRequestQuery {
+  string id = 1;
+}
+message ConfigDeviceDeleteOneRequest {
+  ConfigDeviceDeleteOneRequestQuery query = 1;
+  optional ConfigDeviceDeleteOneRequestOption option = 2;
+}
+message ConfigDeviceDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigDeviceReadAll data = 4;
+}
+//############################################################################################
+message IGConfigDevice {
+  optional string id = 1;
+  optional string reference = 2;
+  optional string organization = 3;
+  optional string project = 4;
+  optional string name = 5;
+  optional string code = 6;
+  optional string address = 7;
+  optional SysTime time_created = 8;
+  optional SysTime time_updated = 9;
+  optional SysTime time_deleted = 10;
+  optional bool status = 11;
+}
+
+message IGConfigDeviceReadAll {
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  optional string name = 5;
+  optional string code = 6;
+  optional string address = 7;
+  optional SysTime time_created = 8;
+  optional SysTime time_updated = 9;
+  optional SysTime time_deleted = 10;
+  optional bool status = 11;
+}
