@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+package inventory.stock.adjustment.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+
+import 'product/pos/inventory/product.pos.inventory.common.grpc.proto';
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message InventoryStockAdjustmentCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryStockAdjustmentReadAll data = 4;
+}
+//############################################################################################
+message InventoryStockAdjustmentReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGInventoryStockAdjustmentReadAll data = 4;
+}
+//############################################################################################
+message InventoryStockAdjustmentReadByIDRequest {
+  string id = 1;
+}
+
+message InventoryStockAdjustmentReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryStockAdjustmentReadAll data = 4;
+}
+//############################################################################################
+message InventoryStockAdjustmentUpdateOneRequestQuery {
+  string id = 1;
+}
+message InventoryStockAdjustmentUpdateOneRequest {
+  InventoryStockAdjustmentUpdateOneRequestQuery query = 1;
+  IGInventoryStockAdjustment set = 2;
+}
+message InventoryStockAdjustmentUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryStockAdjustmentReadAll data = 4;
+}
+//############################################################################################
+message InventoryStockAdjustmentDeleteOneRequestOption {
+  optional bool force = 1;
+}
+message InventoryStockAdjustmentDeleteOneRequestQuery {
+  string id = 1;
+}
+message InventoryStockAdjustmentDeleteOneRequest {
+  InventoryStockAdjustmentDeleteOneRequestQuery query = 1;
+  optional InventoryStockAdjustmentDeleteOneRequestOption option = 2;
+}
+message InventoryStockAdjustmentDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGInventoryStockAdjustmentReadAll data = 4;
+}
+//############################################################################################
+message IGInventoryStockAdjustment {
+  optional string id = 1;
+  optional string reference = 2;
+  optional string organization = 3;
+  optional string project = 4;
+  optional int64 before_quantity = 6;
+  optional int64 after_quantity = 7;
+  optional string reason = 8;
+  optional SysTime time_created = 9;
+  optional SysTime time_updated = 10;
+  optional SysTime time_deleted = 11;
+  optional bool status = 12;
+}
+
+message IGInventoryStockAdjustmentReadAll {
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  optional inventory.common.IGInventoryReadAll inventory = 5;
+  optional int64 before_quantity = 6;
+  optional int64 after_quantity = 7;
+  optional string reason = 8;
+  optional SysTime time_created = 9;
+  optional SysTime time_updated = 10;
+  optional SysTime time_deleted = 11;
+  optional bool status = 12;
+}

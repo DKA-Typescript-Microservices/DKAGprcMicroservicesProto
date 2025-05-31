@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package inventory.stock.adjustment;
+
+import 'product/pos/inventory/stock/adjustment/product.pos.inventory.stock.adjustment.common.grpc.proto';
+import "google/protobuf/empty.proto";
+
+service InventoryStockAdjustment {
+  rpc Create(common.IGInventoryStockAdjustment) returns (common.InventoryStockAdjustmentCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.InventoryStockAdjustmentReadAllResponse);
+  rpc ReadByID(common.InventoryStockAdjustmentReadByIDRequest) returns (common.InventoryStockAdjustmentReadByIDResponse);
+  rpc UpdateOne(common.InventoryStockAdjustmentUpdateOneRequest) returns (common.InventoryStockAdjustmentUpdateOneResponse);
+  rpc DeleteOne(common.InventoryStockAdjustmentDeleteOneRequest) returns (common.InventoryStockAdjustmentDeleteOneResponse);
+}
