@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package parking.config.device;
+package config.device;
 
 import 'product/parking/config/device/product.parking.config.device.common.grpc.proto';
 import "google/protobuf/empty.proto";

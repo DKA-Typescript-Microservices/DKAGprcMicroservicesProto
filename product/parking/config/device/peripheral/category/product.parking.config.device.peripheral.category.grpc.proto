@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package parking.config.device.peripheral.category;
+package config.device.peripheral.category;
 
 import 'product/parking/config/device/peripheral/category/product.parking.config.device.peripheral.category.common.grpc.proto';
 import "google/protobuf/empty.proto";

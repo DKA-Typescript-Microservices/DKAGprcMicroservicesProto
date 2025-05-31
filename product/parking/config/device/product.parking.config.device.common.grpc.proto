@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package parking.config.device.common;
+package config.device.common;
 
 import 'account/account.common.grpc.proto';
 import 'enterprise/organization/enterprise.organization.common.grpc.proto';
