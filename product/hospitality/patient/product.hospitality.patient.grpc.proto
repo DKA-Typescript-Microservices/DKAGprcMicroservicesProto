@@ -1,3 +1,14 @@
 syntax = "proto3";
 
 package hospitality.patient;
+
+import "product/hospitality/patient/product.hospitality.patient.common.grpc.proto";
+import "google/protobuf/empty.proto";
+
+service Patient {
+  rpc Create(common.IGPatient) returns (common.PatientCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.PatientReadAllResponse);
+  rpc ReadByID(common.PatientReadByIDRequest) returns (common.PatientReadByIDResponse);
+  rpc UpdateOne(common.PatientUpdateOneRequest) returns (common.PatientUpdateOneResponse);
+  rpc DeleteOne(common.PatientDeleteOneRequest) returns (common.PatientDeleteOneResponse);
+}

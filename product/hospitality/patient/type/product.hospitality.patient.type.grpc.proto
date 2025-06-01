@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package hospitality.patient.type;
+
+import 'product/hospitality/patient/type/product.hospitality.patient.type.common.grpc.proto';
+import "google/protobuf/empty.proto";
+
+service PatientType {
+  rpc Create(common.IGPatientType) returns (common.PatientTypeCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.PatientTypeReadAllResponse);
+  rpc ReadByID(common.PatientTypeReadByIDRequest) returns (common.PatientTypeReadByIDResponse);
+  rpc UpdateOne(common.PatientTypeUpdateOneRequest) returns (common.PatientTypeUpdateOneResponse);
+  rpc DeleteOne(common.PatientTypeDeleteOneRequest) returns (common.PatientTypeDeleteOneResponse);
+}

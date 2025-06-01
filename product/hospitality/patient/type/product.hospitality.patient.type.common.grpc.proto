@@ -1,13 +1,12 @@
 syntax = "proto3";
 
-package hospitality.patient.common;
+package hospitality.patient.type.common;
 
 
 import 'account/account.common.grpc.proto';
 import 'enterprise/organization/enterprise.organization.common.grpc.proto';
 import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
 
-import 'product/hospitality/patient/type/product.hospitality.patient.type.common.grpc.proto';
 
 //############################################################################################
 message SysTime {
@@ -15,84 +14,86 @@ message SysTime {
   optional string humanize = 2;
 }
 //############################################################################################
-message PatientCreateResponse {
+message PatientTypeCreateResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  IGPatientReadAll data = 4;
+  IGPatientTypeReadAll data = 4;
 }
 //############################################################################################
-message PatientReadAllResponse {
+message PatientTypeReadAllResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  repeated IGPatientReadAll data = 4;
+  repeated IGPatientTypeReadAll data = 4;
 }
 //############################################################################################
-message PatientReadByIDRequest {
+message PatientTypeReadByIDRequest {
   string id = 1;
 }
 
-message PatientReadByIDResponse {
+message PatientTypeReadByIDResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  IGPatientReadAll data = 4;
+  IGPatientTypeReadAll data = 4;
 }
 //############################################################################################
-message PatientUpdateOneRequestQuery {
+message PatientTypeUpdateOneRequestQuery {
   string id = 1;
 }
-message PatientUpdateOneRequest {
-  PatientUpdateOneRequestQuery query = 1;
-  IGPatient set = 2;
+message PatientTypeUpdateOneRequest {
+  PatientTypeUpdateOneRequestQuery query = 1;
+  IGPatientType set = 2;
 }
-message PatientUpdateOneResponse {
+message PatientTypeUpdateOneResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  IGPatientReadAll data = 4;
+  IGPatientTypeReadAll data = 4;
 }
 //############################################################################################
-message PatientDeleteOneRequestOption {
+message PatientTypeDeleteOneRequestOption {
   optional bool force = 1;
 }
-message PatientDeleteOneRequestQuery {
+message PatientTypeDeleteOneRequestQuery {
   string id = 1;
 }
-message PatientDeleteOneRequest {
-  PatientDeleteOneRequestQuery query = 1;
-  optional PatientDeleteOneRequestOption option = 2;
+message PatientTypeDeleteOneRequest {
+  PatientTypeDeleteOneRequestQuery query = 1;
+  optional PatientTypeDeleteOneRequestOption option = 2;
 }
-message PatientDeleteOneResponse {
+message PatientTypeDeleteOneResponse {
   bool status = 1;
   int32 code = 2;
   string msg = 3;
-  IGPatientReadAll data = 4;
+  IGPatientTypeReadAll data = 4;
 }
 //############################################################################################
-message IGPatient {
+message IGPatientType {
   optional string id = 1;
   optional string reference = 2;
   optional string organization = 3;
   optional string project = 4;
-  optional string type = 5;
-  optional string account = 6;
-  optional SysTime time_created = 7;
-  optional SysTime time_updated = 8;
-  optional SysTime time_deleted = 9;
-  optional bool status = 10;
+  optional string code = 5;
+  optional string name = 6;
+  optional string description = 7;
+  optional SysTime time_created = 8;
+  optional SysTime time_updated = 9;
+  optional SysTime time_deleted = 10;
+  optional bool status = 11;
 }
 
-message IGPatientReadAll {
+message IGPatientTypeReadAll {
   optional string id = 1;
   optional account.common.IAccount reference = 2;
   optional organization.common.EnterpriseOrganization organization = 3;
   optional project.common.EnterpriseOrganizationProject project = 4;
-  optional hospitality.patient.type.common.IGPatientTypeReadAll type = 5;
-  optional string account = 6;
-  optional SysTime time_created = 7;
-  optional SysTime time_updated = 8;
-  optional SysTime time_deleted = 9;
-  optional bool status = 10;
+  optional string code = 5;
+  optional string name = 6;
+  optional string description = 7;
+  optional SysTime time_created = 8;
+  optional SysTime time_updated = 9;
+  optional SysTime time_deleted = 10;
+  optional bool status = 11;
 }
