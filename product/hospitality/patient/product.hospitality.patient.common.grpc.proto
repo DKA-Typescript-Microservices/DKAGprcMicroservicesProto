@@ -72,16 +72,11 @@ message PatientDeleteOneResponse {
 }
 //############################################################################################
 message IGPatient {
-  optional string id = 1;
-  optional string reference = 2;
-  optional string organization = 3;
-  optional string project = 4;
-  optional string type = 5;
-  optional string account = 6;
-  optional SysTime time_created = 7;
-  optional SysTime time_updated = 8;
-  optional SysTime time_deleted = 9;
-  optional bool status = 10;
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  optional string type = 4;
+  optional string account = 5;
 }
 
 message IGPatientReadAll {
@@ -90,7 +85,7 @@ message IGPatientReadAll {
   optional organization.common.EnterpriseOrganization organization = 3;
   optional project.common.EnterpriseOrganizationProject project = 4;
   optional hospitality.patient.type.common.IGPatientTypeReadAll type = 5;
-  optional string account = 6;
+  optional account.common.IAccount account = 6;
   optional SysTime time_created = 7;
   optional SysTime time_updated = 8;
   optional SysTime time_deleted = 9;

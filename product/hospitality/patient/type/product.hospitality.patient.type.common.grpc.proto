@@ -71,17 +71,12 @@ message PatientTypeDeleteOneResponse {
 }
 //############################################################################################
 message IGPatientType {
-  optional string id = 1;
-  optional string reference = 2;
-  optional string organization = 3;
-  optional string project = 4;
-  optional string code = 5;
-  optional string name = 6;
-  optional string description = 7;
-  optional SysTime time_created = 8;
-  optional SysTime time_updated = 9;
-  optional SysTime time_deleted = 10;
-  optional bool status = 11;
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  optional string code = 4;
+  optional string name = 5;
+  optional string description = 6;
 }
 
 message IGPatientTypeReadAll {
