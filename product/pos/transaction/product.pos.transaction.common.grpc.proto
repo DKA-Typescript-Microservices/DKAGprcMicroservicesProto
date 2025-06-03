@@ -7,15 +7,6 @@ import 'enterprise/organization/enterprise.organization.common.grpc.proto';
 import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
 
 //###########################################################################
-message TransactionCreateRequest {
-  optional string id = 1;
-  optional string reference = 2;
-  optional string organization = 3;
-  optional string project = 4;
-  optional string costumer = 5;
-  string invoice = 6;
-}
-
 message TransactionCreateResponse {
   bool status = 1;
   int32 code = 2;
@@ -80,6 +71,14 @@ message SysTime {
 }
 //############################################################################################
 
+message IGTransaction {
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  optional string costumer = 4;
+  string invoice = 5;
+}
+
 message IGTransactionAll {
   optional string id = 1;
   optional account.common.IAccount reference = 2;
@@ -93,14 +92,3 @@ message IGTransactionAll {
   bool status = 10;
 }
 
-message IGTransaction {
-  optional string reference = 1;
-  optional string organization = 2;
-  optional string project = 3;
-  optional string costumer = 4;
-  string invoice = 5;
-  optional SysTime time_created = 6;
-  optional SysTime time_updated = 7;
-  optional SysTime time_deleted = 8;
-  bool status = 9;
-}

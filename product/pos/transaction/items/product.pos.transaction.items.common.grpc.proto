@@ -72,15 +72,14 @@ message TransactionItemsDeleteOneResponse {
 }
 //############################################################################################
 message IGTransactionItems {
-  optional string id = 1;
-  optional string reference = 2;
-  optional string organization = 3;
-  optional string project = 4;
-  optional string transaction = 5;
-  optional string variant = 6;
-  optional int32 quantity = 7;
-  optional int32 price = 8;
-  optional int32 total = 9;
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  optional string transaction = 4;
+  optional string variant = 5;
+  optional int32 quantity = 6;
+  optional int32 price = 7;
+  optional int32 total = 8;
 }
 
 message IGTransactionItemsReadAll {

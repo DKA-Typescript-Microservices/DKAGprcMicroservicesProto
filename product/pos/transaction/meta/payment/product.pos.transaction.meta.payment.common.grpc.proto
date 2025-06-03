@@ -73,13 +73,12 @@ message TransactionMetaPaymentDeleteOneResponse {
 }
 //############################################################################################
 message IGTransactionMetaPayment {
-  optional string id = 1;
-  optional string reference = 2;
-  optional string organization = 3;
-  optional string project = 4;
-  string transaction = 5;
-  optional string payment = 6;
-  optional string discount = 7;
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  string transaction = 4;
+  optional string payment = 5;
+  optional string discount = 6;
 }
 
 message IGTransactionMetaPaymentReadAll {
