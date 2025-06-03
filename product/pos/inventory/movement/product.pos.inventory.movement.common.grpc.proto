@@ -73,19 +73,14 @@ message InventoryMovementDeleteOneResponse {
 }
 //############################################################################################
 message IGInventoryMovement {
-  optional string id = 1;
-  optional string reference = 2;
-  optional string organization = 3;
-  optional string project = 4;
-  optional string inventory = 5;
-  optional string type = 6;
-  optional int32 quantity = 7;
-  optional string transaction = 8;
-  optional string note = 9;
-  optional SysTime time_created = 10;
-  optional SysTime time_updated = 11;
-  optional SysTime time_deleted = 12;
-  optional bool status = 13;
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  optional string inventory = 4;
+  optional string type = 5;
+  optional int32 quantity = 6;
+  optional string transaction = 7;
+  optional string note = 8;
 }
 
 message IGInventoryMovementReadAll {

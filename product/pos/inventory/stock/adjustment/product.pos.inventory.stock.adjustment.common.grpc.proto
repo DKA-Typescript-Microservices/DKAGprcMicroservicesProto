@@ -71,17 +71,12 @@ message InventoryStockAdjustmentDeleteOneResponse {
 }
 //############################################################################################
 message IGInventoryStockAdjustment {
-  optional string id = 1;
-  optional string reference = 2;
-  optional string organization = 3;
-  optional string project = 4;
-  optional int64 before_quantity = 6;
-  optional int64 after_quantity = 7;
-  optional string reason = 8;
-  optional SysTime time_created = 9;
-  optional SysTime time_updated = 10;
-  optional SysTime time_deleted = 11;
-  optional bool status = 12;
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  optional int64 before_quantity = 4;
+  optional int64 after_quantity = 5;
+  optional string reason = 6;
 }
 
 message IGInventoryStockAdjustmentReadAll {

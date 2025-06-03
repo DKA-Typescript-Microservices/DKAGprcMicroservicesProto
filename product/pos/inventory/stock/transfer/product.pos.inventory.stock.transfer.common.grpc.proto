@@ -72,18 +72,13 @@ message InventoryStockTransferDeleteOneResponse {
 }
 //############################################################################################
 message IGInventoryStockTransfer {
-  optional string id = 1;
-  optional string reference = 2;
-  optional string organization = 3;
-  optional string project = 4;
-  optional string product = 5;
-  optional string from = 6;
-  optional string to = 7;
-  optional int32 quantity = 8;
-  optional SysTime time_created = 9;
-  optional SysTime time_updated = 10;
-  optional SysTime time_deleted = 11;
-  optional bool status = 12;
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  optional string product = 4;
+  optional string from = 5;
+  optional string to = 6;
+  optional int32 quantity = 7;
 }
 
 message IGInventoryStockTransferReadAll {

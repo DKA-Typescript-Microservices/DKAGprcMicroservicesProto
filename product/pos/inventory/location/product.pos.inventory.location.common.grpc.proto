@@ -69,17 +69,12 @@ message InventoryLocationDeleteOneResponse {
 }
 //############################################################################################
 message IGInventoryLocation {
-  optional string id = 1;
-  optional string reference = 2;
-  optional string organization = 3;
-  optional string project = 4;
-  optional string name = 5;
-  optional string code = 6;
-  optional string address = 7;
-  optional SysTime time_created = 8;
-  optional SysTime time_updated = 9;
-  optional SysTime time_deleted = 10;
-  optional bool status = 11;
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  optional string name = 4;
+  optional string code = 5;
+  optional string address = 6;
 }
 
 message IGInventoryLocationReadAll {
