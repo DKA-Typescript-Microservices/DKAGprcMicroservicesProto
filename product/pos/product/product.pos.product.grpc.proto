@@ -6,7 +6,7 @@ import 'product/pos/product/product.pos.product.common.grpc.proto';
 import "google/protobuf/empty.proto";
 
 service Product {
-  rpc Create(common.ProductCreateRequest) returns (common.ProductCreateResponse);
+  rpc Create(common.IGProduct) returns (common.ProductCreateResponse);
   rpc ReadAll(google.protobuf.Empty) returns (common.ProductReadAllResponse);
   rpc ReadByID(common.ProductReadByIDRequest) returns (common.ProductReadByIDResponse);
   rpc UpdateOne(common.ProductUpdateOneRequest) returns (common.ProductUpdateOneResponse);

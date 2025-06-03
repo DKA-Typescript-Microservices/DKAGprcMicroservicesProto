@@ -84,28 +84,23 @@ message SysTime {
 }
 //############################################################################################
 
+message IGProduct {
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  string category = 4;
+  optional string sku = 5;
+  string name = 6;
+  optional string description = 7;
+  optional string image = 8;
+}
+
 message IGProductAll {
   optional string id = 1;
   optional account.common.IAccount reference = 2;
   optional organization.common.EnterpriseOrganization organization = 3;
   optional project.common.EnterpriseOrganizationProject project = 4;
   optional product.category.common.IGProductCategoryReadAll category = 5;
-  optional string sku = 6;
-  string name = 7;
-  optional string description = 8;
-  optional string image = 9;
-  SysTime time_created = 10;
-  SysTime time_updated = 11;
-  SysTime time_deleted = 12;
-  bool status = 13;
-}
-
-message IGProduct {
-  optional string id = 1;
-  optional string reference = 2;
-  optional string organization = 3;
-  optional string project = 4;
-  string category = 5;
   optional string sku = 6;
   string name = 7;
   optional string description = 8;
