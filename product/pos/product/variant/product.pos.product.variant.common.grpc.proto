@@ -21,6 +21,17 @@ message ProductVariantCreateResponse {
   IGProductVariantReadAll data = 4;
 }
 //############################################################################################
+message ProductVariantReadAllRequestSearch {
+  optional string organization = 1;
+  optional string project = 2;
+  optional string product = 3;
+}
+
+message ProductVariantReadAllRequest {
+  optional ProductVariantReadAllRequestSearch search = 1;
+  optional int32 limit = 2;
+  optional int32 skip = 3;
+}
 message ProductVariantReadAllResponse {
   bool status = 1;
   int32 code = 2;
