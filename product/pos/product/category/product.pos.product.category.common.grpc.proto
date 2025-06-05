@@ -19,6 +19,17 @@ message ProductCategoryCreateResponse {
   IGProductCategoryReadAll data = 4;
 }
 //############################################################################################
+message ProductCategoryReadAllRequestSearch {
+  optional string organization = 1;
+  optional string project = 2;
+}
+
+message ProductCategoryReadAllRequest {
+  optional ProductCategoryReadAllRequestSearch search = 1;
+  optional int32 limit = 2;
+  optional int32 skip = 3;
+}
+
 message ProductCategoryReadAllResponse {
   bool status = 1;
   int32 code = 2;
