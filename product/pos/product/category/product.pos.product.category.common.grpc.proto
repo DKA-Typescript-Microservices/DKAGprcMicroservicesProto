@@ -24,10 +24,16 @@ message ProductCategoryReadAllRequestSearch {
   optional string project = 2;
 }
 
+enum ProductCategoryReadAllRequestSortByEnum {
+  DESC = 0;
+  ASC = 1;
+}
+
 message ProductCategoryReadAllRequest {
   optional ProductCategoryReadAllRequestSearch search = 1;
   optional int32 limit = 2;
   optional int32 skip = 3;
+  optional ProductCategoryReadAllRequestSortByEnum sort = 4;
 }
 
 message ProductCategoryReadAllResponse {

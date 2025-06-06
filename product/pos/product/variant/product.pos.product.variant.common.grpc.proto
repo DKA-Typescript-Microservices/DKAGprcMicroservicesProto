@@ -27,10 +27,21 @@ message ProductVariantReadAllRequestSearch {
   optional string product = 3;
 }
 
+
+enum ProductVariantReadAllRequestSortByEnum {
+  DESC = 0;
+  ASC = 1;
+}
+message ProductVariantReadAllRequestSortBy {
+  optional string column = 1;
+  optional ProductVariantReadAllRequestSortByEnum mode = 2;
+}
+
 message ProductVariantReadAllRequest {
   optional ProductVariantReadAllRequestSearch search = 1;
   optional int32 limit = 2;
   optional int32 skip = 3;
+  optional ProductVariantReadAllRequestSortBy sort = 4;
 }
 message ProductVariantReadAllResponse {
   bool status = 1;
