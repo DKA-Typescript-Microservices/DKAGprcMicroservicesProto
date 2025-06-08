@@ -9,6 +9,13 @@ message IAccountRegion {
   optional string village = 4;
 }
 
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+
 // Defining the AccountInfo message based on the IAccountInfo model
 message IAccountPlace {
   optional string id = 1;                  // Document ID (_id in MongoDB)
@@ -17,4 +24,8 @@ message IAccountPlace {
   optional string address = 4;
   optional string postal_code = 5;
   optional IAccountRegion region = 6;
+  optional SysTime time_created = 7;
+  optional SysTime time_updated = 8;
+  optional SysTime time_deleted = 9;
+  bool status = 10;
 }

@@ -2,6 +2,13 @@ syntax = "proto3";
 
 package info.common;
 
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+
 message AccountReadResponseMetadata {
   optional int64 count = 1;
 }
@@ -21,6 +28,10 @@ message IAccountInfo {
   optional string parent = 3;              // Parent ObjectId (as string)
   string first_name = 4;          // First name as string
   optional string last_name = 5;           // Last name as string
+  optional SysTime time_created = 6;
+  optional SysTime time_updated = 7;
+  optional SysTime time_deleted = 8;
+  bool status = 9;
 }
 
 
