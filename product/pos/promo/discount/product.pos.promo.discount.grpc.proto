@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package promo.discount;
+
+import 'product/pos/promo/discount/product.pos.promo.discount.common.grpc.proto';
+import "google/protobuf/empty.proto";
+
+service Discount {
+  rpc Create(common.IGPromoDiscount) returns (common.PromoDiscountCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.PromoDiscountReadAllResponse);
+  rpc ReadByID(common.PromoDiscountReadByIDRequest) returns (common.PromoDiscountReadByIDResponse);
+  rpc UpdateOne(common.PromoDiscountUpdateOneRequest) returns (common.PromoDiscountUpdateOneResponse);
+  rpc DeleteOne(common.PromoDiscountDeleteOneRequest) returns (common.PromoDiscountDeleteOneResponse);
+}
