@@ -6,6 +6,9 @@ import 'account/account.common.grpc.proto';
 import 'enterprise/organization/enterprise.organization.common.grpc.proto';
 import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
 
+import 'product/pos/product/category/product.pos.product.category.common.grpc.proto';
+import 'product/pos/product/product.pos.product.common.grpc.proto';
+
 //############################################################################################
 message SysTime {
   optional int32 unix = 1;
@@ -76,6 +79,14 @@ message IGPromoDiscountTarget {
   optional string type = 1;
   optional string id = 2;
 }
+
+message IGPromoDiscountTargetReadAll {
+  optional string type = 1;
+  oneof id {
+    product.common.IGProductAll product = 2;
+    product.category.common.IGProductCategoryReadAll category = 3;
+  }
+}
 //############################################################################################
 message IGPromoDiscount {
   optional string reference = 1;
@@ -93,7 +104,7 @@ message IGPromoDiscountReadAll {
   optional organization.common.EnterpriseOrganization organization = 3;
   optional project.common.EnterpriseOrganizationProject project = 4;
   optional IGPromoDiscountOptions options = 5;
-  optional IGPromoDiscountTarget target = 6;
+  optional IGPromoDiscountTargetReadAll target = 6;
   optional SysTime start_time = 7;
   optional SysTime end_time = 8;
   optional SysTime time_created = 9;
