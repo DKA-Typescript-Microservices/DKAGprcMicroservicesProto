@@ -7,4 +7,5 @@ import "session/enterprise/session.enterprise.common.grpc.proto";
 service Enterprise {
   /** Penanda tanganan session Untuk ID account yang dimaksud untuk menandai data session di dalam services ini **/
   rpc signCode(common.SessionEnterpriseGenerateCodeRequest) returns (common.SessionEnterpriseGenerateCodeResponse);
+  rpc verifyCode(common.SessionEnterpriseVerifyTokenRequest) returns (common.SessionEnterpriseVerifyTokenResponse);
 }
