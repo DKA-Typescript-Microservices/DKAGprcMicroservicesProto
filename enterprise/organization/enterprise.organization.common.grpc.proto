@@ -1,8 +1,7 @@
 syntax = "proto3";
 
 package organization.common;
-
-import "enterprise/contact/enterprise.contact.common.grpc.proto";
+import "enterprise/data/meta/contact/enterprise.data.meta.contact.common.grpc.proto";
 
 //############################################################################################
 message SysTime {

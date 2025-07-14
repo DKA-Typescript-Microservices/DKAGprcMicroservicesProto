@@ -4,7 +4,7 @@ package inventory.stock.transfer.common;
 
 import 'account/account.common.grpc.proto';
 import 'enterprise/organization/enterprise.organization.common.grpc.proto';
-import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+import 'enterprise/organization/project/enterprise.organization.project.common.grpc.proto';
 
 import 'product/pos/product/product.pos.product.common.grpc.proto';
 import 'product/pos/inventory/location/product.pos.inventory.location.common.grpc.proto';

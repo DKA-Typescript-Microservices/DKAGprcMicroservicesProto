@@ -4,7 +4,7 @@ package transaction.items.common;
 
 import 'account/account.common.grpc.proto';
 import 'enterprise/organization/enterprise.organization.common.grpc.proto';
-import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+import 'enterprise/organization/project/enterprise.organization.project.common.grpc.proto';
 
 import 'product/pos/transaction/product.pos.transaction.common.grpc.proto';
 import 'product/pos/product/variant/product.pos.product.variant.common.grpc.proto';

@@ -5,7 +5,7 @@ package hospitality.patient.common;
 
 import 'account/account.common.grpc.proto';
 import 'enterprise/organization/enterprise.organization.common.grpc.proto';
-import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+import 'enterprise/organization/project/enterprise.organization.project.common.grpc.proto';
 
 import 'product/hospitality/patient/type/product.hospitality.patient.type.common.grpc.proto';
 
