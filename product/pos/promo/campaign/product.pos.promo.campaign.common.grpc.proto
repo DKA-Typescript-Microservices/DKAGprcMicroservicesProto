@@ -4,7 +4,7 @@ package promo.campaign.common;
 
 import 'account/account.common.grpc.proto';
 import 'enterprise/organization/enterprise.organization.common.grpc.proto';
-import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+import 'enterprise/organization/project/enterprise.organization.project.common.grpc.proto';
 
 //############################################################################################
 message SysTime {

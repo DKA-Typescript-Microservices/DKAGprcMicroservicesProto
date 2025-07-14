@@ -6,7 +6,6 @@ import "account/info/account.info.common.grpc.proto";
 import "account/credential/account.credential.common.grpc.proto";
 import "account/place/account.place.common.grpc.proto";
 
-import "enterprise/project/enterprise.organization.project.common.grpc.proto";
 
 //##################################################################################
 message IAccount {
