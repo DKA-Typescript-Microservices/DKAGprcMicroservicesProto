@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package promo.campaign;
+
+import 'product/pos/promo/campaign/product.pos.promo.campaign.common.grpc.proto';
+import "google/protobuf/empty.proto";
+
+service Campaign {
+  rpc Create(common.IGPromoCampaign) returns (common.PromoCampaignCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.PromoCampaignReadAllResponse);
+  rpc ReadByID(common.PromoCampaignReadByIDRequest) returns (common.PromoCampaignReadByIDResponse);
+  rpc UpdateOne(common.PromoCampaignUpdateOneRequest) returns (common.PromoCampaignUpdateOneResponse);
+  rpc DeleteOne(common.PromoCampaignDeleteOneRequest) returns (common.PromoCampaignDeleteOneResponse);
+}

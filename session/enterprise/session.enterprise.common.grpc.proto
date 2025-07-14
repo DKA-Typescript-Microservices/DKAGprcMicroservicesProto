@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package session.enterprise.common;
+
+import "account/info/account.info.common.grpc.proto";
+import "account/credential/account.credential.common.grpc.proto";
+import "account/place/account.place.common.grpc.proto";
+
+import "enterprise/project/enterprise.organization.project.common.grpc.proto";
+
+//##################################################################################
+message IAccount {
+  optional string id = 1;
+  optional string reference = 2;
+  optional credential.common.IAccountCredential credential = 3;
+  optional info.common.IAccountInfo info = 4;
+  optional place.common.IAccountPlace place = 5;
+}
+//##################################################################################
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message SessionEnterpriseGenerateCodeRequest {
+  optional string id = 1;
+  optional string client_id = 2;
+  optional string redirect_uri = 3;
+  optional string jti = 4;
+  optional string scope = 5;
+}
+message SessionEnterpriseGenerateCodeResponse {
+  string code = 1;
+}
+//############################################################################################
+//##################################################################################
+message SessionEnterpriseVerifyTokenRequest {
+  string code = 1;
+}
+message SessionEnterpriseVerifyTokenResponse {
+  //IAccount reference = 1;
+  //project.common.EnterpriseOrganizationProject client = 2;
+  optional string id = 1;
+  optional string client_id = 2;
+  optional string redirect_uri = 3;
+}
+//##################################################################################
+message IGSessionEnterprise {
+
+}

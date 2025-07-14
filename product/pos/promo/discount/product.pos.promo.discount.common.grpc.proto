@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+package promo.discount.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/project/enterprise.organization.project.common.grpc.proto';
+
+import 'product/pos/product/category/product.pos.product.category.common.grpc.proto';
+import 'product/pos/product/product.pos.product.common.grpc.proto';
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message PromoDiscountCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGPromoDiscountReadAll data = 4;
+}
+//############################################################################################
+message PromoDiscountReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGPromoDiscountReadAll data = 4;
+}
+//############################################################################################
+message PromoDiscountReadByIDRequest {
+  string id = 1;
+}
+
+message PromoDiscountReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGPromoDiscountReadAll data = 4;
+}
+//############################################################################################
+message PromoDiscountUpdateOneRequestQuery {
+  string id = 1;
+}
+message PromoDiscountUpdateOneRequest {
+  PromoDiscountUpdateOneRequestQuery query = 1;
+  IGPromoDiscount set = 2;
+}
+message PromoDiscountUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGPromoDiscountReadAll data = 4;
+}
+//############################################################################################
+message PromoDiscountDeleteOneRequestOption {
+  optional bool force = 1;
+}
+message PromoDiscountDeleteOneRequestQuery {
+  string id = 1;
+}
+message PromoDiscountDeleteOneRequest {
+  PromoDiscountDeleteOneRequestQuery query = 1;
+  optional PromoDiscountDeleteOneRequestOption option = 2;
+}
+message PromoDiscountDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGPromoDiscountReadAll data = 4;
+}
+//############################################################################################
+message IGPromoDiscountOptions {
+  optional string type = 1;
+  optional int64 value = 2;
+}
+message IGPromoDiscountTarget {
+  optional string type = 1;
+  optional string id = 2;
+}
+
+message IGPromoDiscountTargetReadAll {
+  optional string type = 1;
+  oneof id {
+    product.common.IGProductAll product = 2;
+    product.category.common.IGProductCategoryReadAll category = 3;
+  }
+}
+//############################################################################################
+message IGPromoDiscount {
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  optional IGPromoDiscountOptions options = 4;
+  optional IGPromoDiscountTarget target = 5;
+  optional SysTime start_time = 6;
+  optional SysTime end_time = 7;
+}
+
+message IGPromoDiscountReadAll {
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  optional IGPromoDiscountOptions options = 5;
+  optional IGPromoDiscountTargetReadAll target = 6;
+  optional SysTime start_time = 7;
+  optional SysTime end_time = 8;
+  optional SysTime time_created = 9;
+  optional SysTime time_updated = 10;
+  optional SysTime time_deleted = 11;
+  optional bool status = 12;
+}
