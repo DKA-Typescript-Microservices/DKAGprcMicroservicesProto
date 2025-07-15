@@ -27,7 +27,9 @@ message SessionEnterpriseGenerateCodeRequest {
   optional string client_id = 2;
   optional string redirect_uri = 3;
   optional string jti = 4;
-  optional string scope = 5;
+  optional string code_challenge = 5;
+  optional string code_challenge_method = 6;
+  optional string scope = 7;
 }
 message SessionEnterpriseGenerateCodeResponse {
   string code = 1;
@@ -43,6 +45,8 @@ message SessionEnterpriseVerifyTokenResponse {
   optional string id = 1;
   optional string client_id = 2;
   optional string redirect_uri = 3;
+  optional string code_challenge = 4;
+  optional string code_challenge_method = 5;
 }
 //##################################################################################
 message IGSessionEnterprise {
