@@ -9,6 +9,7 @@ service Project {
   rpc Create(common.EnterpriseOrganizationProjectCreateRequest) returns (common.EnterpriseOrganizationProjectCreateResponse);
   rpc ReadAll(google.protobuf.Empty) returns (common.EnterpriseOrganizationProjectReadResponse);
   rpc ReadByID(common.EnterpriseOrganizationProjectReadByIDRequest) returns (common.EnterpriseOrganizationProjectReadByIDResponse);
+  rpc ReadByClientIDSecret(common.EnterpriseOrganizationProjectReadByClientIDSecretRequest) returns (common.EnterpriseOrganizationProjectReadByClientIDSecretResponse);
   rpc ReadByOrganizationID(common.EnterpriseOrganizationProjectReadByOrganizationIDRequest) returns (common.EnterpriseOrganizationProjectReadByOrganizationIDResponse);
   rpc UpdateOne(common.EnterpriseOrganizationProjectUpdateOneRequest) returns (common.EnterpriseOrganizationProjectUpdateOneResponse);
   rpc DeleteOne(common.EnterpriseOrganizationProjectDeleteOneRequest) returns (common.EnterpriseOrganizationProjectDeleteOneResponse);
