@@ -23,10 +23,10 @@ message SysTime {
 }
 //############################################################################################
 message SessionEnterpriseGenerateCodeRequest {
-  optional string account = 1;
+  optional string id = 1;
   optional string client_id = 2;
   optional string redirect_uri = 3;
-  optional string handshake = 4;
+  optional string jti = 4;
   optional string code_challenge = 5;
   optional string code_challenge_method = 6;
   optional string scope = 7;
@@ -42,7 +42,7 @@ message SessionEnterpriseVerifyTokenRequest {
 message SessionEnterpriseVerifyTokenResponse {
   //IAccount reference = 1;
   //project.common.EnterpriseOrganizationProject client = 2;
-  optional string account = 1;
+  optional string id = 1;
   optional string client_id = 2;
   optional string redirect_uri = 3;
   optional string code_challenge = 4;
