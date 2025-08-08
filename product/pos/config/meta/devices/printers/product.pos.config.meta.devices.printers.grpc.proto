@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package config.meta.devices.printers;
+
+/**
+* action for data components data in the locations table
+ */
+import 'product/pos/config/meta/devices/printers/product.pos.config.meta.devices.printers.common.grpc.proto';
+import "google/protobuf/empty.proto";
+
+service DevicesPrinters {
+  rpc Create(common.IGConfigMetaDevicesPrinters) returns (common.ConfigMetaDevicesPrintersCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.ConfigMetaDevicesPrintersReadAllResponse);
+  rpc ReadByID(common.ConfigMetaDevicesPrintersReadByIDRequest) returns (common.ConfigMetaDevicesPrintersReadByIDResponse);
+  rpc UpdateOne(common.ConfigMetaDevicesPrintersUpdateOneRequest) returns (common.ConfigMetaDevicesPrintersUpdateOneResponse);
+  rpc DeleteOne(common.ConfigMetaDevicesPrintersDeleteOneRequest) returns (common.ConfigMetaDevicesPrintersDeleteOneResponse);
+}

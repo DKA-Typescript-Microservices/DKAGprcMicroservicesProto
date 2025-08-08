@@ -1,0 +1,107 @@
+syntax = "proto3";
+
+package config.meta.devices.printers.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/organization/project/enterprise.organization.project.common.grpc.proto';
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message ConfigMetaDevicesPrintersCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigMetaDevicesPrintersReadAll data = 4;
+}
+
+//############################################################################################
+message ConfigMetaDevicesPrintersReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGConfigMetaDevicesPrintersReadAll data = 4;
+}
+//############################################################################################
+message ConfigMetaDevicesPrintersReadByIDRequest {
+  string id = 1;
+}
+
+message ConfigMetaDevicesPrintersReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigMetaDevicesPrintersReadAll data = 4;
+}
+//############################################################################################
+message ConfigMetaDevicesPrintersUpdateOneRequestQuery {
+  string id = 1;
+}
+message ConfigMetaDevicesPrintersUpdateOneRequest {
+  ConfigMetaDevicesPrintersUpdateOneRequestQuery query = 1;
+  IGConfigMetaDevicesPrinters set = 2;
+}
+message ConfigMetaDevicesPrintersUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigMetaDevicesPrintersReadAll data = 4;
+}
+//############################################################################################
+message ConfigMetaDevicesPrintersDeleteOneRequestOption {
+  optional bool force = 1;
+}
+message ConfigMetaDevicesPrintersDeleteOneRequestQuery {
+  string id = 1;
+}
+message ConfigMetaDevicesPrintersDeleteOneRequest {
+  ConfigMetaDevicesPrintersDeleteOneRequestQuery query = 1;
+  optional ConfigMetaDevicesPrintersDeleteOneRequestOption option = 2;
+}
+message ConfigMetaDevicesPrintersDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigMetaDevicesPrintersReadAll data = 4;
+}
+//############################################################################################
+
+message IGConfigMetaDevicesPrintersPositions {
+  optional int32 x = 1;
+  optional int32 y = 2;
+}
+
+message IGConfigMetaDevicesPrintersSize {
+  optional int32 width = 1;
+  optional int32 height = 2;
+  optional int32 rotate = 3;
+}
+
+message IGConfigMetaDevicesPrinters {
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  optional string name = 4;
+  optional string description = 5;
+  optional string ip_address = 6;
+  optional int32 ip_port = 7;
+}
+
+message IGConfigMetaDevicesPrintersReadAll {
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  optional string name = 5;
+  optional string description = 6;
+  optional string ip_address = 7;
+  optional int32 ip_port = 8;
+  optional SysTime time_created = 9;
+  optional SysTime time_updated = 10;
+  optional SysTime time_deleted = 11;
+  optional bool status = 12;
+}
