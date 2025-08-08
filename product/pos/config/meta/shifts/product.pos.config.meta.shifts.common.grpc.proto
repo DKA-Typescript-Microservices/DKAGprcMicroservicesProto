@@ -1,0 +1,106 @@
+syntax = "proto3";
+
+package config.meta.shifts.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/organization/project/enterprise.organization.project.common.grpc.proto';
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message ConfigMetaShiftsCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigMetaShiftsReadAll data = 4;
+}
+//############################################################################################
+message ConfigMetaShiftsReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGConfigMetaShiftsReadAll data = 4;
+}
+//############################################################################################
+message ConfigMetaShiftsReadByIDRequest {
+  string id = 1;
+}
+
+message ConfigMetaShiftsReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigMetaShiftsReadAll data = 4;
+}
+//############################################################################################
+message ConfigMetaShiftsUpdateOneRequestQuery {
+  string id = 1;
+}
+message ConfigMetaShiftsUpdateOneRequest {
+  ConfigMetaShiftsUpdateOneRequestQuery query = 1;
+  IGConfigMetaShifts set = 2;
+}
+message ConfigMetaShiftsUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigMetaShiftsReadAll data = 4;
+}
+//############################################################################################
+message ConfigMetaShiftsDeleteOneRequestOption {
+  optional bool force = 1;
+}
+message ConfigMetaShiftsDeleteOneRequestQuery {
+  string id = 1;
+}
+message ConfigMetaShiftsDeleteOneRequest {
+  ConfigMetaShiftsDeleteOneRequestQuery query = 1;
+  optional ConfigMetaShiftsDeleteOneRequestOption option = 2;
+}
+message ConfigMetaShiftsDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigMetaShiftsReadAll data = 4;
+}
+//############################################################################################
+
+message IGConfigMetaShiftsPositions {
+  optional int32 x = 1;
+  optional int32 y = 2;
+}
+
+message IGConfigMetaShiftsSize {
+  optional int32 width = 1;
+  optional int32 height = 2;
+  optional int32 rotate = 3;
+}
+
+message IGConfigMetaShifts {
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  optional string name = 4;
+  optional string description = 5;
+  optional string start_time = 6;
+  optional string end_time = 7;
+}
+
+message IGConfigMetaShiftsReadAll {
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  optional string name = 5;
+  optional string description = 6;
+  optional string start_time = 7;
+  optional string end_time = 8;
+  optional SysTime time_created = 9;
+  optional SysTime time_updated = 10;
+  optional SysTime time_deleted = 11;
+  optional bool status = 12;
+}

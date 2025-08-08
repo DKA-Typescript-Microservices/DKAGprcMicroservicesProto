@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package config.meta.shifts;
+
+/**
+* action for data components data in the locations table
+ */
+import 'product/pos/config/meta/shifts/product.pos.config.meta.shifts.common.grpc.proto';
+import "google/protobuf/empty.proto";
+
+service Shifts {
+  rpc Create(common.IGConfigMetaShifts) returns (common.ConfigMetaShiftsCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.ConfigMetaShiftsReadAllResponse);
+  rpc ReadByID(common.ConfigMetaShiftsReadByIDRequest) returns (common.ConfigMetaShiftsReadByIDResponse);
+  rpc UpdateOne(common.ConfigMetaShiftsUpdateOneRequest) returns (common.ConfigMetaShiftsUpdateOneResponse);
+  rpc DeleteOne(common.ConfigMetaShiftsDeleteOneRequest) returns (common.ConfigMetaShiftsDeleteOneResponse);
+}

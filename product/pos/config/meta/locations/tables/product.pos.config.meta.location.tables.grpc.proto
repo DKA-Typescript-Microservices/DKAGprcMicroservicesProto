@@ -2,6 +2,9 @@ syntax = "proto3";
 
 package config.meta.locations.tables;
 
+/**
+* action for data components data in the locations table
+ */
 import 'product/pos/config/meta/locations/tables/product.pos.config.meta.location.tables.common.grpc.proto';
 import "google/protobuf/empty.proto";
 
