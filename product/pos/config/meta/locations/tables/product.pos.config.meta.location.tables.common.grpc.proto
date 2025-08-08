@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+package config.meta.locations.tables.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/organization/project/enterprise.organization.project.common.grpc.proto';
+
+import 'product/pos/config/meta/locations/tables/floors/product.pos.config.meta.location.tables.floors.common.grpc.proto';
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message ConfigMetaLocationsTablesCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigMetaLocationsTablesReadAll data = 4;
+}
+//############################################################################################
+message ConfigMetaLocationsTablesReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGConfigMetaLocationsTablesReadAll data = 4;
+}
+//############################################################################################
+message ConfigMetaLocationsTablesReadByIDRequest {
+  string id = 1;
+}
+
+message ConfigMetaLocationsTablesReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigMetaLocationsTablesReadAll data = 4;
+}
+//############################################################################################
+message ConfigMetaLocationsTablesUpdateOneRequestQuery {
+  string id = 1;
+}
+message ConfigMetaLocationsTablesUpdateOneRequest {
+  ConfigMetaLocationsTablesUpdateOneRequestQuery query = 1;
+  IGConfigMetaLocationsTables set = 2;
+}
+message ConfigMetaLocationsTablesUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigMetaLocationsTablesReadAll data = 4;
+}
+//############################################################################################
+message ConfigMetaLocationsTablesDeleteOneRequestOption {
+  optional bool force = 1;
+}
+message ConfigMetaLocationsTablesDeleteOneRequestQuery {
+  string id = 1;
+}
+message ConfigMetaLocationsTablesDeleteOneRequest {
+  ConfigMetaLocationsTablesDeleteOneRequestQuery query = 1;
+  optional ConfigMetaLocationsTablesDeleteOneRequestOption option = 2;
+}
+message ConfigMetaLocationsTablesDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigMetaLocationsTablesReadAll data = 4;
+}
+//############################################################################################
+
+message IGConfigMetaLocationsTablesPositions {
+  optional int32 x = 1;
+  optional int32 y = 2;
+}
+
+message IGConfigMetaLocationsTablesSize {
+  optional int32 width = 1;
+  optional int32 height = 2;
+  optional int32 rotate = 3;
+}
+
+message IGConfigMetaLocationsTables {
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  optional string floor = 4;
+  optional int32 number = 5;
+  optional int32 capacities = 6;
+  optional string description = 7;
+  optional string image = 8;
+  optional IGConfigMetaLocationsTablesPositions position = 9;
+  optional IGConfigMetaLocationsTablesSize size = 10;
+
+}
+
+message IGConfigMetaLocationsTablesReadAll {
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  optional config.meta.locations.tables.floors.common.IGConfigMetaLocationsTablesFloorsReadAll floor = 5;
+  optional int32 number = 6;
+  optional int32 capacities = 7;
+  optional string description = 8;
+  optional string image = 9;
+  optional IGConfigMetaLocationsTablesPositions position = 10;
+  optional IGConfigMetaLocationsTablesSize size = 11;
+  optional SysTime time_created = 12;
+  optional SysTime time_updated = 13;
+  optional SysTime time_deleted = 14;
+  optional bool status = 15;
+}

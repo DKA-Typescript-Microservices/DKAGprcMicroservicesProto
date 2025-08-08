@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package config.meta.locations.tables;
+
+import 'product/pos/config/meta/locations/tables/product.pos.config.meta.location.tables.common.grpc.proto';
+import "google/protobuf/empty.proto";
+
+service LocationsTables {
+  rpc Create(common.IGConfigMetaLocationsTables) returns (common.ConfigMetaLocationsTablesCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.ConfigMetaLocationsTablesReadAllResponse);
+  rpc ReadByID(common.ConfigMetaLocationsTablesReadByIDRequest) returns (common.ConfigMetaLocationsTablesReadByIDResponse);
+  rpc UpdateOne(common.ConfigMetaLocationsTablesUpdateOneRequest) returns (common.ConfigMetaLocationsTablesUpdateOneResponse);
+  rpc DeleteOne(common.ConfigMetaLocationsTablesDeleteOneRequest) returns (common.ConfigMetaLocationsTablesDeleteOneResponse);
+}

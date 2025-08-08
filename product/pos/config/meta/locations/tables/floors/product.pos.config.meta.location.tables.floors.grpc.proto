@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package config.meta.locations.tables.floors;
+
+import 'product/pos/config/meta/locations/tables/floors/product.pos.config.meta.location.tables.floors.common.grpc.proto';
+import "google/protobuf/empty.proto";
+
+service LocationsTablesFloors {
+  rpc Create(common.IGConfigMetaLocationsTablesFloors) returns (common.ConfigMetaLocationsTablesFloorsCreateResponse);
+  rpc ReadAll(google.protobuf.Empty) returns (common.ConfigMetaLocationsTablesFloorsReadAllResponse);
+  rpc ReadByID(common.ConfigMetaLocationsTablesFloorsReadByIDRequest) returns (common.ConfigMetaLocationsTablesFloorsReadByIDResponse);
+  rpc UpdateOne(common.ConfigMetaLocationsTablesFloorsUpdateOneRequest) returns (common.ConfigMetaLocationsTablesFloorsUpdateOneResponse);
+  rpc DeleteOne(common.ConfigMetaLocationsTablesFloorsDeleteOneRequest) returns (common.ConfigMetaLocationsTablesFloorsDeleteOneResponse);
+}

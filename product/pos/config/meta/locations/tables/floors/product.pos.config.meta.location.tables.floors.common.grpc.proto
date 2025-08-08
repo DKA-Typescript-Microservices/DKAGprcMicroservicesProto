@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+package config.meta.locations.tables.floors.common;
+
+import 'account/account.common.grpc.proto';
+import 'enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'enterprise/organization/project/enterprise.organization.project.common.grpc.proto';
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+message ConfigMetaLocationsTablesFloorsCreateResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigMetaLocationsTablesFloorsReadAll data = 4;
+}
+//############################################################################################
+message ConfigMetaLocationsTablesFloorsReadAllResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  repeated IGConfigMetaLocationsTablesFloorsReadAll data = 4;
+}
+//############################################################################################
+message ConfigMetaLocationsTablesFloorsReadByIDRequest {
+  string id = 1;
+}
+
+message ConfigMetaLocationsTablesFloorsReadByIDResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigMetaLocationsTablesFloorsReadAll data = 4;
+}
+//############################################################################################
+message ConfigMetaLocationsTablesFloorsUpdateOneRequestQuery {
+  string id = 1;
+}
+message ConfigMetaLocationsTablesFloorsUpdateOneRequest {
+  ConfigMetaLocationsTablesFloorsUpdateOneRequestQuery query = 1;
+  IGConfigMetaLocationsTablesFloors set = 2;
+}
+message ConfigMetaLocationsTablesFloorsUpdateOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigMetaLocationsTablesFloorsReadAll data = 4;
+}
+//############################################################################################
+message ConfigMetaLocationsTablesFloorsDeleteOneRequestOption {
+  optional bool force = 1;
+}
+message ConfigMetaLocationsTablesFloorsDeleteOneRequestQuery {
+  string id = 1;
+}
+message ConfigMetaLocationsTablesFloorsDeleteOneRequest {
+  ConfigMetaLocationsTablesFloorsDeleteOneRequestQuery query = 1;
+  optional ConfigMetaLocationsTablesFloorsDeleteOneRequestOption option = 2;
+}
+message ConfigMetaLocationsTablesFloorsDeleteOneResponse {
+  bool status = 1;
+  int32 code = 2;
+  string msg = 3;
+  IGConfigMetaLocationsTablesFloorsReadAll data = 4;
+}
+//############################################################################################
+message IGConfigMetaLocationsTablesFloors {
+  optional string reference = 1;
+  optional string organization = 2;
+  optional string project = 3;
+  optional int32 number = 4;
+  optional string description = 5;
+  optional string image = 6;
+}
+
+message IGConfigMetaLocationsTablesFloorsReadAll {
+  optional string id = 1;
+  optional account.common.IAccount reference = 2;
+  optional organization.common.EnterpriseOrganization organization = 3;
+  optional project.common.EnterpriseOrganizationProject project = 4;
+  optional int32 number = 5;
+  optional string description = 6;
+  optional string image = 7;
+  optional SysTime time_created = 8;
+  optional SysTime time_updated = 9;
+  optional SysTime time_deleted = 10;
+  optional bool status = 11;
+}
