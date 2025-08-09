@@ -6,6 +6,7 @@ import 'account/account.common.grpc.proto';
 import 'enterprise/organization/enterprise.organization.common.grpc.proto';
 import 'enterprise/organization/project/enterprise.organization.project.common.grpc.proto';
 
+import 'product/pos/config/meta/shifts/product.pos.config.meta.shifts.common.grpc.proto';
 import 'product/pos/transaction/product.pos.transaction.common.grpc.proto';
 
 //############################################################################################
@@ -76,9 +77,10 @@ message IGTransactionMetaPayment {
   optional string reference = 1;
   optional string organization = 2;
   optional string project = 3;
-  string transaction = 4;
-  optional string payment = 5;
-  optional string discount = 6;
+  optional string shift = 4;
+  string transaction = 5;
+  optional string payment = 6;
+  optional string discount = 7;
 }
 
 message IGTransactionMetaPaymentReadAll {
@@ -86,11 +88,12 @@ message IGTransactionMetaPaymentReadAll {
   optional account.common.IAccount reference = 2;
   optional organization.common.EnterpriseOrganization organization = 3;
   optional project.common.EnterpriseOrganizationProject project = 4;
-  transaction.common.IGTransactionAll transaction = 5;
-  optional string payment = 6;
-  optional string discount = 7;
-  optional SysTime time_created = 8;
-  optional SysTime time_updated = 9;
-  optional SysTime time_deleted = 10;
-  optional bool status = 11;
+  optional config.meta.shifts.common.IGConfigMetaShiftsReadAll shift = 5;
+  transaction.common.IGTransactionAll transaction = 6;
+  optional string payment = 7;
+  optional string discount = 8;
+  optional SysTime time_created = 9;
+  optional SysTime time_updated = 10;
+  optional SysTime time_deleted = 11;
+  optional bool status = 12;
 }

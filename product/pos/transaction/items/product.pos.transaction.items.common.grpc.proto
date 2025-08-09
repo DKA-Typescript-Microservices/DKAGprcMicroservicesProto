@@ -6,6 +6,7 @@ import 'account/account.common.grpc.proto';
 import 'enterprise/organization/enterprise.organization.common.grpc.proto';
 import 'enterprise/organization/project/enterprise.organization.project.common.grpc.proto';
 
+import 'product/pos/config/meta/shifts/product.pos.config.meta.shifts.common.grpc.proto';
 import 'product/pos/transaction/product.pos.transaction.common.grpc.proto';
 import 'product/pos/product/variant/product.pos.product.variant.common.grpc.proto';
 
@@ -75,11 +76,12 @@ message IGTransactionItems {
   optional string reference = 1;
   optional string organization = 2;
   optional string project = 3;
-  optional string transaction = 4;
-  optional string variant = 5;
-  optional int32 quantity = 6;
-  optional int32 price = 7;
-  optional int32 total = 8;
+  optional string shift = 4;
+  optional string transaction = 5;
+  optional string variant = 6;
+  optional int32 quantity = 7;
+  optional int32 price = 8;
+  optional int32 total = 9;
 }
 
 message IGTransactionItemsReadAll {
@@ -87,13 +89,14 @@ message IGTransactionItemsReadAll {
   optional account.common.IAccount reference = 2;
   optional organization.common.EnterpriseOrganization organization = 3;
   optional project.common.EnterpriseOrganizationProject project = 4;
-  transaction.common.IGTransactionAll transaction = 5;
-  product.variant.common.IGProductVariantReadAll variant = 6;
-  optional int32 quantity = 7;
-  optional int32 price = 8;
-  optional int32 total = 9;
-  optional SysTime time_created = 10;
-  optional SysTime time_updated = 11;
-  optional SysTime time_deleted = 12;
-  optional bool status = 13;
+  optional config.meta.shifts.common.IGConfigMetaShiftsReadAll shift = 5;
+  transaction.common.IGTransactionAll transaction = 6;
+  product.variant.common.IGProductVariantReadAll variant = 7;
+  optional int32 quantity = 8;
+  optional int32 price = 9;
+  optional int32 total = 10;
+  optional SysTime time_created = 11;
+  optional SysTime time_updated = 12;
+  optional SysTime time_deleted = 13;
+  optional bool status = 14;
 }

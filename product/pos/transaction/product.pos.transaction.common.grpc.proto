@@ -6,6 +6,8 @@ import 'account/account.common.grpc.proto';
 import 'enterprise/organization/enterprise.organization.common.grpc.proto';
 import 'enterprise/organization/project/enterprise.organization.project.common.grpc.proto';
 
+import 'product/pos/config/meta/shifts/product.pos.config.meta.shifts.common.grpc.proto';
+
 //###########################################################################
 message TransactionCreateResponse {
   bool status = 1;
@@ -75,8 +77,9 @@ message IGTransaction {
   optional string reference = 1;
   optional string organization = 2;
   optional string project = 3;
-  optional string costumer = 4;
-  string invoice = 5;
+  optional string shift = 4;
+  optional string costumer = 5;
+  string invoice = 6;
 }
 
 message IGTransactionAll {
@@ -84,11 +87,12 @@ message IGTransactionAll {
   optional account.common.IAccount reference = 2;
   optional organization.common.EnterpriseOrganization organization = 3;
   optional project.common.EnterpriseOrganizationProject project = 4;
-  optional string costumer = 5;
-  string invoice = 6;
-  optional SysTime time_created = 7;
-  optional SysTime time_updated = 8;
-  optional SysTime time_deleted = 9;
-  bool status = 10;
+  optional config.meta.shifts.common.IGConfigMetaShiftsReadAll shift = 5;
+  optional string costumer = 6;
+  string invoice = 7;
+  optional SysTime time_created = 8;
+  optional SysTime time_updated = 9;
+  optional SysTime time_deleted = 10;
+  bool status = 11;
 }
 
