@@ -93,6 +93,6 @@ message IGTransactionAll {
   optional SysTime time_created = 8;
   optional SysTime time_updated = 9;
   optional SysTime time_deleted = 10;
-  bool status = 11;
+  optional bool status = 11;
 }
 
