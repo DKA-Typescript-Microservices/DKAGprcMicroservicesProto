@@ -89,7 +89,7 @@ message IGTransactionAll {
   optional project.common.EnterpriseOrganizationProject project = 4;
   optional config.meta.shifts.common.IGConfigMetaShiftsReadAll shift = 5;
   optional string costumer = 6;
-  string invoice = 7;
+  optional string invoice = 7;
   optional SysTime time_created = 8;
   optional SysTime time_updated = 9;
   optional SysTime time_deleted = 10;
