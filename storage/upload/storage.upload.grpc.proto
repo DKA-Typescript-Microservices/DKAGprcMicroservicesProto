@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package storage.upload;
+
+import 'storage/upload/storage.upload.common.grpc.proto';
+
+service Storage {
+  rpc Upload(stream common.StorageUploadCreateRequest) returns (stream common.StorageUploadCreateResponse);
+}

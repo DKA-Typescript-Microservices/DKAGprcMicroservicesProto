@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package storage.upload.common;
+
+
+//############################################################################################
+message SysTime {
+  optional int32 unix = 1;
+  optional string humanize = 2;
+}
+//############################################################################################
+
+message StorageUploadCreateRequest {
+  bytes chunk = 1;
+}
+
+enum StorageUploadCreateResponseStatusEnum {
+  TRANSMITTING = 0;
+  MERGED = 1;
+  COMPLETED = 2;
+  ERROR = 3;
+}
+
+message StorageUploadCreateResponse {
+  optional StorageUploadCreateResponseStatusEnum status = 1;
+  optional int32 current = 2;
+  optional int32 total = 3;
+  optional int32 percentage = 4;
+  optional string error = 5;
+}
+
+//############################################################################################
+message Storage {
+  optional string id = 1;
+  optional string reference = 2;
+  optional string name = 3;
+  optional string description = 4;
+  optional SysTime time_created = 7;
+  optional SysTime time_updated = 8;
+  optional SysTime time_deleted = 9;
+  optional bool status = 10;
+}
