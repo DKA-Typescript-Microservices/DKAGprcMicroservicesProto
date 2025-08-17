@@ -3,7 +3,7 @@ syntax = "proto3";
 package organization;
 
 import "google/protobuf/empty.proto";
-import "enterprise/organization/enterprise.organization.common.grpc.proto";
+import "core/enterprise/organization/enterprise.organization.common.grpc.proto";
 
 service Organization {
     rpc Create(common.EnterpriseOrganizationCreateRequest) returns (common.EnterpriseOrganizationCreateResponse);

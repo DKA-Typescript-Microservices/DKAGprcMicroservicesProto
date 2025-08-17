@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package account;
 
-import "account/account.common.grpc.proto";
+import "core/account/account.common.grpc.proto";
 
 service Resources {
   rpc Create(account.common.AccountCreateRequest) returns (account.common.AccountCreateResponse);

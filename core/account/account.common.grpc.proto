@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package account.common;
 
-import "account/info/account.info.common.grpc.proto";
-import "account/credential/account.credential.common.grpc.proto";
-import "account/place/account.place.common.grpc.proto";
+import "core/account/info/account.info.common.grpc.proto";
+import "core/account/credential/account.credential.common.grpc.proto";
+import "core/account/place/account.place.common.grpc.proto";
 
 //############################################################################################
 message SysTime {

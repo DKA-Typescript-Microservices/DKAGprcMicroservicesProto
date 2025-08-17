@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package merchant.contact.common;
 
-import 'account/account.common.grpc.proto';
+import 'core/account/account.common.grpc.proto';
 
 message IGMerchantContactGeo {
   string latitide = 1;

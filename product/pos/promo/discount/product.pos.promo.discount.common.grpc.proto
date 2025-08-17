@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package promo.discount.common;
 
-import 'account/account.common.grpc.proto';
-import 'enterprise/organization/enterprise.organization.common.grpc.proto';
-import 'enterprise/organization/project/enterprise.organization.project.common.grpc.proto';
+import 'core/account/account.common.grpc.proto';
+import 'core/enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'core/enterprise/organization/project/enterprise.organization.project.common.grpc.proto';
 
 import 'product/pos/product/category/product.pos.product.category.common.grpc.proto';
 import 'product/pos/product/product.pos.product.common.grpc.proto';

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package privileges;
 
-import 'enterprise/organization/project/privileges/enterprise.organization.project.privileges.common.grpc.proto';
+import 'core/enterprise/organization/project/privileges/enterprise.organization.project.privileges.common.grpc.proto';
 import "google/protobuf/empty.proto";
 
 service Scope {

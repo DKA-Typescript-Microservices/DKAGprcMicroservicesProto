@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package project;
 
-import "enterprise/organization/project/enterprise.organization.project.common.grpc.proto";
+import "core/enterprise/organization/project/enterprise.organization.project.common.grpc.proto";
 import "google/protobuf/empty.proto";
 
 service Project {

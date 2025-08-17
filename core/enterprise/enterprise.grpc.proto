@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package enterprise;
 
-import "enterprise/enterprise.common.grpc.proto";
+import "core/enterprise/enterprise.common.grpc.proto";
 
 
 service Enterprise {

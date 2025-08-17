@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package config.meta.locations.tables.common;
 
-import 'account/account.common.grpc.proto';
-import 'enterprise/organization/enterprise.organization.common.grpc.proto';
-import 'enterprise/organization/project/enterprise.organization.project.common.grpc.proto';
+import 'core/account/account.common.grpc.proto';
+import 'core/enterprise/organization/enterprise.organization.common.grpc.proto';
+import 'core/enterprise/organization/project/enterprise.organization.project.common.grpc.proto';
 
 import 'product/pos/config/meta/locations/tables/floors/product.pos.config.meta.location.tables.floors.common.grpc.proto';
 

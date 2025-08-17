@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package session.account;
 
-import "session/account/session.account.common.grpc.proto";
+import "core/session/account/session.account.common.grpc.proto";
 
 service Account {
   /** Penanda tanganan session Untuk ID account yang dimaksud untuk menandai data session di dalam services ini **/

@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package project.common;
 
-import "enterprise/organization/enterprise.organization.common.grpc.proto";
-import "enterprise/data/meta/contact/enterprise.data.meta.contact.common.grpc.proto";
+import "core/enterprise/organization/enterprise.organization.common.grpc.proto";
+import "core/enterprise/data/meta/contact/enterprise.data.meta.contact.common.grpc.proto";
 //###################################################################################
 message EnterpriseOrganizationProjectCreateRequest {
   optional string organization = 1;

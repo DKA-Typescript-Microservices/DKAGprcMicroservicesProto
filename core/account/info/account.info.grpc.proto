@@ -3,7 +3,7 @@ syntax = "proto3";
 package info;
 
 import "google/protobuf/empty.proto";
-import 'account/info/account.info.common.grpc.proto';
+import 'core/account/info/account.info.common.grpc.proto';
 
 service Info {
   rpc ReadAll(google.protobuf.Empty) returns (common.AccountInfoReadResponse);
